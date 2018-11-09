@@ -14,10 +14,20 @@ export class HomePage {
 
   slider = [
     {
-      image:"assets/imgs/test1.jpg"
+      .bg-image{
+        background-image: url('../../assets/imgs/test1.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
     },
     {
-      image:"assets/imgs/test2.jpg"
+      .bg-image2{
+        background-image: url('../../assets/imgs/test2.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
     },
     {
       image:"assets/imgs/test3.png"

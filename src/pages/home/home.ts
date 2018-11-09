@@ -11,4 +11,16 @@ export class HomePage {
 
   }
 
+  slider = [
+    {
+      image:"assets/imgs/test1.jpg"
+    },
+    {
+      image:"assets/imgs/test2.jpg"
+    },
+    {
+      image:"assets/imgs/test3.png"
+    }
+  ];
+
 }

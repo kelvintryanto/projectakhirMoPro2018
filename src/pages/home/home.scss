@@ -1,4 +1,5 @@
 page-home {
+<<<<<<< HEAD
         .bg-image{
             background-image: url();
             background-repeat: no-repeat;
@@ -9,3 +10,23 @@ page-home {
             overflow: hidden;
         }
 }
+=======
+    .bg-image{
+        background-image: url('../../assets/imgs/test1.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .no-scroll .scroll-content{
+        overflow: hidden;
+    }
+
+    .bg-image2{
+        background-image: url('../../assets/imgs/test2.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}
+>>>>>>> 765aed6b52c3e3e106a1bba14ca081c1340ae156

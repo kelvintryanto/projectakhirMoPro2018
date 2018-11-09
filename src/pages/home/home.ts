@@ -28,5 +28,4 @@ export class HomePage {
     console.log("GoToLogin")
     this.navCtrl.push(LoginPage)
   }
-
 }

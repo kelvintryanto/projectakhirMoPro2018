@@ -1,3 +1,19 @@
 page-home {
+    .bg-image{
+        background-image: url('../../assets/imgs/test1.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
 
+    .no-scroll .scroll-content{
+        overflow: hidden;
+    }
+
+    .bg-image2{
+        background-image: url('../../assets/imgs/test2.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
 }

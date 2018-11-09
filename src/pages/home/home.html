@@ -1,12 +1,4 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
+<ion-content class="bg-image no-scroll" padding>
 
   <ion-slides pager="true">
     <ion-slide *ngFor="let slide of slider">
@@ -17,7 +9,8 @@
           </button>
         </ion-buttons>
       </ion-toolbar>
-      <img [src]="slide.image"/>
+      <!-- <img [src]="slide.image"/> -->
+      
     </ion-slide>
   </ion-slides>
   

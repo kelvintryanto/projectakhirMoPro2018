@@ -20,12 +20,15 @@
 
   </ion-list>
 
-  <button ion-button full (click)="LoginPage()">
+  <button ion-button full (click)="goToLanding()">
     Sign In
   </button>
 
   <p>
-    Don't have account?<a>Sign up</a>
+    Don't have account?
+    <span><a (click)="FormPage()"> Sign up here</a></span>
+    
+    
   </p>
 
 </ion-content>

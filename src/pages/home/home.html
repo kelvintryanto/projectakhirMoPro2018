@@ -1,14 +1,17 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content class="bg-image no-scroll" padding>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let slide of slider">
+      <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button color ="Secondary" (click) ="LoginPage()">
+            Skip
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+      <!-- <img [src]="slide.image"/> -->
+      
+    </ion-slide>
+  </ion-slides>
+  
 </ion-content>

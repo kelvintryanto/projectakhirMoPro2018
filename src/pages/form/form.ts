@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the FormPage page.
@@ -41,6 +42,7 @@ export class FormPage implements OnInit {
 
   onSubmit(){
     console.log(this.userForm.value)
+    this.navCtrl.push(LoginPage);
     
   }
 

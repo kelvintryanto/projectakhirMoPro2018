@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormPage } from '../form/form';
@@ -40,6 +39,7 @@ export class LoginPage {
     console.log("FormPage")
     this.navCtrl.push(FormPage);
   }
+
   goToLanding(){
     console.log("Username: "+ this.username);
     console.log("Password: "+ this.password);

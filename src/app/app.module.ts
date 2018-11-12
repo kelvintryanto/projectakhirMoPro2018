@@ -17,6 +17,7 @@ import { LandingpagePage } from '../pages/landingpage/landingpage';
     FormPage,
     LoginPage,
     LandingpagePage
+    
   ],
   imports: [
     BrowserModule,

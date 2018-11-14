@@ -14,6 +14,7 @@ import { LandingpagePage } from '../pages/landingpage/landingpage';
 import { UserPage } from '../pages/user/user';
 
 import { SignupFormPage } from '../pages/signup-form/signup-form';
+import { AuthService } from '../services/AuthService';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { SignupFormPage } from '../pages/signup-form/signup-form';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService
   ]
 })
 export class AppModule {}

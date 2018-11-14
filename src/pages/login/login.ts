@@ -19,7 +19,7 @@ import { SignupFormPage } from '../signup-form/signup-form';
 })
 export class LoginPage {
 
-  username:string;
+  email:string;
   password:string;
 
 
@@ -41,7 +41,7 @@ export class LoginPage {
   }
 
   goToLanding(){
-    console.log("Username: "+ this.username);
+    console.log("Email: "+ this.email);
     console.log("Password: "+ this.password);
     this.navCtrl.push(LandingpagePage);
   }

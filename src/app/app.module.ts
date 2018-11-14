@@ -1,3 +1,4 @@
+import { NewEventPage } from './../pages/new-event/new-event';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -23,6 +24,10 @@ import { AuthService } from '../services/AuthService';
     FormPage,
     LoginPage,
     LandingpagePage,
+<<<<<<< HEAD
+    NewEventPage
+=======
+>>>>>>> ec19aa75badff7286835b55e2bdafd77cea3c7ea
     UserPage,
     SignupFormPage
 
@@ -39,6 +44,10 @@ import { AuthService } from '../services/AuthService';
     FormPage,
     LoginPage,
     LandingpagePage,
+<<<<<<< HEAD
+    NewEventPage
+=======
+>>>>>>> ec19aa75badff7286835b55e2bdafd77cea3c7ea
     UserPage,
 
     SignupFormPage

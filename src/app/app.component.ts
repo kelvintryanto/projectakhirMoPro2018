@@ -1,4 +1,3 @@
-import { NewEventPage } from './../pages/new-event/new-event';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -13,12 +12,8 @@ import { AuthService } from '../services/AuthService';
   templateUrl: 'app.html'
 })
 export class MyApp {
-<<<<<<< HEAD
   rootPage:any = HomePage;
   
-=======
-  rootPage:any = NewEventPage;
->>>>>>> 710d71eb1aaf484b36c069d5228ab6f183f64483
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService) {
     platform.ready().then(() => {

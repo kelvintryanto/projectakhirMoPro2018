@@ -10,9 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { FormPage } from '../pages/form/form';
 import { LoginPage } from '../pages/login/login';
 import { LandingpagePage } from '../pages/landingpage/landingpage';
-
 import { UserPage } from '../pages/user/user';
-
 import { SignupFormPage } from '../pages/signup-form/signup-form';
 import { AuthService } from '../services/AuthService';
 
@@ -24,10 +22,7 @@ import { AuthService } from '../services/AuthService';
     FormPage,
     LoginPage,
     LandingpagePage,
-<<<<<<< HEAD
     NewEventPage
-=======
->>>>>>> ec19aa75badff7286835b55e2bdafd77cea3c7ea
     UserPage,
     SignupFormPage
 
@@ -44,12 +39,8 @@ import { AuthService } from '../services/AuthService';
     FormPage,
     LoginPage,
     LandingpagePage,
-<<<<<<< HEAD
     NewEventPage
-=======
->>>>>>> ec19aa75badff7286835b55e2bdafd77cea3c7ea
     UserPage,
-
     SignupFormPage
 
   ],

@@ -23,10 +23,7 @@ import { SignupFormPage } from '../pages/signup-form/signup-form';
     FormPage,
     LoginPage,
     LandingpagePage,
-<<<<<<< HEAD
-    NewEventPage
-=======
->>>>>>> ec19aa75badff7286835b55e2bdafd77cea3c7ea
+    NewEventPage,
     UserPage,
     SignupFormPage
 
@@ -43,10 +40,7 @@ import { SignupFormPage } from '../pages/signup-form/signup-form';
     FormPage,
     LoginPage,
     LandingpagePage,
-<<<<<<< HEAD
-    NewEventPage
-=======
->>>>>>> ec19aa75badff7286835b55e2bdafd77cea3c7ea
+    NewEventPage,
     UserPage,
 
     SignupFormPage

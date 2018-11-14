@@ -17,19 +17,23 @@
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <ion-list>
       <ion-item>
-        <ion-label fixed>Username</ion-label>
+        <ion-label float>Username</ion-label>
         <ion-input type="text" formControlName="username"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label fixed>Password</ion-label>
+        <ion-label float>Email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label float>Password</ion-label>
           <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-label fixed>Email</ion-label>
-            <ion-input type="text" formControlName="email"></ion-input>
+            <ion-label>Confirm Password</ion-label>
+            <ion-input type="password" formControlName="confirmpassword"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label fixed>Address</ion-label>
+          <ion-label float>Address</ion-label>
           <ion-input type="text" formControlName="address"></ion-input>
       </ion-item>
     </ion-list>

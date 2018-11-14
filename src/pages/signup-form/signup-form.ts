@@ -33,6 +33,7 @@ export class SignupFormPage {
     this.userForm = new FormGroup({
       username: new FormControl (null, Validators.required),
       password: new FormControl (null, Validators.required),
+      confirmpassword: new FormControl (null, Validators.required),
       email: new FormControl (null, Validators.required),
       address: new FormControl (null, Validators.required)
 

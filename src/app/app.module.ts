@@ -24,10 +24,7 @@ import { AuthService } from '../services/AuthService';
     FormPage,
     LoginPage,
     LandingpagePage,
-<<<<<<< HEAD
-    NewEventPage
-=======
->>>>>>> ec19aa75badff7286835b55e2bdafd77cea3c7ea
+    NewEventPage,
     UserPage,
     SignupFormPage
 
@@ -44,12 +41,8 @@ import { AuthService } from '../services/AuthService';
     FormPage,
     LoginPage,
     LandingpagePage,
-<<<<<<< HEAD
-    NewEventPage
-=======
->>>>>>> ec19aa75badff7286835b55e2bdafd77cea3c7ea
+    NewEventPage,
     UserPage,
-
     SignupFormPage
 
   ],

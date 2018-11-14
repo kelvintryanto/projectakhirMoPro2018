@@ -1,3 +1,4 @@
+import { NewEventPage } from './../pages/new-event/new-event';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -16,7 +17,8 @@ import { LandingpagePage } from '../pages/landingpage/landingpage';
     HomePage,
     FormPage,
     LoginPage,
-    LandingpagePage
+    LandingpagePage,
+    NewEventPage
     
   ],
   imports: [
@@ -29,7 +31,8 @@ import { LandingpagePage } from '../pages/landingpage/landingpage';
     HomePage,
     FormPage,
     LoginPage,
-    LandingpagePage
+    LandingpagePage,
+    NewEventPage
   ],
   providers: [
     StatusBar,

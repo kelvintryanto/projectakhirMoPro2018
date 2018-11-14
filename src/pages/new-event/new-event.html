@@ -7,12 +7,44 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>newEvent</ion-title>
+    <ion-title>Add New Event</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Event Name</ion-label>
+        <ion-input type="text" name="EventName" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Start Date</ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" name="StartDate" ngModel required></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>End Date</ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" name="EndDate" ngModel required></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Start Time</ion-label>
+        <ion-datetime displayFormat="HH:mm" name="StartTime" ngModel required></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>End Time</ion-label>
+        <ion-datetime displayFormat="HH:mm" name="EndTime" ngModel required></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Location</ion-label>
+        <ion-input type="text" name="Location" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Event Description</ion-label>
+        <ion-input type="text" name="EventDescription" ngModel required></ion-input>
+      </ion-item>    
+      
+      <button ion-button block type="submit" [disabled]="!f.valid">Submit</button>
+    </ion-list>
+  </form>
 </ion-content>

@@ -1,16 +1,22 @@
-<ion-content class="bg-image no-scroll" padding>
+<ion-content>
 
   <ion-slides pager="true">
-    <ion-slide *ngFor="let slide of slider">
-      <ion-toolbar>
-        <ion-buttons end>
-          <button ion-button color ="Secondary" (click)="LoginPage()">
-            Skip
-          </button>
-        </ion-buttons>
-      </ion-toolbar>
-      <!-- <img [src]="slide.image"/> -->
-      
+    <ion-slide style="background-color:lawngreen">
+      <p style="text-align:right; margin-top: -320px; margin-right: 10px">
+        <span><a (click)="LoginPage()">Skip</a></span>
+      </p>
+    </ion-slide>
+
+    <ion-slide style="background-color:lightblue">
+        <p style="text-align:right; margin-top: -320px; margin-right: 10px">
+          <span><a (click)="LoginPage()">Skip</a></span>
+        </p>
+    </ion-slide>
+
+    <ion-slide style="background-color:lemonchiffon">
+      <button ion-button round outline (click)="LoginPage()">
+        GETTING STARTED
+      </button>
     </ion-slide>
   </ion-slides>
   

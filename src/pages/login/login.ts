@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormPage } from '../form/form';
 import { LandingpagePage } from '../landingpage/landingpage';
+import { SignupFormPage } from '../signup-form/signup-form';
 
 
 /**
@@ -35,9 +35,9 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  FormPage(){
-    console.log("FormPage")
-    this.navCtrl.push(FormPage);
+  goToSignupForm(){
+    console.log("SignupFormPage")
+    this.navCtrl.push(SignupFormPage);
   }
 
   goToLanding(){

@@ -11,6 +11,11 @@ import { FormPage } from '../pages/form/form';
 import { LoginPage } from '../pages/login/login';
 import { LandingpagePage } from '../pages/landingpage/landingpage';
 
+import { UserPage } from '../pages/user/user';
+
+import { SignupFormPage } from '../pages/signup-form/signup-form';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -19,6 +24,9 @@ import { LandingpagePage } from '../pages/landingpage/landingpage';
     LoginPage,
     LandingpagePage,
     NewEventPage
+    UserPage,
+    SignupFormPage
+
     
   ],
   imports: [
@@ -33,6 +41,10 @@ import { LandingpagePage } from '../pages/landingpage/landingpage';
     LoginPage,
     LandingpagePage,
     NewEventPage
+    UserPage,
+
+    SignupFormPage
+
   ],
   providers: [
     StatusBar,

@@ -27,7 +27,7 @@ export class HomePage {
   
   LoginPage(){
     console.log("LoginPage");
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.setRoot(LoginPage);
   }
 
 }

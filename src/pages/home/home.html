@@ -1,14 +1,24 @@
-<ion-content>
 
-  <ion-slides pager="true">
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg-image" no-scroll>
+
+  <ion-slides pager="true" >
     <ion-slide style="background-color:lawngreen">
-      <p style="text-align:right; margin-top: -320px; margin-right: 10px">
+      <p style="text-align:right; padding: 20px; height: 100vh;">
         <span><a (click)="LoginPage()">Skip</a></span>
       </p>
     </ion-slide>
 
     <ion-slide style="background-color:lightblue">
-        <p style="text-align:right; margin-top: -320px; margin-right: 10px">
+        <p style="text-align:right; padding: 20px; height: 100vh;">
           <span><a (click)="LoginPage()">Skip</a></span>
         </p>
     </ion-slide>
@@ -17,6 +27,7 @@
       <button ion-button round outline (click)="LoginPage()">
         GETTING STARTED
       </button>
+
     </ion-slide>
   </ion-slides>
   

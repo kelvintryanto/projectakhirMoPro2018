@@ -9,7 +9,11 @@ import { HomePage } from '../pages/home/home';
 import { FormPage } from '../pages/form/form';
 import { LoginPage } from '../pages/login/login';
 import { LandingpagePage } from '../pages/landingpage/landingpage';
+
+import { UserPage } from '../pages/user/user';
+
 import { SignupFormPage } from '../pages/signup-form/signup-form';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,9 @@ import { SignupFormPage } from '../pages/signup-form/signup-form';
     FormPage,
     LoginPage,
     LandingpagePage,
+    UserPage,
     SignupFormPage
+
     
   ],
   imports: [
@@ -32,7 +38,10 @@ import { SignupFormPage } from '../pages/signup-form/signup-form';
     FormPage,
     LoginPage,
     LandingpagePage,
+    UserPage,
+
     SignupFormPage
+
   ],
   providers: [
     StatusBar,

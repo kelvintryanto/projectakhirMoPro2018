@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -21,6 +22,12 @@ export class HomePage {
     {
       image:"assets/imgs/test3.png"
     }
+    
   ];
+  
+  LoginPage(){
+    console.log("LoginPage");
+    this.navCtrl.push(LoginPage);
+  }
 
 }

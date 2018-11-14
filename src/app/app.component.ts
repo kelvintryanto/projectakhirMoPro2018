@@ -13,7 +13,6 @@ import { AuthService } from '../services/AuthService';
 })
 export class MyApp {
   rootPage:any = HomePage;
-  
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService) {
     platform.ready().then(() => {

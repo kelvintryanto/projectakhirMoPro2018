@@ -2,19 +2,30 @@
 
   <ion-navbar>
     <ion-title>EVENT</ion-title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding text-center>
+  <p>Welcome Home</p>
+
+  <!-- <button ion-button full (click)="logout()">logout</button> -->
+
   <ion-list>
     <ion-item>Item1
       <p>test aja</p>
     </ion-item>
-    <ion-item>Item2</ion-item>
+    <ion-item>Item2
+      <p>test terus!</p>
+    </ion-item>
   </ion-list>
-<button ion-button icon-only [round]="isRound">
-  <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
-</button>
+
+  <button ion-button class="addButton" (click)="newEvent()">
+    <ion-icon name="add"></ion-icon>
+  </button>
 </ion-content>

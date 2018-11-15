@@ -1,1 +1,19 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="sideMenuContent">
+    <ion-header>
+        <ion-toolbar text-center>
+            <h2>Menu</h2>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-list>
+            <button ion-item (click)="Logout()">
+                <ion-icon name="log-out" item-left></ion-icon>
+                Log-Out
+            </button>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #sideMenuContent></ion-nav>

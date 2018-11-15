@@ -13,14 +13,6 @@ import { LandingpagePage } from '../pages/landingpage/landingpage';
 import { SignupFormPage } from '../pages/signup-form/signup-form';
 import { AuthService } from '../services/AuthService';
 import { UserPage } from '../pages/user/user';
-// import firebase from 'firebase';
-
-// export const firebaseconfig = {
-//   apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
-//       authDomain: "ionic-firebase-e23e2.firebaseapp.com",
-// }
-
-// firebase.initializeApp(firebaseconfig)
 
 @NgModule({
   declarations: [

@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import firebase from 'firebase';
+import { AuthService } from '../../services/AuthService';
+import { LoginPage } from '../login/login';
+
 /**
  * Generated class for the LandingpagePage page.
  *
@@ -15,11 +19,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LandingpagePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public AuthSrv: AuthService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LandingpagePage');
+  }
+
+  logout(){
+    this.AuthSrv.logout();
+    this.navCtrl.push(LoginPage);
   }
 
 }

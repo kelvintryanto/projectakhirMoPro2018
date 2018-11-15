@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
 import { AuthService } from '../services/AuthService';
+import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
 // import { UserPage } from '../pages/user/user';
 @Component({
@@ -28,11 +29,12 @@ export class MyApp {
     });
 
     firebase.auth().onAuthStateChanged(user => {
-      this.authService.signin('kelvin.tryanto@gmail.com', '12345678');
+ //     this.authService.signin('kelvin.tryanto@gmail.com', '12345678');
   
       if(user) {
          //do something here if the user is logged in
          console.log("i'm logged in")
+          this.rootPage = LandingpagePage
       }
       else {
          //do something here if the user is not logged in

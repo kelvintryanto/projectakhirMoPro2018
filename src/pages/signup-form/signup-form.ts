@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../../services/AuthService';
+import { LandingpagePage } from '../landingpage/landingpage';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the SignupFormPage page.
@@ -16,7 +19,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class SignupFormPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public AuthSrv: AuthService) {
   }
 
   ionViewDidLoad() {
@@ -43,7 +46,14 @@ export class SignupFormPage {
   onSubmit(){
     console.log(this.userForm.value)
     this.navCtrl.push(SignupFormPage);
+    this.AuthSrv.signup(this.userForm.value.email, this.userForm.value.password).then(data =>{
+      console.log('login sukses')
+      this.navCtrl.setRoot(LoginPage)
+    }).catch(err => console.log(err));
     
+  }
+  email(email: any, password: any): any {
+    throw new Error("Method not implemented.");
   }
 
 

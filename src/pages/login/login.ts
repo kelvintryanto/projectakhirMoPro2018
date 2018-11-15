@@ -23,7 +23,7 @@ export class LoginPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public AuthSrv: AuthService,
+    public authService: AuthService,
     private toastCtrl: ToastController
   ) {}
 
@@ -44,7 +44,7 @@ export class LoginPage {
   goToLanding() {
     console.log("Email: " + this.email);
     console.log("Password: " + this.password);
-    this.AuthSrv.signin(this.email, this.password).then(data =>{
+    this.authService.signin(this.email, this.password).then(data =>{
       console.log('login sukses')
       this.presentToast()
       this.navCtrl.setRoot(LandingpagePage)

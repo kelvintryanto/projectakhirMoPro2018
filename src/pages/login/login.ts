@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController, NavParams, ToastController } from "ionic-angular";
 import { LandingpagePage } from "../landingpage/landingpage";
 import { SignupFormPage } from "../signup-form/signup-form";
 import { AuthService } from "../../services/AuthService";
@@ -23,7 +23,8 @@ export class LoginPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public AuthSrv: AuthService
+    public AuthSrv: AuthService,
+    private toastCtrl: ToastController
   ) {}
 
   // LoginPage(){
@@ -45,9 +46,24 @@ export class LoginPage {
     console.log("Password: " + this.password);
     this.AuthSrv.signin(this.email, this.password).then(data =>{
       console.log('login sukses')
+      this.presentToast()
       this.navCtrl.setRoot(LandingpagePage)
     }).catch(err => console.log(err));
     
    // this.navCtrl.push(LandingpagePage);
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'sudah login nih',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
   }
 }

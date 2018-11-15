@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController, MenuController } from 'ionic-angular';
+import { Platform, NavController, MenuController, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -19,7 +19,9 @@ export class MyApp {
 
   @ViewChild('sideMenuContent') navCtrl: NavController;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl: MenuController, private authService:AuthService) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl: MenuController, 
+    private authService:AuthService,
+    private toastCtrl:ToastController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -58,6 +60,21 @@ export class MyApp {
     this.authService.logout();
     this.navCtrl.setRoot(LoginPage);
     this.menuCtrl.close();
+  }
+
+  changePass(){
+    let toast = this.toastCtrl.create({
+      message: 'ganti di app.component.ts!',
+      duration: 3000,
+      position: 'top'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+    this.menuCtrl.close()
   }
 }
 

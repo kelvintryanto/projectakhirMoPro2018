@@ -9,12 +9,12 @@ import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/AuthService';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
-// import { UserPage } from '../pages/user/user';
+ import { UserPage } from '../pages/user/user';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = UserPage;
   loginPage:any = LoginPage;
 
   @ViewChild('sideMenuContent') navCtrl: NavController;

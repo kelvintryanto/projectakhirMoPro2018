@@ -8,27 +8,23 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="bg-image" no-scroll>
-
-  <ion-slides pager="true" >
-    <ion-slide style="background-color:lawngreen">
-      <p style="text-align:right; padding: 20px; height: 100vh;">
-        <span><a (click)="LoginPage()">Skip</a></span>
-      </p>
+<ion-content>
+  <ion-slides pager>
+    <ion-slide style="background-color: #563ada">
+      <i class="fas fa-bicycle" style="font-size: 120px; color:white"></i>
+      <h2 style="color:white">Hai</h2>
     </ion-slide>
-
-    <ion-slide style="background-color:lightblue">
-        <p style="text-align:right; padding: 20px; height: 100vh;">
-          <span><a (click)="LoginPage()">Skip</a></span>
-        </p>
-    </ion-slide>
-
-    <ion-slide style="background-color:lemonchiffon">
-      <button ion-button round outline (click)="LoginPage()">
-        GETTING STARTED
-      </button>
-
+    <ion-slide style="background-color: #563ada">
+      <i class="fas fa-book" style="font-size: 120px; color:white"></i>
+      <h2 style="color:white">Hei</h2>
+      </ion-slide>
+    <ion-slide style="background-color: #563ada">
+      <i class="fas fa-people" style="font-size: 120px; color:white"></i>
+      <h2 style="color:white">Hallo</h2>
+      <button color="light"  ion-button round outline (click)="goToHome()">Mulai</button>
     </ion-slide>
   </ion-slides>
-  
 </ion-content>
+<ion-footer style="background-color: #563ada">
+  <button ion-button icon-only clear (click)="gotoHome()" color="light" style="margin-left: 10px">Skip</button>
+</ion-footer>

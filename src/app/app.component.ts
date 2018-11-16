@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/AuthService';
-import { ResetpassPage } from '../pages/resetpass/resetpass';
+//import { ResetpassPage } from '../pages/resetpass/resetpass';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
 // import { UserPage } from '../pages/user/user';
@@ -15,7 +15,7 @@ import { ResetpassPage } from '../pages/resetpass/resetpass';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ResetpassPage;
+  rootPage:any = HomePage;
   loginPage:any = LoginPage;
 
   @ViewChild('sideMenuContent') navCtrl: NavController;

@@ -20,21 +20,6 @@ export class NewEventPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ngOnInit() {
-    // this.initializeForm();
-  }
-  
-  // private initializeForm() {
-  //   this.ngForm = new FormGroup({
-  //     eventName:  new FormControl(null, Validators.required),
-  //     startDate:  new FormControl(null, Validators.required),
-  //     endDate:  new FormControl(null, Validators.required),
-  //     startTime:  new FormControl(null, Validators.required),
-  //     endTime:  new FormControl(null, Validators.required),
-  //     eventDescription:  new FormControl(null, Validators.required)
-  //   });
-  // }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewEventPage');
   }

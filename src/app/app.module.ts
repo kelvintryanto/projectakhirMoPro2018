@@ -14,7 +14,6 @@ import { SignupFormPage } from '../pages/signup-form/signup-form';
 import { AuthService } from '../services/AuthService';
 import { UserPage } from '../pages/user/user';
 
-
 @NgModule({
   declarations: [
     MyApp,
@@ -30,6 +29,7 @@ import { UserPage } from '../pages/user/user';
   ],
   imports: [
     BrowserModule,
+   
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

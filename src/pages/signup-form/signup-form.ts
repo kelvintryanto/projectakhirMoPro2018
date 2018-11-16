@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/AuthService';
 import { LoginPage } from '../login/login';
+import firebase from 'firebase';
 
 /**
  * Generated class for the SignupFormPage page.
@@ -17,6 +18,7 @@ import { LoginPage } from '../login/login';
   templateUrl: 'signup-form.html',
 })
 export class SignupFormPage {
+  database:any = firebase.database();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public AuthSrv: AuthService,private toastCtrl: ToastController) {
   }

@@ -32,7 +32,7 @@ export class MyApp {
     firebase.initializeApp({
       apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
       authDomain: "ionic-firebase-e23e2.firebaseapp.com",
-      databaseURL: "https://ionic-firebase-e23e2.firebaseio.com"
+      databaseURL: "https://ionic-firebase-e23e2.firebaseio.com/"
     });
 
     firebase.auth().onAuthStateChanged(user => {

@@ -3,7 +3,9 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/AuthService';
 import { LoginPage } from '../login/login';
+import firebase from 'firebase';
 import { UserPage } from '../user/user';
+import { SignupService } from '../../services/SignupService';
 
 /**
  * Generated class for the SignupFormPage page.
@@ -18,8 +20,9 @@ import { UserPage } from '../user/user';
   templateUrl: 'signup-form.html',
 })
 export class SignupFormPage {
+  database:any = firebase.database();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public AuthSrv: AuthService,private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public signUpService: SignupService, public AuthSrv: AuthService,private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -38,7 +41,7 @@ export class SignupFormPage {
       password: new FormControl (null, Validators.required),
       confirmpassword: new FormControl (null, Validators.required),
       email: new FormControl (null, Validators.required),
-      address: new FormControl (null, Validators.required)
+      phonenumber: new FormControl (null, Validators.required)
 
     })
   }
@@ -63,7 +66,8 @@ export class SignupFormPage {
       });
     }
     
-    
+    this.signUpService.writeUser(this.userForm.value.username, this.userForm.value.email, this.userForm.value.phonenumber)
+
   }
   email(email: any, password: any): any {
     throw new Error("Method not implemented.");

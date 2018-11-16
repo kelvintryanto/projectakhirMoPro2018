@@ -15,13 +15,9 @@ import { AuthService } from '../services/AuthService';
 })
 export class MyApp {
   rootPage:any = HomePage;
-<<<<<<< HEAD
-  
-=======
   loginPage:any = LoginPage;
 
   @ViewChild('sideMenuContent') navCtrl: NavController;
->>>>>>> 0bad2e0e578cf0a4d2734eba3e4fea22c38d0ab8
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl: MenuController, 
     private authService:AuthService,

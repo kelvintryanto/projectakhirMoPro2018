@@ -14,5 +14,19 @@
 
 
 <ion-content padding>
-
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="Current Password" type="password" name="CurrentPassword" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="New Password" type="password" name="NewPassword" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Confirm New Password" type="password" name="CurrentNewPassword" ngModel required></ion-input>
+      </ion-item>    
+      
+      <button ion-button block type="submit" [disabled]="!f.valid">submit</button>
+    </ion-list>
+  </form>
 </ion-content>

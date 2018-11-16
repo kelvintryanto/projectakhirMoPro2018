@@ -13,6 +13,8 @@ import { LandingpagePage } from '../pages/landingpage/landingpage';
 import { SignupFormPage } from '../pages/signup-form/signup-form';
 import { AuthService } from '../services/AuthService';
 import { UserPage } from '../pages/user/user';
+import { ResetpassPage } from '../pages/resetpass/resetpass';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { UserPage } from '../pages/user/user';
     LandingpagePage,
     NewEventPage,
     UserPage,
-    SignupFormPage
+    SignupFormPage,
+    ResetpassPage
 
     
   ],
@@ -41,7 +44,8 @@ import { UserPage } from '../pages/user/user';
     LandingpagePage,
     NewEventPage,
     UserPage,
-    SignupFormPage
+    SignupFormPage,
+    ResetpassPage
 
   ],
   providers: [

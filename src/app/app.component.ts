@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, NavController, MenuController, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ResetpassPage } from '../pages/resetpass/resetpass';
 
 import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
@@ -16,6 +17,7 @@ import { AuthService } from '../services/AuthService';
 export class MyApp {
   rootPage:any = HomePage;
   loginPage:any = LoginPage;
+  ResetpassPage:any = ResetpassPage;
 
   @ViewChild('sideMenuContent') navCtrl: NavController;
 
@@ -64,18 +66,8 @@ export class MyApp {
   }
 
   changePass(){
-    let toast = this.toastCtrl.create({
-      message: 'ganti di app.component.ts!',
-      duration: 3000,
-      position: 'top'
-    });
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-  
-    toast.present();
-    this.menuCtrl.close()
+    this.authService.logout();
+    this.navCtrl.setRoot(ResetpassPage);
+    this.menuCtrl.close();
   }
 }
-

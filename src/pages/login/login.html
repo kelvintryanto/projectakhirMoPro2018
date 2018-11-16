@@ -11,12 +11,12 @@
   <ion-title><h2>LOGIN</h2></ion-title>
   <ion-list>
     <ion-item>
-      <ion-input placeholder="Email" [(ngModel)]="email"></ion-input>
+      <ion-input placeholder="Email" type="email" [(ngModel)]="email"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
-      </ion-item> 
+      <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
+    </ion-item> 
 
   </ion-list>
 
@@ -26,9 +26,9 @@
 
   <p>
     Don't have account?
-    <span><a (click)="goToSignupForm()"> Sign up here</a></span>
-    
-    
+    <span>
+      <a (click)="goToSignupForm()"> Sign up here</a>
+    </span>    
   </p>
 
 </ion-content>

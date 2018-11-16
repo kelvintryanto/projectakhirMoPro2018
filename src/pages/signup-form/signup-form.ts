@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../../services/AuthService';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the SignupFormPage page.
@@ -16,7 +18,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class SignupFormPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public AuthSrv: AuthService,private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -42,8 +44,56 @@ export class SignupFormPage {
 
   onSubmit(){
     console.log(this.userForm.value)
-    this.navCtrl.push(SignupFormPage);
+    // this.navCtrl.push(SignupFormPage);
+    const password = this.userForm.value.password;
+    console.log(password);
+    const password2 = this.userForm.value.confirmpassword;
+    console.log(password2);
+    if (password !== password2 ) {
+      console.log('kok')
+      this.confirmpassToast();
+    } else 
+    {
+      this.AuthSrv.signup(this.userForm.value.email, this.userForm.value.password).then(data =>{
+        console.log('login sukses')
+        this.navCtrl.setRoot(LoginPage)
+      }).catch(err => {
+        this.signupToast(err)
+      });
+    }
     
+    
+  }
+  email(email: any, password: any): any {
+    throw new Error("Method not implemented.");
+  }
+
+  signupToast(err) {
+    let toast = this.toastCtrl.create({
+      message: err.message,
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
+
+  confirmpassToast(){
+    let toast = this.toastCtrl.create({
+      message: 'password gak sama',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
   }
 
 

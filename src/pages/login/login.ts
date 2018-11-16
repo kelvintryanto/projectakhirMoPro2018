@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams, ToastController } from "ionic-angular";
-import { LandingpagePage } from "../landingpage/landingpage";
+// import { LandingpagePage } from "../landingpage/landingpage";
 import { SignupFormPage } from "../signup-form/signup-form";
 import { AuthService } from "../../services/AuthService";
+import { UserPage } from "../user/user";
 
 /**
  * Generated class for the LoginPage page.
@@ -23,7 +24,7 @@ export class LoginPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public AuthSrv: AuthService,
+    public authService: AuthService,
     private toastCtrl: ToastController
   ) {}
 
@@ -42,12 +43,12 @@ export class LoginPage {
   }
 
   goToLanding() {
-    console.log("Email: " + this.email);
-    console.log("Password: " + this.password);
-    this.AuthSrv.signin(this.email, this.password).then(data =>{
-      console.log('login sukses')
-      this.presentToast()
-      this.navCtrl.setRoot(LandingpagePage)
+    // console.log("Email: " + this.email);
+    // console.log("Password: " + this.password);
+    this.authService.signin(this.email, this.password).then(data =>{
+      console.log('Login Success');
+      this.presentToast();
+      this.navCtrl.setRoot(UserPage);
     }).catch(err => console.log(err));
     
    // this.navCtrl.push(LandingpagePage);
@@ -55,7 +56,7 @@ export class LoginPage {
 
   presentToast() {
     let toast = this.toastCtrl.create({
-      message: 'sudah login nih',
+      message: 'Gokil, Gue Login Bosque!',
       duration: 3000,
       position: 'top'
     });

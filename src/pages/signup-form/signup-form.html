@@ -13,28 +13,23 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding center text-center>
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <ion-list>
       <ion-item>
-        <ion-label float>Username</ion-label>
-        <ion-input type="text" formControlName="username"></ion-input>
+        <ion-input placeholder="Username" type="text" formControlName="username"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label float>Email</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
+        <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label float>Password</ion-label>
-          <ion-input type="password" formControlName="password"></ion-input>
+        <ion-input placeholder="Password" type="password" formControlName="password"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-label>Confirm Password</ion-label>
-            <ion-input type="password" formControlName="confirmpassword"></ion-input>
+        <ion-input placeholder="Confirm Password" type="password" formControlName="confirmpassword"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label float>Address</ion-label>
-          <ion-input type="text" formControlName="address"></ion-input>
+          <ion-input placeholder="Phone Number" type="number" formControlName="address"></ion-input>
       </ion-item>
     </ion-list>
     <button ion-button type="submit" block [disabled]="!userForm.valid">Register</button>

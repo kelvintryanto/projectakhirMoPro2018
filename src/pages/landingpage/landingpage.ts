@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import firebase from 'firebase';
 import { AuthService } from '../../services/AuthService';
 import { LoginPage } from '../login/login';
 
@@ -19,7 +17,7 @@ import { LoginPage } from '../login/login';
 })
 export class LandingpagePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public AuthSrv: AuthService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService) {
   }
 
   ionViewDidLoad() {
@@ -27,8 +25,8 @@ export class LandingpagePage {
   }
 
   logout(){
-    this.AuthSrv.logout();
-    this.navCtrl.push(LoginPage);
+    this.authService.logout();
+    this.navCtrl.setRoot(LoginPage);
   }
 
 }

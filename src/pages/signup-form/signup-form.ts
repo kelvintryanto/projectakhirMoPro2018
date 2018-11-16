@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/AuthService';
-import { LandingpagePage } from '../landingpage/landingpage';
 import { LoginPage } from '../login/login';
+import { UserPage } from '../user/user';
 
 /**
  * Generated class for the SignupFormPage page.
@@ -57,7 +57,7 @@ export class SignupFormPage {
     {
       this.AuthSrv.signup(this.userForm.value.email, this.userForm.value.password).then(data =>{
         console.log('login sukses')
-        this.navCtrl.setRoot(LoginPage)
+        this.navCtrl.setRoot(UserPage)
       }).catch(err => {
         this.signupToast(err)
       });

@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Platform, NavController, MenuController, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
+import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/AuthService';
-import { LandingpagePage } from '../pages/landingpage/landingpage';
+// import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
 // import { UserPage } from '../pages/user/user';
 @Component({
@@ -14,8 +15,13 @@ import { LandingpagePage } from '../pages/landingpage/landingpage';
 })
 export class MyApp {
   rootPage:any = HomePage;
+  loginPage:any = LoginPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService) {
+  @ViewChild('sideMenuContent') navCtrl: NavController;
+
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl: MenuController, 
+    private authService:AuthService,
+    private toastCtrl:ToastController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -29,18 +35,46 @@ export class MyApp {
     });
 
     firebase.auth().onAuthStateChanged(user => {
- //     this.authService.signin('kelvin.tryanto@gmail.com', '12345678');
+    //     this.authService.signin('kelvin.tryanto@gmail.com', '12345678');
   
       if(user) {
-         //do something here if the user is logged in
-         console.log("i'm logged in")
-          this.rootPage = LandingpagePage
+        //do something here if the user is logged in
+        console.log("i'm logged in")
+        // this.rootPage = LandingpagePage
       }
+
       else {
-         //do something here if the user is not logged in
-         console.log("you're not logged in")
+        //do something here if the user is not logged in
+        console.log("you're logged out")
       }
+
     });
+  }
+
+  onLoad(page:any) {
+    this.navCtrl.setRoot(page);
+    this.menuCtrl.close();
+  }
+
+  Logout(){
+    this.authService.logout();
+    this.navCtrl.setRoot(LoginPage);
+    this.menuCtrl.close();
+  }
+
+  changePass(){
+    let toast = this.toastCtrl.create({
+      message: 'ganti di app.component.ts!',
+      duration: 3000,
+      position: 'top'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+    this.menuCtrl.close()
   }
 }
 

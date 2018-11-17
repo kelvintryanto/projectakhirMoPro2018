@@ -54,9 +54,6 @@ export class MyApp {
 
     });
   }
-<<<<<<< HEAD
-}
-=======
 
   onLoad(page:any) {
     this.navCtrl.setRoot(page);
@@ -75,4 +72,3 @@ export class MyApp {
     this.menuCtrl.close();
   }
 }
->>>>>>> f3235271a6a1c4c94d3374dda0b15b546c059736

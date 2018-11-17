@@ -58,7 +58,7 @@ export class LoginPage {
     let toast = this.toastCtrl.create({
       message: 'Gokil, Gue Login Bosque!',
       duration: 3000,
-      position: 'top'
+      position: 'bottom'
     });
   
     toast.onDidDismiss(() => {

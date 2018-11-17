@@ -23,10 +23,12 @@
         <ion-input placeholder="New Password" type="password" name="NewPassword" ngModel required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="Confirm New Password" type="password" name="CurrentNewPassword" ngModel required></ion-input>
+        <ion-input placeholder="Confirm New Password" [type]="passwordType" name="CurrentNewPassword" ngModel required></ion-input>
+        <ion-icon name="eye" [color]="passwordShown === true ? 'dark' : 'gray'" item-end (click)="togglePassword()"></ion-icon>
       </ion-item>    
       
       <button ion-button block type="submit" [disabled]="!f.valid">submit</button>
     </ion-list>
   </form>
+  
 </ion-content>

@@ -46,7 +46,7 @@ private initializeForm(){
     EndTime: new FormControl(null, Validators.required), 
     Location: new FormControl(null, Validators.required),
     EventDescription: new FormControl(null, Validators.required),  
-    pembimbingArray: new FormArray([new FormControl(null, Validators.required), new FormControl(null), new FormControl(false)])
+    //pembimbingArray: new FormArray([new FormControl(null, Validators.required), new FormControl(null), new FormControl(false)])
   });
 }
 

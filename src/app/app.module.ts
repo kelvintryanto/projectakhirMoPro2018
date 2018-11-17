@@ -17,6 +17,7 @@ import { SignupService } from '../services/SignupService';
 import { ResetpassPage } from '../pages/resetpass/resetpass';
 
 
+
 //import { AngularFireModule } from 'angularfire2';
 //import { AngularFireDatabaseModule } from 'angularfire2/database';
 
@@ -28,6 +29,7 @@ import { ResetpassPage } from '../pages/resetpass/resetpass';
   storageBucket: "ionic-firebase-e23e2.appspot.com",
   messagingSenderId: "153360983849"
 };*/
+
 
 @NgModule({
   declarations: [

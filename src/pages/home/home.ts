@@ -30,4 +30,8 @@ export class HomePage {
     this.navCtrl.setRoot(LoginPage);
   }
 
+  gotoHome(){
+    this.navCtrl.push(LoginPage)
+  }
+
 }

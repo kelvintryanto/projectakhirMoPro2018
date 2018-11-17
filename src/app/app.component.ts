@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/AuthService';
+//import { ResetpassPage } from '../pages/resetpass/resetpass';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
  import { UserPage } from '../pages/user/user';
@@ -32,7 +33,7 @@ export class MyApp {
     firebase.initializeApp({
       apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
       authDomain: "ionic-firebase-e23e2.firebaseapp.com",
-      databaseURL: "https://ionic-firebase-e23e2.firebaseio.com"
+      databaseURL: "https://ionic-firebase-e23e2.firebaseio.com/"
     });
 
     firebase.auth().onAuthStateChanged(user => {

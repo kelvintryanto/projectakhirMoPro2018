@@ -15,7 +15,6 @@ import { AuthService } from '../services/AuthService';
 import { UserPage } from '../pages/user/user';
 import { ResetpassPage } from '../pages/resetpass/resetpass';
 
-
 @NgModule({
   declarations: [
     MyApp,

@@ -67,7 +67,7 @@ export class MyApp {
   }
 
   changePass(){
-    this.authService.logout();
+    // this.authService.logout();
     this.navCtrl.push(ResetpassPage);
     this.menuCtrl.close();
   }

@@ -13,12 +13,9 @@ import { LandingpagePage } from '../pages/landingpage/landingpage';
 import { SignupFormPage } from '../pages/signup-form/signup-form';
 import { AuthService } from '../services/AuthService';
 import { UserPage } from '../pages/user/user';
-<<<<<<< HEAD
-import { SignupService } from '../services/SignupService';
-=======
 import { ResetpassPage } from '../pages/resetpass/resetpass';
+import { SignupService } from '../services/SignupService';
 
->>>>>>> 4a700a501eedf5a8f85081851ded49052d91c5bd
 
 @NgModule({
   declarations: [

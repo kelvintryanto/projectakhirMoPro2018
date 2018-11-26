@@ -65,6 +65,7 @@ export class SignupFormPage {
         this.signupToast(err)
       });
     }
+    // console.log('jalan');
   
     this.signUpService.writeUser(this.userForm.value);
 

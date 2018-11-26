@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 //import { FormControl, FormArray } from '@angular/forms/src/model';
 //import { Validators } from '@angular/forms/src/validators';

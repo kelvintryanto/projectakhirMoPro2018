@@ -49,7 +49,7 @@ export class LoginPage {
       console.log('Login Success');
       this.presentToast();
       this.navCtrl.setRoot(UserPage);
-    }).catch(err => console.log(err));
+    }).catch(err => this.ErrorSigninToast());
     
    // this.navCtrl.push(LandingpagePage);
   }
@@ -57,6 +57,20 @@ export class LoginPage {
   presentToast() {
     let toast = this.toastCtrl.create({
       message: 'Gokil, Gue Login Bosque!',
+      duration: 3000,
+      position: 'bottom'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
+
+  ErrorSigninToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Username atau Password Salah Bosque!',
       duration: 3000,
       position: 'bottom'
     });

@@ -1,8 +1,8 @@
 import { FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, TextInput,ToastController } from 'ionic-angular';
-import firebase from 'firebase';
-import { ScrollView } from 'ionic-angular/umd/util/scroll-view';
+import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
+// import firebase from 'firebase';
+// import { ScrollView } from 'ionic-angular/umd/util/scroll-view';
 import { AuthService } from "../../services/AuthService";
 import { UserPage } from "../user/user";
 
@@ -37,7 +37,7 @@ export class ResetpassPage {
 
   onSubmit(f){
     console.log(f);
-    var toastpass;
+    // var toastpass;
     this.authsvc.changePassword(f.CurrentPassword,f.NewPassword).then((response)=>{
       console.log(response);
       if(response){

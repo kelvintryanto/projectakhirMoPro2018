@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/AuthService';
-import { LoginPage } from '../login/login';
 import firebase from 'firebase';
 import { UserPage } from '../user/user';
 import { SignupService } from '../../services/SignupService';
@@ -21,6 +20,7 @@ import { SignupService } from '../../services/SignupService';
 })
 export class SignupFormPage {
   database:any = firebase.database();
+  user: {nama: string, email: string, phonenumber: number};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public signUpService: SignupService, public AuthSrv: AuthService,private toastCtrl: ToastController) {
   }
@@ -50,11 +50,11 @@ export class SignupFormPage {
     console.log(this.userForm.value)
     // this.navCtrl.push(SignupFormPage);
     const password = this.userForm.value.password;
-    console.log(password);
+    // console.log(password);
     const password2 = this.userForm.value.confirmpassword;
-    console.log(password2);
+    // console.log(password2);
     if (password !== password2 ) {
-      console.log('kok')
+      // console.log('kok')
       this.confirmpassToast();
     } else 
     {
@@ -65,8 +65,8 @@ export class SignupFormPage {
         this.signupToast(err)
       });
     }
-    
-    this.signUpService.writeUser(this.userForm.value.username, this.userForm.value.email, this.userForm.value.phonenumber)
+  
+    this.signUpService.writeUser(this.userForm.value);
 
   }
   email(email: any, password: any): any {

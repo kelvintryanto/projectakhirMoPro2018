@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams, ToastController } from "ionic-angular";
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from "ionic-angular";
 // import { LandingpagePage } from "../landingpage/landingpage";
 import { SignupFormPage } from "../signup-form/signup-form";
 import { AuthService } from "../../services/AuthService";
@@ -25,7 +25,8 @@ export class LoginPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public authService: AuthService,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    public loadingCtrl: LoadingController
   ) {}
 
   // LoginPage(){
@@ -45,10 +46,12 @@ export class LoginPage {
   goToLanding() {
     // console.log("Email: " + this.email);
     // console.log("Password: " + this.password);
+    let movepageLoadingController = this.loadingCtrl.create();
+    movepageLoadingController.present();
     this.authService.signin(this.email, this.password).then(data =>{
       console.log('Login Success');
-      this.presentToast();
       this.navCtrl.setRoot(UserPage);
+      movepageLoadingController.dismiss();
     }).catch(err => console.log(err));
     
    // this.navCtrl.push(LandingpagePage);

@@ -1,8 +1,8 @@
 import { FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, TextInput,ToastController } from 'ionic-angular';
-import firebase from 'firebase';
-import { ScrollView } from 'ionic-angular/umd/util/scroll-view';
+import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
+// import firebase from 'firebase';
+// import { ScrollView } from 'ionic-angular/umd/util/scroll-view';
 import { AuthService } from "../../services/AuthService";
 import { UserPage } from "../user/user";
 
@@ -15,8 +15,21 @@ import { UserPage } from "../user/user";
 export class ResetpassPage {
   ngForm: FormGroup;
 
+  passwordType: string = 'password';
+  passwordShown: boolean = false; 
+
   constructor(public navCtrl: NavController, public navParams: NavParams ,public authsvc:AuthService,public toastCtrl: ToastController) {
   }
+
+  public togglePassword(){
+    if(this.passwordShown){
+      this.passwordShown = false;
+      this.passwordType = 'password';
+    } else {
+      this.passwordShown = true;
+      this.passwordType = 'password';
+    }
+  }   
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResetpassPage');
@@ -24,7 +37,7 @@ export class ResetpassPage {
 
   onSubmit(f){
     console.log(f);
-    var toastpass;
+    // var toastpass;
     this.authsvc.changePassword(f.CurrentPassword,f.NewPassword).then((response)=>{
       console.log(response);
       if(response){
@@ -52,5 +65,8 @@ export class ResetpassPage {
   
     toast.present();
   }
+
+  
+
 
 }

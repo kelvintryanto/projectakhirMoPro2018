@@ -16,6 +16,19 @@ import { UserPage } from '../pages/user/user';
 import { SignupService } from '../services/SignupService';
 import { ResetpassPage } from '../pages/resetpass/resetpass';
 
+//import { AngularFireModule } from 'angularfire2';
+//import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+/*var config = {
+  apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
+  authDomain: "ionic-firebase-e23e2.firebaseapp.com",
+  databaseURL: "https://ionic-firebase-e23e2.firebaseio.com",
+  projectId: "ionic-firebase-e23e2",
+  storageBucket: "ionic-firebase-e23e2.appspot.com",
+  messagingSenderId: "153360983849"
+};*/
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -32,6 +45,8 @@ import { ResetpassPage } from '../pages/resetpass/resetpass';
   ],
   imports: [
     BrowserModule,
+    //AngularFireDatabaseModule,
+    //AngularFireModule.initializeApp(config),
    
     IonicModule.forRoot(MyApp)
   ],

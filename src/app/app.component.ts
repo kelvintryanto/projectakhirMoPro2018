@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController, MenuController, ToastController } from 'ionic-angular';
+import { Platform, NavController, MenuController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ResetpassPage } from '../pages/resetpass/resetpass';
@@ -11,7 +11,7 @@ import { AuthService } from '../services/AuthService';
 //import { ResetpassPage } from '../pages/resetpass/resetpass';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
-// import { UserPage } from '../pages/user/user';
+//  import { UserPage } from '../pages/user/user';
 @Component({
   templateUrl: 'app.html'
 })
@@ -23,8 +23,7 @@ export class MyApp {
   @ViewChild('sideMenuContent') navCtrl: NavController;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl: MenuController, 
-    private authService:AuthService,
-    private toastCtrl:ToastController) {
+    private authService:AuthService) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

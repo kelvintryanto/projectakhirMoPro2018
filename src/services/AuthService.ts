@@ -1,6 +1,5 @@
 import firebase from 'firebase';
 import 'firebase/auth'
-import { resolveDefinition } from '@angular/core/src/view/util';
 
 export class AuthService{
  signup(email: string, password: string) {
@@ -30,7 +29,6 @@ export class AuthService{
         console.log(user);
         var cred = firebase.auth.EmailAuthProvider.credential(
             user.email, currentPassword);
-        var user = firebase.auth().currentUser;
         user.reauthenticateWithCredential(cred).then(()=>{
             user.updatePassword(newPassword).then(() => {
                 console.log("Password updated!");

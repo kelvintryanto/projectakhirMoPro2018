@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
+// import {EventdetailPage } from '../eventdetail/eventdetail';
+// import firebase from 'firebase';
 
 /**
  * Generated class for the UserPage page.
@@ -17,8 +19,10 @@ import { NewEventPage } from '../new-event/new-event';
   templateUrl: 'user.html',
 })
 export class UserPage {
+ 
   event:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService) {
+  
   }
 
   //tambah baru ini

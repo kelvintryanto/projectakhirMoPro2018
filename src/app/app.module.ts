@@ -5,7 +5,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ProgressBarModule } from 'angular-progress-bar';
-import { AngularFireDatabaseModule}
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -21,10 +20,6 @@ import { EventdetailPage } from '../pages/eventdetail/eventdetail';
 import { EditEventPage } from '../pages/edit-event/edit-event';
 import { AddCrewPage } from '../pages/add-crew/add-crew';
 import { ExamplePage } from '../pages/example/example';
-
-
-//import { AngularFireModule } from 'angularfire2';
-//import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 /*var config = {
   apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
@@ -83,7 +78,6 @@ import { ExamplePage } from '../pages/example/example';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     SignupService,
-    FirebaseProvider
   ]
 })
 export class AppModule {}

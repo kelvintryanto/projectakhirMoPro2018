@@ -18,9 +18,7 @@ import { SignupService } from '../services/SignupService';
 import { ResetpassPage } from '../pages/resetpass/resetpass';
 import { EventdetailPage } from '../pages/eventdetail/eventdetail';
 import { EditEventPage } from '../pages/edit-event/edit-event';
-
 import { AddCrewPage } from '../pages/add-crew/add-crew';
-
 import { ExamplePage } from '../pages/example/example';
 
 
@@ -51,10 +49,7 @@ import { ExamplePage } from '../pages/example/example';
     EventdetailPage,
     EditEventPage,
     AddCrewPage,
-    ExamplePage
-
-
-    
+    ExamplePage    
   ],
   imports: [
     BrowserModule,

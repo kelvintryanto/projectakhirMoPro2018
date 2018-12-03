@@ -13,22 +13,22 @@
 </ion-header>
 
 
-<ion-content padding center text-center>
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+<ion-content padding center text-center style="background-color:#e1f7d5">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" style="background-color:transparent">
     <ion-list>
-      <ion-item>
+      <ion-item style="background-color:transparent">
         <ion-input placeholder="Username" type="text" formControlName="username"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item style="background-color:transparent">
         <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item style="background-color:transparent">
         <ion-input placeholder="Password" type="password" formControlName="password"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item style="background-color:transparent">
         <ion-input placeholder="Confirm Password" type="password" formControlName="confirmpassword"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item style="background-color:transparent">
           <ion-input placeholder="Phone Number" type="number" formControlName="phonenumber"></ion-input>
       </ion-item>
     </ion-list>

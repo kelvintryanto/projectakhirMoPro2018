@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/AuthService';
+import { EditEventPage } from '../pages/edit-event/edit-event';
 //import { ResetpassPage } from '../pages/resetpass/resetpass';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
@@ -16,7 +17,7 @@ import { AuthService } from '../services/AuthService';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = EditEventPage;
   loginPage:any = LoginPage;
   ResetpassPage:any = ResetpassPage;
 

@@ -1,5 +1,5 @@
 <!--
-  Generated template for the NewEventPage page.
+  Generated template for the EditEventPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,10 +7,11 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Add New Event</ion-title>
+    <ion-title>Edit Event</ion-title>
   </ion-navbar>
 
 </ion-header>
+
 
 <ion-content padding>
   <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
@@ -37,7 +38,7 @@
         <ion-textarea type="text" placeholder="Description" name="EventDescription" ngModel required></ion-textarea>
       </ion-item>    
       
-      <button ion-button block type="submit" [disabled]="!f.valid">Submit</button>
+      <button ion-button block type="submit" [disabled]="!f.valid">Update</button>
     </ion-list>
   </form>
 </ion-content>

@@ -11,6 +11,7 @@ import { AuthService } from '../services/AuthService';
 import { EditEventPage } from '../pages/edit-event/edit-event';
 import { ExamplePage } from '../pages/example/example';
 import { EventdetailPage } from '../pages/eventdetail/eventdetail';
+import { AddCrewPage } from '../pages/add-crew/add-crew';
 //import { ResetpassPage } from '../pages/resetpass/resetpass';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';

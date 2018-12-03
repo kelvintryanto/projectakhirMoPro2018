@@ -24,6 +24,7 @@
     "@ionic-native/splash-screen": "~4.15.0",
     "@ionic-native/status-bar": "~4.15.0",
     "@ionic/storage": "2.2.0",
+    "angular-progress-bar": "^1.0.9",
     "firebase": "^5.5.8",
     "firebaseui": "^3.4.1",
     "ionic-angular": "3.9.2",

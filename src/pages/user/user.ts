@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
+import {EventdetailPage } from '../eventdetail/eventdetail';
 
 /**
  * Generated class for the UserPage page.
@@ -36,6 +37,6 @@ export class UserPage {
   }
 
   newEvent(){
-    this.navCtrl.push(NewEventPage);
+    this.navCtrl.push(EventdetailPage);
   }
 }

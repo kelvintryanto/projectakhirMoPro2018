@@ -15,6 +15,7 @@ import { AuthService } from '../services/AuthService';
 import { UserPage } from '../pages/user/user';
 import { SignupService } from '../services/SignupService';
 import { ResetpassPage } from '../pages/resetpass/resetpass';
+import { EventdetailPage } from '../pages/eventdetail/eventdetail';
 
 //import { AngularFireModule } from 'angularfire2';
 //import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -39,7 +40,8 @@ import { ResetpassPage } from '../pages/resetpass/resetpass';
     NewEventPage,
     UserPage,
     SignupFormPage,
-    ResetpassPage
+    ResetpassPage,
+    EventdetailPage
 
     
   ],
@@ -60,7 +62,8 @@ import { ResetpassPage } from '../pages/resetpass/resetpass';
     NewEventPage,
     UserPage,
     SignupFormPage,
-    ResetpassPage
+    ResetpassPage,
+    EventdetailPage
 
   ],
   providers: [

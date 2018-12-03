@@ -10,6 +10,7 @@ import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/AuthService';
 import { EditEventPage } from '../pages/edit-event/edit-event';
 import { AddCrewPage } from '../pages/add-crew/add-crew';
+import { ExamplePage } from '../pages/example/example';
 //import { ResetpassPage } from '../pages/resetpass/resetpass';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';

@@ -9,6 +9,7 @@ import firebase from 'firebase';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/AuthService';
 import { EditEventPage } from '../pages/edit-event/edit-event';
+import { AddCrewPage } from '../pages/add-crew/add-crew';
 //import { ResetpassPage } from '../pages/resetpass/resetpass';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
@@ -17,7 +18,7 @@ import { EditEventPage } from '../pages/edit-event/edit-event';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = EditEventPage;
+  rootPage:any = HomePage;
   loginPage:any = LoginPage;
   ResetpassPage:any = ResetpassPage;
 

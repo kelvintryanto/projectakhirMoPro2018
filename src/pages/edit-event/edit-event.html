@@ -17,7 +17,8 @@
   <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
     <ion-list>
       <ion-item>
-        <ion-input type="text" placeholder="Event Name" name="EventName" ngModel required></ion-input>
+        <ion-label floating>Event Name</ion-label>
+        <ion-input type="text" name="EventName" ngModel required></ion-input>
       </ion-item>
       <ion-item>
         <ion-datetime displayFormat="DD/MMM/YYYY" placeholder="Start Date" name="StartDate" ngModel required></ion-datetime>
@@ -32,10 +33,12 @@
         <ion-datetime displayFormat="HH:mm" placeholder="End Time" name="EndTime" ngModel required></ion-datetime>
       </ion-item>
       <ion-item>
-        <ion-input type="text" placeholder="Location" name="Location" ngModel required></ion-input>
+          <ion-label floating>Location</ion-label>
+        <ion-input type="text" name="Location" ngModel required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-textarea type="text" placeholder="Description" name="EventDescription" ngModel required></ion-textarea>
+          <ion-label floating>Description</ion-label>
+        <ion-textarea type="text" name="EventDescription" ngModel required></ion-textarea>
       </ion-item>    
       
       <button ion-button block type="submit" [disabled]="!f.valid">Update</button>

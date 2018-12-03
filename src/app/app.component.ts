@@ -41,9 +41,7 @@ export class MyApp {
       databaseURL: "https://ionic-firebase-e23e2.firebaseio.com/"
     });
 
-    firebase.auth().onAuthStateChanged(user => {
-    //     this.authService.signin('kelvin.tryanto@gmail.com', '12345678');
-  
+    firebase.auth().onAuthStateChanged(user => {  
       if(user) {
         //do something here if the user is logged in
         console.log("i'm logged in")

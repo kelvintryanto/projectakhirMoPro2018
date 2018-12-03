@@ -4,6 +4,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { ProgressBarModule } from 'angular-progress-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -15,8 +16,13 @@ import { AuthService } from '../services/AuthService';
 import { UserPage } from '../pages/user/user';
 import { SignupService } from '../services/SignupService';
 import { ResetpassPage } from '../pages/resetpass/resetpass';
+import { EventdetailPage } from '../pages/eventdetail/eventdetail';
 import { EditEventPage } from '../pages/edit-event/edit-event';
+
+import { AddCrewPage } from '../pages/add-crew/add-crew';
+
 import { ExamplePage } from '../pages/example/example';
+
 
 //import { AngularFireModule } from 'angularfire2';
 //import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -42,8 +48,11 @@ import { ExamplePage } from '../pages/example/example';
     UserPage,
     SignupFormPage,
     ResetpassPage,
+    EventdetailPage,
     EditEventPage,
+    AddCrewPage,
     ExamplePage
+
 
     
   ],
@@ -52,7 +61,8 @@ import { ExamplePage } from '../pages/example/example';
     //AngularFireDatabaseModule,
     //AngularFireModule.initializeApp(config),
    
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ProgressBarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,7 +75,9 @@ import { ExamplePage } from '../pages/example/example';
     UserPage,
     SignupFormPage,
     ResetpassPage,
+    EventdetailPage,
     EditEventPage,
+    AddCrewPage,
     ExamplePage
 
   ],

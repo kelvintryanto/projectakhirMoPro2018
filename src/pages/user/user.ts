@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
-import {EventdetailPage } from '../eventdetail/eventdetail';
-import firebase from 'firebase';
+// import {EventdetailPage } from '../eventdetail/eventdetail';
+// import firebase from 'firebase';
 
 /**
  * Generated class for the UserPage page.
@@ -19,14 +19,10 @@ import firebase from 'firebase';
   templateUrl: 'user.html',
 })
 export class UserPage {
-  items = [];
-  ref = firebase.database().ref('items/');
-
+ 
   event:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService) {
-    this.ref.on('value', resp =>{
-      this.items = snapshotToArray(resp)
-    })
+  
   }
 
   //tambah baru ini

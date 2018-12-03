@@ -5,6 +5,7 @@ import { ModalController } from 'ionic-angular/components/modal/modal-controller
 //import { FormControl, FormArray } from '@angular/forms/src/model';
 //import { Validators } from '@angular/forms/src/validators';
 import { UserPage } from '../user/user';
+import firebase from 'firebase';
 
 /**
  * Generated class for the NewEventPage page.
@@ -30,7 +31,28 @@ export class NewEventPage {
 
   onSubmit(f){
     console.log(f);
+    this.writeEvent(this.ngForm.value.EventName,this.ngForm.value.StartDate,this.ngForm.value.EndDate,this.ngForm.value.StartTime,this.ngForm.value.EndTime,this.ngForm.value.Location,this.ngForm.value.EventDescription);
   }
+
+  writeEvent(EventName: string, StartDate: any, EndDate: any, StartTime: any, EndTime: any, location: any, EventDescription: any) {
+    // throw new Error("Method not implemented.");
+    const keyEvent= firebase.database().ref().child('event').push().key;
+
+    const eventRef= firebase.database().ref().child('event').child(keyEvent);
+        eventRef.set({
+            eventName: EventName,
+            startDate: StartDate,
+            endDate: EndDate,
+            startTime: StartTime,
+            endTime: EndTime,
+            location: location,
+            description: EventDescription
+        });
+
+  }
+
+  
+
 
 //tambah baru ini
   ngOnInit(){

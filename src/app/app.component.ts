@@ -17,7 +17,7 @@ import { EditEventPage } from '../pages/edit-event/edit-event';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = EditEventPage;
+  rootPage:any = HomePage;
   loginPage:any = LoginPage;
   ResetpassPage:any = ResetpassPage;
 

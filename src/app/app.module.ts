@@ -4,6 +4,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { ProgressBarModule } from 'angular-progress-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -16,6 +17,8 @@ import { UserPage } from '../pages/user/user';
 import { SignupService } from '../services/SignupService';
 import { ResetpassPage } from '../pages/resetpass/resetpass';
 import { EventdetailPage } from '../pages/eventdetail/eventdetail';
+import { EditEventPage } from '../pages/edit-event/edit-event';
+import { ExamplePage } from '../pages/example/example';
 
 //import { AngularFireModule } from 'angularfire2';
 //import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -41,7 +44,9 @@ import { EventdetailPage } from '../pages/eventdetail/eventdetail';
     UserPage,
     SignupFormPage,
     ResetpassPage,
-    EventdetailPage
+    EventdetailPage,
+    EditEventPage,
+    ExamplePage
 
     
   ],
@@ -50,7 +55,8 @@ import { EventdetailPage } from '../pages/eventdetail/eventdetail';
     //AngularFireDatabaseModule,
     //AngularFireModule.initializeApp(config),
    
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ProgressBarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -63,7 +69,9 @@ import { EventdetailPage } from '../pages/eventdetail/eventdetail';
     UserPage,
     SignupFormPage,
     ResetpassPage,
-    EventdetailPage
+    EventdetailPage,
+    EditEventPage,
+    ExamplePage
 
   ],
   providers: [

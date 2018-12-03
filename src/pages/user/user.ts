@@ -37,6 +37,6 @@ export class UserPage {
   }
 
   newEvent(){
-    this.navCtrl.push(EventdetailPage);
+    this.navCtrl.push(NewEventPage);
   }
 }

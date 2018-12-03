@@ -67,7 +67,7 @@ export class SignupFormPage {
     }
     // console.log('jalan');
   
-    this.signUpService.writeUser(this.userForm.value);
+    this.signUpService.writeUser(this.userForm.value.username,this.userForm.value.email,this.userForm.value.phonenumber);
 
   }
   email(email: any, password: any): any {

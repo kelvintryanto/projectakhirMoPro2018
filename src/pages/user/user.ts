@@ -19,15 +19,12 @@ import { NewEventPage } from '../new-event/new-event';
   templateUrl: 'user.html',
 })
 export class UserPage {
- 
-  event:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService) {
-  
   }
 
   //tambah baru ini
   ngOnInit(){
-    this.event = this.navParams.get('eventValue');
+    
   }
 
   ionViewDidLoad() {

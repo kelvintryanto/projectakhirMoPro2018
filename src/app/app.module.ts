@@ -77,7 +77,7 @@ import { ExamplePage } from '../pages/example/example';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    SignupService,
+    SignupService
   ]
 })
 export class AppModule {}

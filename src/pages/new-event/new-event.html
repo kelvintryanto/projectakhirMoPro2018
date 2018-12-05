@@ -19,15 +19,13 @@
         <ion-input type="text" placeholder="Event Name" name="EventName" ngModel required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-datetime displayFormat="DD/MMM/YYYY" placeholder="Start Date" name="StartDate" ngModel required></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-datetime displayFormat="DD/MMM/YYYY" placeholder="End Date" name="EndDate" ngModel required></ion-datetime>
+        <ion-grid>
+          <ion-datetime displayFormat="DD/MMM/YYYY" placeholder="Start Date" name="StartDate" ngModel required></ion-datetime>
+          <ion-datetime displayFormat="DD/MMM/YYYY" placeholder="End Date" name="EndDate" ngModel required></ion-datetime>
+      </ion-grid>
       </ion-item>
       <ion-item>
         <ion-datetime displayFormat="HH:mm" placeholder="Start Time" name="StartTime" ngModel required></ion-datetime>
-      </ion-item>
-      <ion-item>
         <ion-datetime displayFormat="HH:mm" placeholder="End Time" name="EndTime" ngModel required></ion-datetime>
       </ion-item>
       <ion-item>

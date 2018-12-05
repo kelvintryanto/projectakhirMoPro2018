@@ -1,5 +1,5 @@
 <!--
-  Generated template for the NewEventPage page.
+  Generated template for the ExamplePage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,10 +7,11 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Add New Event</ion-title>
+    <ion-title>example</ion-title>
   </ion-navbar>
 
 </ion-header>
+
 
 <ion-content padding>
   <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
@@ -19,30 +20,29 @@
         <ion-input type="text" placeholder="Event Name" name="EventName" ngModel required></ion-input>
       </ion-item>
       <ion-row>
-        <ion-col col-6>
-          <ion-item>
-            <ion-datetime displayFormat="DD/MMM/YYYY" placeholder="Start Date" name="StartDate" ngModel required></ion-datetime>
+         <ion-col col-6>
+           <ion-item>
+             <ion-datetime displayFormat="DD/MMM/YYYY" placeholder="Start Date" name="StartDate" ngModel required></ion-datetime>
           </ion-item>
-        </ion-col>
-        <ion-col col-6>
+         </ion-col>
+         <ion-col col-6>
           <ion-item>
             <ion-datetime displayFormat="DD/MMM/YYYY" placeholder="End Date" name="EndDate" ngModel required></ion-datetime>
-          </ion-item>
+           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col col-6>
-          <ion-item>
-            <ion-datetime displayFormat="HH:mm" placeholder="Start Time" name="StartTime" ngModel required></ion-datetime>
-          </ion-item>
-        </ion-col>
+         <ion-col col-6> 
+           <ion-item>
+             <ion-datetime displayFormat="HH:mm" placeholder="Start Time" name="StartTime" ngModel required></ion-datetime>
+           </ion-item>
+         </ion-col>
         <ion-col col-6>
           <ion-item>
             <ion-datetime displayFormat="HH:mm" placeholder="End Time" name="EndTime" ngModel required></ion-datetime>
-          </ion-item>
+           </ion-item>
         </ion-col>
       </ion-row>
-
       <ion-item>
         <ion-input type="text" placeholder="Location" name="Location" ngModel required></ion-input>
       </ion-item>
@@ -50,7 +50,7 @@
         <ion-textarea type="text" placeholder="Description" name="EventDescription" ngModel required></ion-textarea>
       </ion-item>    
       
-      <button ion-button block type="submit" [disabled]="!f.valid">Submit</button>
+      <button ion-button block type="submit" [disabled]="!f.valid">Update</button>
     </ion-list>
   </form>
 </ion-content>

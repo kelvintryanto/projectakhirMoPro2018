@@ -8,6 +8,10 @@ import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/AuthService';
+// import { EditEventPage } from '../pages/edit-event/edit-event';
+// import { ExamplePage } from '../pages/example/example';
+// import { EventdetailPage } from '../pages/eventdetail/eventdetail';
+// import { AddCrewPage } from '../pages/add-crew/add-crew';
 //import { ResetpassPage } from '../pages/resetpass/resetpass';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
@@ -37,9 +41,7 @@ export class MyApp {
       databaseURL: "https://ionic-firebase-e23e2.firebaseio.com/"
     });
 
-    firebase.auth().onAuthStateChanged(user => {
-    //     this.authService.signin('kelvin.tryanto@gmail.com', '12345678');
-  
+    firebase.auth().onAuthStateChanged(user => {  
       if(user) {
         //do something here if the user is logged in
         console.log("i'm logged in")

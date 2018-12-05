@@ -52,7 +52,10 @@ export class LoginPage {
       console.log('Login Success');
       this.navCtrl.setRoot(UserPage);
       movepageLoadingController.dismiss();
-    }).catch(err => this.ErrorSigninToast());
+    }).catch(err => {
+      this.ErrorSigninToast();
+      movepageLoadingController.dismiss();
+    });
     
    // this.navCtrl.push(LandingpagePage);
   }

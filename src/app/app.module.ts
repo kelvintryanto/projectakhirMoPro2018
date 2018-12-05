@@ -4,6 +4,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { ProgressBarModule } from 'angular-progress-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -15,9 +16,10 @@ import { AuthService } from '../services/AuthService';
 import { UserPage } from '../pages/user/user';
 import { SignupService } from '../services/SignupService';
 import { ResetpassPage } from '../pages/resetpass/resetpass';
-
-//import { AngularFireModule } from 'angularfire2';
-//import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { EventdetailPage } from '../pages/eventdetail/eventdetail';
+import { EditEventPage } from '../pages/edit-event/edit-event';
+import { AddCrewPage } from '../pages/add-crew/add-crew';
+import { ExamplePage } from '../pages/example/example';
 
 /*var config = {
   apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
@@ -39,16 +41,19 @@ import { ResetpassPage } from '../pages/resetpass/resetpass';
     NewEventPage,
     UserPage,
     SignupFormPage,
-    ResetpassPage
-
-    
+    ResetpassPage,
+    EventdetailPage,
+    EditEventPage,
+    AddCrewPage,
+    ExamplePage    
   ],
   imports: [
     BrowserModule,
     //AngularFireDatabaseModule,
     //AngularFireModule.initializeApp(config),
    
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ProgressBarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -60,7 +65,11 @@ import { ResetpassPage } from '../pages/resetpass/resetpass';
     NewEventPage,
     UserPage,
     SignupFormPage,
-    ResetpassPage
+    ResetpassPage,
+    EventdetailPage,
+    EditEventPage,
+    AddCrewPage,
+    ExamplePage
 
   ],
   providers: [
@@ -68,7 +77,7 @@ import { ResetpassPage } from '../pages/resetpass/resetpass';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    SignupService
+    SignupService,
   ]
 })
 export class AppModule {}

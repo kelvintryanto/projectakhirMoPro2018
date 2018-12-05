@@ -5,6 +5,7 @@ import { ModalController } from 'ionic-angular/components/modal/modal-controller
 //import { FormControl, FormArray } from '@angular/forms/src/model';
 //import { Validators } from '@angular/forms/src/validators';
 import { UserPage } from '../user/user';
+import firebase from 'firebase';
 
 /**
  * Generated class for the NewEventPage page.
@@ -29,32 +30,53 @@ export class NewEventPage {
   }
 
   onSubmit(f){
-    console.log(f);
+    this.writeEvent(f.EventName,f.StartDate,f.EndDate,f.StartTime,f.EndTime,f.Location,f.EventDescription);
   }
 
-//tambah baru ini
+  writeEvent(EventName: string, StartDate: any, EndDate: any, StartTime: any, EndTime: any, location: any, EventDescription: any) 
+  {
+    console.log(EventName);
+    console.log(StartDate);
+    console.log(EndDate);
+    console.log(StartTime);
+    console.log(EndTime);
+    console.log(location);
+    console.log(EventDescription);
+    const keyEvent = firebase.database().ref().child('event').push().key;
+  
+    const eventRef= firebase.database().ref().child('event').child(keyEvent);
+    eventRef.set({
+        eventName: EventName,
+        startDate: StartDate,
+        endDate: EndDate,
+        startTime: StartTime,
+        endTime: EndTime,
+        location: location,
+        description: EventDescription
+    });
+  }
+
+  //tambah baru ini
   ngOnInit(){
   this.initializeForm();
-}
+  }
 
-private initializeForm(){
-  this.ngForm = new FormGroup({
-    EventName: new FormControl(null, Validators.required),
-    StartDate: new FormControl(null, Validators.required),
-    EndDate: new FormControl(null, Validators.required), 
-    StartTime: new FormControl(null, Validators.required), 
-    EndTime: new FormControl(null, Validators.required), 
-    Location: new FormControl(null, Validators.required),
-    EventDescription: new FormControl(null, Validators.required),  
-    //pembimbingArray: new FormArray([new FormControl(null, Validators.required), new FormControl(null), new FormControl(false)])
-  });
-}
+  private initializeForm(){
+    this.ngForm = new FormGroup({
+      EventName: new FormControl(null, Validators.required),
+      StartDate: new FormControl(null, Validators.required),
+      EndDate: new FormControl(null, Validators.required), 
+      StartTime: new FormControl(null, Validators.required), 
+      EndTime: new FormControl(null, Validators.required), 
+      Location: new FormControl(null, Validators.required),
+      EventDescription: new FormControl(null, Validators.required),  
+    });
+  }
 
-onAddEvent(){
-  let modal = this.modalCtrl.create(UserPage, {eventValue: this.ngForm.value});
-  this.initializeForm();
-  // console.log(this.ngForm.value);
-  modal.present();
-}
+  onAddEvent(){
+    let modal = this.modalCtrl.create(UserPage, {eventValue: this.ngForm.value});
+    this.initializeForm();
+    modal.present();
+  }
 
 }

@@ -13,15 +13,9 @@
 
 
 <ion-content text-center>
-  <!-- <p>Welcome Home</p> -->
-  <!-- <button ion-button full (click)="logout()">logout</button> -->
-
-  <ion-list>
-    <ion-item>Item1
-      <p>test aja</p>
-    </ion-item>
-    <ion-item>Item2
-      <p>test terus!</p>
+  <ion-list *ngFor="let event of events | async">
+    <ion-item>
+      <p>{{event.username}}</p>
     </ion-item>
   </ion-list>
 

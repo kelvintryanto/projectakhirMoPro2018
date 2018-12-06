@@ -13,9 +13,10 @@
 
 
 <ion-content text-center>
-  <ion-list *ngFor="let event of events | async">
+  <ion-list *ngFor="let event of events">
     <ion-item>
-      <p>{{event.eventName}}</p>
+      <h2>{{event.eventName}}</h2>
+      <h3>{{event.description}}</h3>
     </ion-item>
   </ion-list>
 

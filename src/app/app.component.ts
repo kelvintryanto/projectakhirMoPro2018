@@ -15,7 +15,7 @@ import { AuthService } from '../services/AuthService';
 //import { ResetpassPage } from '../pages/resetpass/resetpass';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
-//  import { UserPage } from '../pages/user/user';
+ import { UserPage } from '../pages/user/user';
 @Component({
   templateUrl: 'app.html'
 })
@@ -45,6 +45,9 @@ export class MyApp {
       if(user) {
         //do something here if the user is logged in
         console.log("i'm logged in")
+        if(user!=null){
+          this.navCtrl.setRoot(UserPage);
+        }
         // this.rootPage = LandingpagePage
       }
 

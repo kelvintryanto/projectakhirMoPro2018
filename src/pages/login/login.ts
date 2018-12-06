@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, ToastController, LoadingController
 import { SignupFormPage } from "../signup-form/signup-form";
 import { AuthService } from "../../services/AuthService";
 import { UserPage } from "../user/user";
+import firebase from "firebase";
 
 /**
  * Generated class for the LoginPage page.
@@ -20,6 +21,8 @@ import { UserPage } from "../user/user";
 export class LoginPage {
   email: string;
   password: string;
+  user = firebase.auth().currentUser;
+
 
   constructor(
     public navCtrl: NavController,
@@ -44,20 +47,19 @@ export class LoginPage {
   }
 
   goToLanding() {
-    // console.log("Email: " + this.email);
-    // console.log("Password: " + this.password);
     let movepageLoadingController = this.loadingCtrl.create();
     movepageLoadingController.present();
     this.authService.signin(this.email, this.password).then(data =>{
       console.log('Login Success');
-      this.navCtrl.setRoot(UserPage);
+      if(this.user!=null){
+        this.navCtrl.setRoot(UserPage);
+      }
       movepageLoadingController.dismiss();
     }).catch(err => {
       this.ErrorSigninToast();
       movepageLoadingController.dismiss();
     });
     
-   // this.navCtrl.push(LandingpagePage);
   }
 
   presentToast() {

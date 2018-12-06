@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
+import { AngularFireDatabase } from '@angular/fire/database'
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -19,7 +20,13 @@ import { NewEventPage } from '../new-event/new-event';
   templateUrl: 'user.html',
 })
 export class UserPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService) {
+  events: any[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase) {
+    database.list('/event').valueChanges().subscribe(event => {
+        this.events = event;
+    });
+
   }
 
   //tambah baru ini

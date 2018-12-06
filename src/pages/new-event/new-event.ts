@@ -6,6 +6,7 @@ import { ModalController } from 'ionic-angular/components/modal/modal-controller
 //import { Validators } from '@angular/forms/src/validators';
 import { UserPage } from '../user/user';
 import firebase from 'firebase';
+import { Time } from '@angular/common';
 
 /**
  * Generated class for the NewEventPage page.
@@ -33,7 +34,7 @@ export class NewEventPage {
     this.writeEvent(f.EventName,f.StartDate,f.EndDate,f.StartTime,f.EndTime,f.Location,f.EventDescription);
   }
 
-  writeEvent(EventName: string, StartDate: any, EndDate: any, StartTime: any, EndTime: any, location: any, EventDescription: any) 
+  writeEvent(EventName: string, StartDate: Date, EndDate: Date, StartTime: Time, EndTime: Date, location: any, EventDescription: any) 
   {
     console.log(EventName);
     console.log(StartDate);

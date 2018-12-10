@@ -52,12 +52,12 @@ export class UserPage {
           database.list('/event').valueChanges().subscribe(event => {
             this.event = event;
             this.events = []
-            for(let index=0;index< event.length;index++){              
-              if(this.event[index].leader==this.user[idx].keyUser){
+            for (let index = 0; index < event.length; index++) {
+              if (this.event[index].leader == this.user[idx].keyUser) {
                 this.events.push(this.event[index]);
               }
             }
-          });        
+          });
         }
       }
     })

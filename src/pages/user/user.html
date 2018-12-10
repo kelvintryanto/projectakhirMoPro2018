@@ -10,14 +10,14 @@
 </ion-header>
 
 <ion-content text-center>
-  <ion-card *ngFor="let event of events; let i = index" (click)="detailEvent(event)">
+  <ion-card *ngFor="let event of events; let i = index">
     <!-- <ion-card-sliding> -->
-      <ion-card-content (click)="detailEvent(event)">
-        <ion-card-title style="text-align:left">
-            {{event.eventName}}
-        </ion-card-title>
-          <h3 style="text-align:left">Description: {{event.description}}</h3>
-          <!--<ion-card-options side="right">
+    <ion-card-content (click)="detailEvent(event)">
+      <ion-card-title style="text-align:left">
+        {{event.eventName}}
+      </ion-card-title>
+      <h3 style="text-align:left">Description: {{event.description}}</h3>
+      <!--<ion-card-options side="right">
             <button ion-button color="secondary">
               <ion-icon name="text"></ion-icon>
               Detail
@@ -27,22 +27,22 @@
               Delete
             </button>
           </ion-card-options> -->
-      </ion-card-content>
+    </ion-card-content>
     <!-- </ion-card-sliding> -->
     <ion-row>
-        <ion-col col-6 no-padding>
-          <button ion-button full color="secondary" icon start>
-            EDIT
-          </button>
-        </ion-col>
-        <ion-col col-6 no-padding>
-          <button ion-button full color="danger" icon-start>
-            DELETE
-          </button>
-        </ion-col>
-      </ion-row>
+      <ion-col col-6 no-padding>
+        <button ion-button full color="secondary" icon start>
+          EDIT
+        </button>
+      </ion-col>
+      <ion-col col-6 no-padding>
+        <button ion-button full color="danger" icon-start>
+          DELETE
+        </button>
+      </ion-col>
+    </ion-row>
   </ion-card>
-  
+
   <ion-fab right bottom>
     <button ion-fab mini class="addButton" (click)="newEvent()">+</button>
   </ion-fab>

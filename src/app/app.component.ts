@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/AuthService';
+//import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
 // import { EditEventPage } from '../pages/edit-event/edit-event';
 // import { ExamplePage } from '../pages/example/example';
 // import { EventdetailPage } from '../pages/eventdetail/eventdetail';
@@ -15,12 +16,13 @@ import { AuthService } from '../services/AuthService';
 //import { ResetpassPage } from '../pages/resetpass/resetpass';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
-//  import { UserPage } from '../pages/user/user';
+ import { UserPage } from '../pages/user/user';
+ import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = HomePage; //HomePage
   loginPage:any = LoginPage;
   ResetpassPage:any = ResetpassPage;
 
@@ -45,6 +47,9 @@ export class MyApp {
       if(user) {
         //do something here if the user is logged in
         console.log("i'm logged in")
+        if(user!=null){
+          this.navCtrl.setRoot(UserPage);
+        }
         // this.rootPage = LandingpagePage
       }
 

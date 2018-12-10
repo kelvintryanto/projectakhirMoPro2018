@@ -20,15 +20,18 @@ import { EventdetailPage } from '../pages/eventdetail/eventdetail';
 import { EditEventPage } from '../pages/edit-event/edit-event';
 import { AddCrewPage } from '../pages/add-crew/add-crew';
 import { ExamplePage } from '../pages/example/example';
+import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire/firebase.app.module'
 
-/*var config = {
+var config = {
   apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
   authDomain: "ionic-firebase-e23e2.firebaseapp.com",
   databaseURL: "https://ionic-firebase-e23e2.firebaseio.com",
   projectId: "ionic-firebase-e23e2",
   storageBucket: "ionic-firebase-e23e2.appspot.com",
   messagingSenderId: "153360983849"
-};*/
+};
 
 
 @NgModule({
@@ -45,12 +48,13 @@ import { ExamplePage } from '../pages/example/example';
     EventdetailPage,
     EditEventPage,
     AddCrewPage,
+    AddToDoListPage,
     ExamplePage    
   ],
   imports: [
     BrowserModule,
-    //AngularFireDatabaseModule,
-    //AngularFireModule.initializeApp(config),
+    AngularFireModule,
+    AngularFireModule.initializeApp(config),
    
     IonicModule.forRoot(MyApp),
     ProgressBarModule
@@ -69,6 +73,7 @@ import { ExamplePage } from '../pages/example/example';
     EventdetailPage,
     EditEventPage,
     AddCrewPage,
+    AddToDoListPage,
     ExamplePage
 
   ],
@@ -78,6 +83,7 @@ import { ExamplePage } from '../pages/example/example';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     SignupService,
+    AngularFireDatabase
   ]
 })
 export class AppModule {}

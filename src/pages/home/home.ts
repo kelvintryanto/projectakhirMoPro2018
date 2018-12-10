@@ -1,15 +1,20 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import firebase from 'firebase';
+import { UserPage } from '../user/user';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+  user = firebase.auth().currentUser;
 
   constructor(public navCtrl: NavController) {
-
+    if(this.user!=null){
+      this.navCtrl.setRoot(UserPage);
+    }
   }
 
   slider = [
@@ -33,5 +38,4 @@ export class HomePage {
   gotoHome(){
     this.navCtrl.push(LoginPage)
   }
-
 }

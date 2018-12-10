@@ -68,6 +68,7 @@ export class NewEventPage {
 
   private initializeForm(){
     this.ngForm = new FormGroup({
+      keyEvent: new FormControl(null, Validators.required),
       EventName: new FormControl(null, Validators.required),
       StartDate: new FormControl(null, Validators.required),
       EndDate: new FormControl(null, Validators.required), 

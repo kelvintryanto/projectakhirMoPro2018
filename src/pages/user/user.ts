@@ -16,6 +16,10 @@ import firebase from 'firebase';
  * Ionic pages and navigation.
  */
 
+// var nameApp = angular.module('starter', ['ionic']);
+
+
+
 @IonicPage()
 @Component({
   selector: 'page-user',
@@ -24,6 +28,18 @@ import firebase from 'firebase';
 export class UserPage {
   events: any[];
   user = firebase.auth().currentUser;
+
+  // nameApp;config(function($stateProvider, $urlRouterProvider) {
+    
+  //    $stateProvider
+  //      .state('view', {
+  //        url: '/movie/:movieid',
+  //        templateUrl: 'view.html',
+  //        controller: 'ViewCtrl'
+  //      });
+  //    $urlRouterProvider.otherwise("/");
+  //  });
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase) {
     database.list('/user').valueChanges().subscribe(user=> {
@@ -36,6 +52,17 @@ export class UserPage {
         this.events = event;
     });
 
+  }
+
+  // buat delete tapi gak bisa
+  function ($scope, $stateParams) {
+    $scope.delete = function(item){
+      $scope.event.splice($scope.event.indexOf(item), 1);
+    }
+  }
+
+  itemClicked(item): void {
+      
   }
 
   //tambah baru ini

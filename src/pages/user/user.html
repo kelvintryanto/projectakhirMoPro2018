@@ -13,12 +13,6 @@
 
 
 <ion-content text-center>
-  <!-- <ion-list *ngFor="let event of events">
-    <ion-item>
-      <h2>{{event.eventName}}</h2>
-      <h3>{{event.description}}</h3>
-    </ion-item>
-  </ion-list> -->
 
   <ion-list *ngFor="let event of events; let i = index" (click)="detailEvent(event)">
     <ion-item-sliding>
@@ -38,6 +32,7 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+
 
   <button ion-button class="addButton" (click)="newEvent()">
     <ion-icon name="add"></ion-icon>

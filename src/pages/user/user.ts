@@ -4,6 +4,7 @@ import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
 import { AngularFireDatabase } from '@angular/fire/database'
+import { EventdetailPage } from '../eventdetail/eventdetail';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -49,5 +50,9 @@ export class UserPage {
 
   removeItem(event){
     console.log(event);
+  }
+
+  detailEvent(event){
+    this.navCtrl.push(EventdetailPage, {eventDetail: event})
   }
 }

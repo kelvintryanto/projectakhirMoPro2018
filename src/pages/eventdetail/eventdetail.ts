@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -13,13 +13,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-eventdetail',
   templateUrl: 'eventdetail.html',
 })
-export class EventdetailPage {
+export class EventdetailPage implements OnInit{
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventdetailPage');
+  }
+
+  ngOnInit(){
+    console.log(this.navParams.get('eventDetail'));
   }
 
 }

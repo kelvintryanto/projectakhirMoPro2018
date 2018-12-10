@@ -28,6 +28,7 @@ import firebase from 'firebase';
 export class UserPage {
   events: any[];
   users = firebase.auth().currentUser;
+  user: any[];
 
   // nameApp;config(function($stateProvider, $urlRouterProvider) {
 
@@ -43,11 +44,13 @@ export class UserPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public database: AngularFireDatabase) {
     database.list('/user').valueChanges().subscribe(user => {
+      this.user = user;
       console.log(this.users.email);
+      console.log(user);
       for (let idx = 0; idx < user.length; idx++) {
-        if (this.users.email == user[idx].email) {
+        if (this.users.email == this.user[idx].email) {
           database.list('/event').valueChanges().subscribe(event => {
-            console.log(user[idx].username)
+            console.log(this.user[idx].username)
           });
           
         }

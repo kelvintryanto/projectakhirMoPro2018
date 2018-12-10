@@ -26,6 +26,7 @@ export class NewEventPage {
   ngForm: FormGroup;
   users = firebase.auth().currentUser;
   keyUser: any;
+  user: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public database:AngularFireDatabase) {
   }
@@ -36,9 +37,11 @@ export class NewEventPage {
 
   onSubmit(f){
     this.database.list('/user').valueChanges().subscribe(user => {
+      this.user = user;
+      console.log(user);
       for(let idx=0;idx<user.length;idx++){
-        if(user[idx].email==this.users.email){
-          this.keyUser = user[idx].keyUser;
+        if(this.user[idx].email==this.users.email){
+          this.keyUser = this.user[idx].keyUser;
         }
       }
     })

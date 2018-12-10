@@ -25,7 +25,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class NewEventPage {
   ngForm: FormGroup;
   users = firebase.auth().currentUser;
-  keyUser: any;
+  keyLeader: any;
   user: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public database:AngularFireDatabase) {
@@ -41,11 +41,12 @@ export class NewEventPage {
       console.log(user);
       for(let idx=0;idx<user.length;idx++){
         if(this.user[idx].email==this.users.email){
-          this.keyUser = this.user[idx].keyUser;
+          this.keyLeader = this.user[idx].keyUser;
+          this.writeEvent(f.EventName,f.StartDate,f.EndDate,f.StartTime,f.EndTime,f.Location,f.EventDescription,this.keyLeader);
         }
       }
     })
-    this.writeEvent(f.EventName,f.StartDate,f.EndDate,f.StartTime,f.EndTime,f.Location,f.EventDescription,this.keyUser);
+    
     this.navCtrl.push(UserPage);
   }
 
@@ -63,7 +64,7 @@ export class NewEventPage {
         endTime: EndTime,
         location: location,
         description: EventDescription,
-        leader:keyLeader
+        leader: keyLeader
     });
   }
 

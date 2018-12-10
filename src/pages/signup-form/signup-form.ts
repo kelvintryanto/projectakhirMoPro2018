@@ -42,7 +42,6 @@ export class SignupFormPage {
       confirmpassword: new FormControl (null, Validators.required),
       email: new FormControl (null, Validators.required),
       phonenumber: new FormControl (null, Validators.required)
-
     })
   }
 

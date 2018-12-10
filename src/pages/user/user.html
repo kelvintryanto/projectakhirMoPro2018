@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content text-center>
-  <ion-card *ngFor="let event of events; let i = index">
+  <ion-card *ngFor="let event of events; let i = index" (click)="detailEvent(event)">
     <!-- <ion-card-sliding> -->
       <ion-card-content (click)="detailEvent(event)">
         <ion-card-title style="text-align:left">
@@ -46,5 +46,4 @@
   <ion-fab right bottom>
     <button ion-fab mini class="addButton" (click)="newEvent()">+</button>
   </ion-fab>
-  
 </ion-content>

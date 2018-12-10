@@ -13,17 +13,16 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list *ngFor="let event of events">
-      
+  <ion-list>
     <ion-item>
       <!-- <ion-label floating>Event Name</ion-label> -->
-      <h2>{{event.eventName}}</h2>
+      <h2>{{eventDetail.eventName}}</h2>
     </ion-item>
     <ion-item>
       <ion-label floating>Event Leader</ion-label>
       <ion-input></ion-input>
     </ion-item>
-    
+
     <ion-row>
       <ion-col col-6>
         <ion-item>
@@ -40,7 +39,7 @@
     </ion-row>
 
     <ion-row>
-      <ion-col col-6> 
+      <ion-col col-6>
         <ion-item>
           <ion-label floating>Start Time</ion-label>
           <ion-datetime displayFormat="HH:mm" name="StartTime"></ion-datetime>
@@ -72,17 +71,17 @@
   <ion-item style="margin-left:0px">
     <ion-label>Divisi 1</ion-label>
   </ion-item>
-  <progress-bar [progress]="20" [color]= "'#488AFF'"></progress-bar>
+  <progress-bar [progress]="20" [color]="'#488AFF'"></progress-bar>
   <ion-item style="margin-left:0px">
     <ion-label>Divisi 2</ion-label>
   </ion-item>
-  <progress-bar [progress]="45" [color]= "'#488AFF'"></progress-bar>
+  <progress-bar [progress]="45" [color]="'#488AFF'"></progress-bar>
   <ion-item style="margin-left:0px">
     <ion-label>Divisi 3</ion-label>
   </ion-item>
-  <progress-bar [progress]="80" [color]= "'#488AFF'"></progress-bar>
+  <progress-bar [progress]="80" [color]="'#488AFF'"></progress-bar>
   <ion-item style="margin-left:0px">
     <ion-label>Divisi 4</ion-label>
   </ion-item>
-  <progress-bar [progress]="45" [color]= "'#488AFF'"></progress-bar>
+  <progress-bar [progress]="45" [color]="'#488AFF'"></progress-bar>
 </ion-content>

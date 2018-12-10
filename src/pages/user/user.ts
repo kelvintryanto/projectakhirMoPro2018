@@ -54,17 +54,6 @@ export class UserPage {
 
   }
 
-  // buat delete tapi gak bisa
-  function ($scope, $stateParams) {
-    $scope.delete = function(item){
-      $scope.event.splice($scope.event.indexOf(item), 1);
-    }
-  }
-
-  itemClicked(item): void {
-      
-  }
-
   //tambah baru ini
   ngOnInit(){
     
@@ -84,7 +73,7 @@ export class UserPage {
   }
 
   removeItem(event){
-    console.log(event);
+    
   }
 
   detailEvent(event){

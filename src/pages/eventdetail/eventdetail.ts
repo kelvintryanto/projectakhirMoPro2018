@@ -17,13 +17,10 @@ import { AngularFireDatabase } from '@angular/fire/database';
   templateUrl: 'eventdetail.html',
 })
 export class EventdetailPage implements OnInit{
-  events: any[];
+  eventDetail: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase) {
-    database.list('/event').valueChanges().subscribe(event => {
-        this.events = event;
-    });
-
+    
   }
 
 
@@ -32,7 +29,8 @@ export class EventdetailPage implements OnInit{
   }
 
   ngOnInit(){
-    console.log(this.navParams.get('eventDetail'));
+    this.eventDetail = this.navParams.get('eventDetail');
+    console.log(this.eventDetail)
   }
 
 }

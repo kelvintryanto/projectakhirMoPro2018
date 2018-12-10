@@ -116,5 +116,6 @@ export class UserPage {
         }
       ]
     })
+    alert.present()
   }
 }

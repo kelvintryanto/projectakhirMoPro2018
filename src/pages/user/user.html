@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    
+
     <ion-buttons start>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
@@ -13,11 +13,30 @@
 
 
 <ion-content text-center>
-  <ion-list *ngFor="let event of events">
+  <!-- <ion-list *ngFor="let event of events">
     <ion-item>
       <h2>{{event.eventName}}</h2>
       <h3>{{event.description}}</h3>
     </ion-item>
+  </ion-list> -->
+
+  <ion-list *ngFor="let event of events; let i = index" (click)="detailEvent(event)">
+    <ion-item-sliding>
+      <ion-item>
+        <h2>{{event.eventName}}</h2>
+        <h3>{{event.description}}</h3>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="secondary">
+          <ion-icon name="text"></ion-icon>
+          Detail
+        </button>
+        <button ion-button color="danger" (click)="removeItem(event)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
   <button ion-button class="addButton" (click)="newEvent()">

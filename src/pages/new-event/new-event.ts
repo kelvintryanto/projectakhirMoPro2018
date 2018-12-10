@@ -7,6 +7,7 @@ import { ModalController } from 'ionic-angular/components/modal/modal-controller
 import { UserPage } from '../user/user';
 import firebase from 'firebase';
 import { Time } from '@angular/common';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the NewEventPage page.
@@ -32,6 +33,7 @@ export class NewEventPage {
 
   onSubmit(f){
     this.writeEvent(f.EventName,f.StartDate,f.EndDate,f.StartTime,f.EndTime,f.Location,f.EventDescription);
+    this.navCtrl.push(UserPage);
   }
 
   writeEvent(EventName: string, StartDate: Date, EndDate: Date, StartTime: Time, EndTime: Date, location: any, EventDescription: any) 
@@ -47,6 +49,7 @@ export class NewEventPage {
   
     const eventRef= firebase.database().ref().child('event').child(keyEvent);
     eventRef.set({
+        keyEvent:keyEvent,
         eventName: EventName,
         startDate: StartDate,
         endDate: EndDate,

@@ -9,6 +9,7 @@ export class SignupService{
         // memanggil database user dan masuk ke child yang baru
         const userRef= firebase.database().ref().child('user').child(keyUser);
         userRef.set({
+            keyUser: keyUser,
             username: username,
             email: email,
             phonenumber: phonenumber

@@ -8,6 +8,7 @@ import { UserPage } from '../user/user';
 import firebase from 'firebase';
 import { Time } from '@angular/common';
 import { HomePage } from '../home/home';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 /**
  * Generated class for the NewEventPage page.
@@ -24,7 +25,7 @@ import { HomePage } from '../home/home';
 export class NewEventPage {
   ngForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public database:AngularFireDatabase) {
   }
 
   ionViewDidLoad() {

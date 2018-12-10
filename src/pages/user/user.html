@@ -13,12 +13,14 @@
 
 
 <ion-content text-center>
-  <ion-list *ngFor="let event of events">
-    <ion-item>
+  <ion-list can-swipe="true" *ngFor="let event of events">
+    <ion-item side="left">
       <h2>{{event.eventName}}</h2>
       <h3>{{event.description}}</h3>
+      <button click="delete()">Delete</button>
     </ion-item>
   </ion-list>
+
 
   <button ion-button class="addButton" (click)="newEvent()">
     <ion-icon name="add"></ion-icon>

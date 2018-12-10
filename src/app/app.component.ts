@@ -20,7 +20,7 @@ import { AuthService } from '../services/AuthService';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = UserPage; //HomePage
   loginPage:any = LoginPage;
   ResetpassPage:any = ResetpassPage;
 

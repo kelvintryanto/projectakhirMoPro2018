@@ -47,6 +47,7 @@ export class NewEventPage {
   
     const eventRef= firebase.database().ref().child('event').child(keyEvent);
     eventRef.set({
+        keyEvent: keyEvent,
         eventName: EventName,
         startDate: StartDate,
         endDate: EndDate,
@@ -64,6 +65,7 @@ export class NewEventPage {
 
   private initializeForm(){
     this.ngForm = new FormGroup({
+      keyEvent: new FormControl(null, Validators.required),
       EventName: new FormControl(null, Validators.required),
       StartDate: new FormControl(null, Validators.required),
       EndDate: new FormControl(null, Validators.required), 

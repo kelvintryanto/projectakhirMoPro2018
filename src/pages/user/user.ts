@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
-import { AngularFireDatabase } from '@angular/fire/database'
+import { AngularFireDatabase } from '@angular/fire/database';
+import { ItemSliding } from 'ionic-angular';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -14,6 +15,10 @@ import { AngularFireDatabase } from '@angular/fire/database'
  * Ionic pages and navigation.
  */
 
+// var nameApp = angular.module('starter', ['ionic']);
+
+
+
 @IonicPage()
 @Component({
   selector: 'page-user',
@@ -22,11 +27,34 @@ import { AngularFireDatabase } from '@angular/fire/database'
 export class UserPage {
   events: any[];
 
+  // nameApp;config(function($stateProvider, $urlRouterProvider) {
+    
+  //    $stateProvider
+  //      .state('view', {
+  //        url: '/movie/:movieid',
+  //        templateUrl: 'view.html',
+  //        controller: 'ViewCtrl'
+  //      });
+  //    $urlRouterProvider.otherwise("/");
+  //  });
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase) {
     database.list('/event').valueChanges().subscribe(event => {
         this.events = event;
     });
 
+  }
+
+  // buat delete tapi gak bisa
+  function ($scope, $stateParams) {
+    $scope.delete = function(item){
+      $scope.event.splice($scope.event.indexOf(item), 1);
+    }
+  }
+
+  itemClicked(item): void {
+      
   }
 
   //tambah baru ini
@@ -36,6 +64,10 @@ export class UserPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserPage');
+  }
+
+  delete(slidingItem: ItemSliding){
+    slidingItem.close();
   }
 
   logout(){

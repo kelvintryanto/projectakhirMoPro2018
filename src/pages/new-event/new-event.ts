@@ -49,6 +49,7 @@ export class NewEventPage {
   
     const eventRef= firebase.database().ref().child('event').child(keyEvent);
     eventRef.set({
+        keyEvent:keyEvent,
         eventName: EventName,
         startDate: StartDate,
         endDate: EndDate,

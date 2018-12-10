@@ -20,8 +20,8 @@ import { EventdetailPage } from '../pages/eventdetail/eventdetail';
 import { EditEventPage } from '../pages/edit-event/edit-event';
 import { AddCrewPage } from '../pages/add-crew/add-crew';
 import { ExamplePage } from '../pages/example/example';
+import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
 import { AngularFireDatabase } from '@angular/fire/database';
-
 import { AngularFireModule } from '@angular/fire/firebase.app.module'
 
 var config = {
@@ -48,6 +48,7 @@ var config = {
     EventdetailPage,
     EditEventPage,
     AddCrewPage,
+    AddToDoListPage,
     ExamplePage    
   ],
   imports: [
@@ -72,6 +73,7 @@ var config = {
     EventdetailPage,
     EditEventPage,
     AddCrewPage,
+    AddToDoListPage,
     ExamplePage
 
   ],

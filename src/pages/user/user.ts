@@ -46,4 +46,8 @@ export class UserPage {
   newEvent(){
     this.navCtrl.push(NewEventPage);
   }
+
+  removeItem(event){
+    console.log(event);
+  }
 }

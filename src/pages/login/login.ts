@@ -23,7 +23,6 @@ export class LoginPage {
   password: string;
   user = firebase.auth().currentUser;
 
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,

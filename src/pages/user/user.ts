@@ -5,6 +5,7 @@ import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
 import { AngularFireDatabase } from '@angular/fire/database'
 import { EventdetailPage } from '../eventdetail/eventdetail';
+import firebase from 'firebase';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -22,8 +23,15 @@ import { EventdetailPage } from '../eventdetail/eventdetail';
 })
 export class UserPage {
   events: any[];
+  user = firebase.auth().currentUser;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase) {
+    database.list('/user').valueChanges().subscribe(user=> {
+      for(let idx=0;idx<user.length;idx++){
+        console.log(user[idx].username);
+      }
+      console.log(user);
+    })
     database.list('/event').valueChanges().subscribe(event => {
         this.events = event;
     });

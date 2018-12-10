@@ -27,10 +27,10 @@ import firebase from 'firebase';
 })
 export class UserPage {
   events: any[];
-  user = firebase.auth().currentUser;
+  users = firebase.auth().currentUser;
 
   // nameApp;config(function($stateProvider, $urlRouterProvider) {
-    
+
   //    $stateProvider
   //      .state('view', {
   //        url: '/movie/:movieid',
@@ -41,42 +41,47 @@ export class UserPage {
   //  });
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase) {
-    database.list('/user').valueChanges().subscribe(user=> {
-      for(let idx=0;idx<user.length;idx++){
-        console.log(user[idx].username);
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public database: AngularFireDatabase) {
+    database.list('/user').valueChanges().subscribe(user => {
+      console.log(this.users.email);
+      for (let idx = 0; idx < user.length; idx++) {
+        if (this.users.email == user[idx].email) {
+          database.list('/event').valueChanges().subscribe(event => {
+            console.log(user[idx].username)
+          });
+          
+        }
       }
-      console.log(user);
     })
     database.list('/event').valueChanges().subscribe(event => {
-        this.events = event;
+      this.events = event;
     });
 
   }
 
   //tambah baru ini
-  ngOnInit(){
-    
+  ngOnInit() {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserPage');
   }
 
-  logout(){
+  logout() {
     this.authService.logout();
     this.navCtrl.setRoot(LoginPage);
   }
 
-  newEvent(){
+  newEvent() {
     this.navCtrl.push(NewEventPage);
   }
 
-  removeItem(event){
-    
+  removeItem(event) {
+
   }
 
-  detailEvent(event){
-    this.navCtrl.push(EventdetailPage, {eventDetail: event})
+  detailEvent(event) {
+    this.navCtrl.push(EventdetailPage, { eventDetail: event })
   }
 }

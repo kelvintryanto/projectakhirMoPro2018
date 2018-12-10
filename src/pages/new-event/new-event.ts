@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ListHeader } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 //import { FormControl, FormArray } from '@angular/forms/src/model';
@@ -24,6 +24,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class NewEventPage {
   ngForm: FormGroup;
+  users = firebase.auth().currentUser;
+  keyUser: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public database:AngularFireDatabase) {
   }
@@ -33,19 +35,19 @@ export class NewEventPage {
   }
 
   onSubmit(f){
-    this.writeEvent(f.EventName,f.StartDate,f.EndDate,f.StartTime,f.EndTime,f.Location,f.EventDescription);
+    this.database.list('/user').valueChanges().subscribe(user => {
+      for(let idx=0;idx<user.length;idx++){
+        if(user[idx].email==this.users.email){
+          this.keyUser = user[idx].keyUser;
+        }
+      }
+    })
+    this.writeEvent(f.EventName,f.StartDate,f.EndDate,f.StartTime,f.EndTime,f.Location,f.EventDescription,this.keyUser);
     this.navCtrl.push(UserPage);
   }
 
-  writeEvent(EventName: string, StartDate: Date, EndDate: Date, StartTime: Time, EndTime: Date, location: any, EventDescription: any) 
+  writeEvent(EventName: string, StartDate: Date, EndDate: Date, StartTime: Time, EndTime: Date, location: any, EventDescription: any, keyLeader:any) 
   {
-    console.log(EventName);
-    console.log(StartDate);
-    console.log(EndDate);
-    console.log(StartTime);
-    console.log(EndTime);
-    console.log(location);
-    console.log(EventDescription);
     const keyEvent = firebase.database().ref().child('event').push().key;
   
     const eventRef= firebase.database().ref().child('event').child(keyEvent);
@@ -57,7 +59,8 @@ export class NewEventPage {
         startTime: StartTime,
         endTime: EndTime,
         location: location,
-        description: EventDescription
+        description: EventDescription,
+        leader:keyLeader
     });
   }
 

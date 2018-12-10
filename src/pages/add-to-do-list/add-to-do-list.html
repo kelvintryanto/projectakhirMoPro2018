@@ -1,0 +1,59 @@
+<!--
+  Generated template for the AddToDoListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>AddToDoList</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    
+        <ion-list>
+          <ion-item>
+            <ion-input type="text" placeholder="What to do?" name="WhatToDo" ngModel required></ion-input>
+          </ion-item>
+    
+          <ion-item>
+              <ion-input type="text" placeholder="Nama Item" name="NamaItem" ngModel required></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-input type="text" placeholder="Jumlah Item" name="JumlahItem " ngModel required></ion-input>
+              </ion-item>
+
+              <ion-item>
+                  <ion-input type="text" placeholder="I Need Item" name="INeedItem" ngModel required></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-input type="text" placeholder="Price" name="Price" ngModel required></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-input type="text" placeholder="I Need More" name="INeedMore" ngModel required></ion-input>
+                    </ion-item>
+
+                    <p>
+                        Report To
+                      </p>  
+                      
+                      <ion-item>
+                          <ion-label>Division</ion-label>
+                          <ion-select [(ngModel)]="division">
+                            <ion-option value="p">Perlengkapan</ion-option>
+                            <ion-option value="a">Acara</ion-option>
+                          </ion-select>
+                        </ion-item>
+          
+          
+                      </ion-list>
+                    
+      
+</ion-content>

@@ -51,7 +51,8 @@ export class UserPage {
           //CEK EVENT DALAM EVENT DATABASE  
           database.list('/event').valueChanges().subscribe(event => {
             this.event = event;
-            for(let index=0;index< event.length;index++){
+            this.events = []
+            for(let index=0;index< event.length;index++){              
               if(this.event[index].leader==this.user[idx].keyUser){
                 this.events.push(this.event[index]);
               }

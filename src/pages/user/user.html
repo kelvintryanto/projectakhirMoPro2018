@@ -1,7 +1,5 @@
 <ion-header>
-
   <ion-navbar>
-
     <ion-buttons start>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
@@ -11,13 +9,10 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content text-center>
-
-<<<<<<< HEAD
-  <ion-card *ngFor="let event of events; let i = index" (click)="detailEvent(event)">
+  <ion-card *ngFor="let event of events; let i = index">
     <!-- <ion-card-sliding> -->
-      <ion-card-content>
+      <ion-card-content (click)="detailEvent(event)">
         <ion-card-title style="text-align:left">
             {{event.eventName}}
         </ion-card-title>
@@ -35,13 +30,13 @@
       </ion-card-content>
     <!-- </ion-card-sliding> -->
     <ion-row>
-        <ion-col>
-          <button ion-button clear small color="secondary" icon start>
+        <ion-col col-6 no-padding>
+          <button ion-button full color="secondary" icon start>
             EDIT
           </button>
         </ion-col>
-        <ion-col>
-          <button ion-button clear small color="danger" icon-start>
+        <ion-col col-6 no-padding>
+          <button ion-button full color="danger" icon-start>
             DELETE
           </button>
         </ion-col>
@@ -52,29 +47,4 @@
     <button ion-fab mini class="addButton" (click)="newEvent()">+</button>
   </ion-fab>
   
-=======
-  <ion-list *ngFor="let event of events; let i = index" (click)="detailEvent(event)">
-    <ion-item-sliding>
-      <ion-item>
-        <h2>{{event.eventName}}</h2>
-        <h3>{{event.description}}</h3>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="secondary">
-          <ion-icon name="text"></ion-icon>
-          Detail
-        </button>
-        <button ion-button color="danger" (click)="removeItem(event)">
-          <ion-icon name="trash"></ion-icon>
-          Delete
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-
-
-  <button ion-button class="addButton" (click)="newEvent()">
-    <ion-icon name="add"></ion-icon>
-  </button>
->>>>>>> 9b256215122e356aa9b2e0540db7aaf1d9f8b198
 </ion-content>

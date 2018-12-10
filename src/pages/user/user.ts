@@ -26,7 +26,8 @@ import firebase from 'firebase';
   templateUrl: 'user.html',
 })
 export class UserPage {
-  events: any[];
+  events: any[] = [];
+  event: any[];
   users = firebase.auth().currentUser;
   user: any[];
 
@@ -45,21 +46,20 @@ export class UserPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public database: AngularFireDatabase) {
     database.list('/user').valueChanges().subscribe(user => {
       this.user = user;
-      console.log(this.users.email);
-      console.log(user);
       for (let idx = 0; idx < user.length; idx++) {
         if (this.users.email == this.user[idx].email) {
+          //CEK EVENT DALAM EVENT DATABASE  
           database.list('/event').valueChanges().subscribe(event => {
-            console.log(this.user[idx].username)
-          });
-          
+            this.event = event;
+            for(let index=0;index< event.length;index++){
+              if(this.event[index].leader==this.user[idx].keyUser){
+                this.events.push(this.event[index]);
+              }
+            }
+          });        
         }
       }
     })
-    database.list('/event').valueChanges().subscribe(event => {
-      this.events = event;
-    });
-
   }
 
   //tambah baru ini

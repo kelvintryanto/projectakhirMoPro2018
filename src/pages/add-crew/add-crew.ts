@@ -22,4 +22,9 @@ export class AddCrewPage {
     console.log('ionViewDidLoad AddCrewPage');
   }
 
+  onSubmit(crew){
+    console.log(crew);
+    this.navCtrl.pop();
+  }
+
 }

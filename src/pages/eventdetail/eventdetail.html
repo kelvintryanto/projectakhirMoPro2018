@@ -13,10 +13,11 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+  <ion-list *ngFor="let event of events">
+      
     <ion-item>
-      <ion-label floating>Event Name</ion-label>
-      <ion-input></ion-input>
+      <!-- <ion-label floating>Event Name</ion-label> -->
+      <h2>{{event.eventName}}</h2>
     </ion-item>
     <ion-item>
       <ion-label floating>Event Leader</ion-label>

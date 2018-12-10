@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { ItemSliding } from 'ionic-angular';
+import { AngularFireDatabase } from '@angular/fire/database'
+import { EventdetailPage } from '../eventdetail/eventdetail';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -66,10 +66,6 @@ export class UserPage {
     console.log('ionViewDidLoad UserPage');
   }
 
-  delete(slidingItem: ItemSliding){
-    slidingItem.close();
-  }
-
   logout(){
     this.authService.logout();
     this.navCtrl.setRoot(LoginPage);
@@ -77,5 +73,13 @@ export class UserPage {
 
   newEvent(){
     this.navCtrl.push(NewEventPage);
+  }
+
+  removeItem(event){
+    console.log(event);
+  }
+
+  detailEvent(event){
+    this.navCtrl.push(EventdetailPage, {eventDetail: event})
   }
 }

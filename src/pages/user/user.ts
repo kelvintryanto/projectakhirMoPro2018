@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
 import { AngularFireDatabase } from '@angular/fire/database'
 import { EventdetailPage } from '../eventdetail/eventdetail';
 import firebase from 'firebase';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -43,7 +44,12 @@ export class UserPage {
   //  });
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public database: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public authService: AuthService, 
+    public database: AngularFireDatabase,
+    public alertCtrl:AlertController) {
+
     database.list('/user').valueChanges().subscribe(user => {
       this.user = user;
       for (let idx = 0; idx < user.length; idx++) {
@@ -61,6 +67,7 @@ export class UserPage {
         }
       }
     })
+
   }
 
   //tambah baru ini
@@ -87,5 +94,27 @@ export class UserPage {
 
   detailEvent(event) {
     this.navCtrl.push(EventdetailPage, { eventDetail: event })
+  }
+
+  onDeleteItem(event){
+    let alert = this.alertCtrl.create({
+      title: 'Delete Event?',
+      message: 'Are you sure want to delete this event?',
+      buttons:[
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('yes clicked')
+          }
+        },
+        {
+          text: 'No',
+          role: 'cancel',
+          handler: () => {
+            console.log('no clicked')
+          }
+        }
+      ]
+    })
   }
 }

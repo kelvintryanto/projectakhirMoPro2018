@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <form #f="ngForm" (ngSubmit)="onUpdate(f.value)">
       <ion-list>
         <ion-item>
           <ion-input type="text" placeholder="Event Name" name="EventName" ngModel required></ion-input>

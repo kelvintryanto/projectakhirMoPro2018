@@ -51,6 +51,7 @@ export class UserPage {
     public database: AngularFireDatabase,
     public alertCtrl:AlertController) {
 
+    //ini untuk narik data user
     database.list('/user').valueChanges().subscribe(user => {
       this.user = user;
       for (let idx = 0; idx < user.length; idx++) {

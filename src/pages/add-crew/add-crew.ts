@@ -34,7 +34,7 @@ export class AddCrewPage implements OnInit {
   }
 
   onSubmit(crew) {
-    console.log(crew);
+    // console.log(crew);
     
     const crewRef = firebase.database().ref().child('event').child(this.keyEvent).child('divisi').child(crew.divisi)
     console.log(crew)
@@ -42,7 +42,7 @@ export class AddCrewPage implements OnInit {
     //   crewName : crew.namaCrew,
     //   divisi : crew.divisi
     // })
-    this.navCtrl.pop();
+    // this.navCtrl.pop();
   }
 
   onKetua() {

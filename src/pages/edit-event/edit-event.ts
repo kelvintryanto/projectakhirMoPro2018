@@ -15,12 +15,19 @@ import { UserPage } from '../user/user';
   templateUrl: 'edit-event.html',
 })
 export class EditEventPage {
+editEvent: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditEventPage');
+  }
+
+  ngOnInit(){
+    this.editEvent = this.navParams.get('editEvent');
+
+    console.log(this.editEvent)
   }
 
   onUpdate(event){

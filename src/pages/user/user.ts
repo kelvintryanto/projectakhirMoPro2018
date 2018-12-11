@@ -124,7 +124,7 @@ export class UserPage {
   }
 
   onEditItem(event){
-    this.navCtrl.push(EditEventPage);
+    this.navCtrl.push(EditEventPage, { editEvent: event });
     console.log(event);
   }
 }

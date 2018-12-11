@@ -7,6 +7,7 @@ import { AngularFireDatabase } from '@angular/fire/database'
 import { EventdetailPage } from '../eventdetail/eventdetail';
 import firebase from 'firebase';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { EditEventPage } from '../edit-event/edit-event';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -50,6 +51,7 @@ export class UserPage {
     public database: AngularFireDatabase,
     public alertCtrl:AlertController) {
 
+    //ini untuk narik data user
     database.list('/user').valueChanges().subscribe(user => {
       this.user = user;
       for (let idx = 0; idx < user.length; idx++) {
@@ -116,5 +118,13 @@ export class UserPage {
         }
       ]
     })
+    alert.present()
+
+    console.log(event)
+  }
+
+  onEditItem(event){
+    this.navCtrl.push(EditEventPage);
+    console.log(event);
   }
 }

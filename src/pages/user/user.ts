@@ -67,7 +67,9 @@ export class UserPage {
                 // console.log(this.event[index].divisi.acara)
                 this.events.push(this.event[index]);
               }
-              this.checkDivisi(this.event[index].divisi)
+              if(this.user[idx].email == this.checkDivisi(this.event[index].divisi)){
+                this.events.push(this.event[index])
+              }
             }
           });
         }
@@ -77,7 +79,7 @@ export class UserPage {
 
   checkDivisi(arg0: any): any {
     if(arg0!==undefined){
-      console.log(arg0)
+      return arg0.acara.crewEmail
     }
     //sudah sampai di sini, coba cari cara untuk ada atau engganya cek di sini
   }

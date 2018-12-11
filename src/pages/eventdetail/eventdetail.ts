@@ -24,7 +24,7 @@ export class EventdetailPage implements OnInit{
   nameLeader: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase) {
-  
+    //merubah nama leader dalam event detail
     database.list('/user').valueChanges().subscribe(user=>{
     this.user=user;
     for (let idx = 0; idx < user.length; idx++) {

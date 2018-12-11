@@ -84,11 +84,4 @@ export class NewEventPage {
       EventDescription: new FormControl(null, Validators.required),
     });
   }
-
-  onAddEvent() {
-    let modal = this.modalCtrl.create(UserPage, { eventValue: this.ngForm.value });
-    this.initializeForm();
-    modal.present();
-  }
-
 }

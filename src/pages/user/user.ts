@@ -103,7 +103,7 @@ export class UserPage {
           text: 'Yes',
           handler: () => {
             firebase.database().ref().child('event').child(event.keyEvent).remove();
-            console.log(event.keyEvent)
+            // console.log(event.keyEvent)
           }
         },
         {

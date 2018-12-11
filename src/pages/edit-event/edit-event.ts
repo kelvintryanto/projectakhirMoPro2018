@@ -37,7 +37,7 @@ export class EditEventPage {
 
     crewRef.set({
       keyEvent: this.editEvent.keyEvent,
-      leader: this.editEvent.keyLeader,
+      leader: this.editEvent.leader,
       divisi: this.editEvent.divisi,
       eventName:editEvent.EventName,
       startDate: editEvent.StartDate,

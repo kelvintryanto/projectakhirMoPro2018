@@ -22,7 +22,6 @@ export class EventdetailPage implements OnInit{
   eventDetail: any;
   user: any[];
   nameLeader: any;
-  event: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase) {
   
@@ -32,12 +31,7 @@ export class EventdetailPage implements OnInit{
       if (this.eventDetail.leader == this.user[idx].keyUser ) {
         this.nameLeader = this.user[idx].username;
       }
-      database.list('/event').valueChanges().subscribe(event=>{
-        this.event=event;
-        for (let idx = 0; idx < user.length; idx++) {
-          if (this.eventDetail.leader == this.user[idx].keyUser ) {
-            this.nameLeader = this.user[idx].username;
-          }
+      
       
     }
    })

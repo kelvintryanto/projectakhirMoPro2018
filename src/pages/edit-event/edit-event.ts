@@ -29,7 +29,7 @@ export class EditEventPage {
 
   ngOnInit(){
     this.editEvent = this.navParams.get('editEvent');
-    console.log(this.editEvent)
+    // console.log(this.editEvent)
   }
 
   onUpdate(editEvent){

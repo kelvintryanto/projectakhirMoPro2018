@@ -59,7 +59,7 @@ export class UserPage {
           //CEK EVENT DALAM EVENT DATABASE  
           database.list('/event').valueChanges().subscribe(event => {
             this.event = event;
-            console.log(this.event)
+            // console.log(this.event)
             this.events = []
             for (let index = 0; index < event.length; index++) {
               if (this.event[index].leader == this.user[idx].keyUser ) {
@@ -136,5 +136,8 @@ export class UserPage {
     this.navCtrl.push(EditEventPage, { editEvent: event });
     console.log(event);
   }
+
+  //tambahkan onLeader() return true or false untuk ngIf
+  //kalo dy ketua baru bisa delete kalo engga, ga bisa delete, ga bisa edit juga
+  //tambahkan "you are on divisi ??? menggantikan button"
 }
-// 

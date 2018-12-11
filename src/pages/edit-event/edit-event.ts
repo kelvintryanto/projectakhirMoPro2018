@@ -36,6 +36,9 @@ export class EditEventPage {
     const crewRef = firebase.database().ref().child('event').child(this.editEvent.keyEvent);
 
     crewRef.set({
+      keyEvent: this.editEvent.keyEvent,
+      leader: this.editEvent.keyLeader,
+      divisi: this.editEvent.divisi,
       eventName:editEvent.EventName,
       startDate: editEvent.StartDate,
       endDate: editEvent.EndDate,

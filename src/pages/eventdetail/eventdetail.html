@@ -67,7 +67,7 @@
       <h2>Description : {{eventDetail.description}}</h2>
     </ion-item>
   <!-- </ion-list> -->
-  <ion-fab right bottom (click)="onAddDivisi()">
+  <ion-fab right bottom (click)="onAddDivisi(eventDetail.leader, eventDetail.keyEvent)">
     <button ion-fab mini>+</button>
   </ion-fab>
   <h2 style="text-align:center">

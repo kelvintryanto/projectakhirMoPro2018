@@ -34,7 +34,7 @@ export class EventdetailPage implements OnInit{
     console.log(this.eventDetail)
   }
 
-  onAddDivisi(){
-    this.navCtrl.push(AddCrewPage);
+  onAddDivisi(keyLeader,keyEvent){
+    this.navCtrl.push(AddCrewPage,{ keyLeader:keyLeader, keyEvent:keyEvent });
   }
 }

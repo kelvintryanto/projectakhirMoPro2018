@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ProgressBarModule } from 'angular-progress-bar';
+import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -23,6 +24,7 @@ import { ExamplePage } from '../pages/example/example';
 import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire/firebase.app.module'
+import { from } from 'rxjs';
 
 var config = {
   apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
@@ -83,7 +85,8 @@ var config = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     SignupService,
-    AngularFireDatabase
+    AngularFireDatabase,
+    Camera
   ]
 })
 export class AppModule {}

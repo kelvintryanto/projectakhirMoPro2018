@@ -90,10 +90,6 @@ export class UserPage {
     this.navCtrl.push(NewEventPage);
   }
 
-  removeItem(event) {
-
-  }
-
   detailEvent(event) {
     this.navCtrl.push(EventdetailPage, { eventDetail: event })
   }
@@ -106,7 +102,8 @@ export class UserPage {
         {
           text: 'Yes',
           handler: () => {
-            console.log('yes clicked')
+            firebase.database().ref().child('event').child(event.keyEvent).remove();
+            console.log(event.keyEvent)
           }
         },
         {

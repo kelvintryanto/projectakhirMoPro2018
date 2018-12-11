@@ -14,29 +14,25 @@
 
 
 <ion-content padding>
-    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-        <ion-list>
-          <!-- <ion-item>
-            <ion-label floating>Name</ion-label>
-            <ion-input type="text" name="CrewName" ngModel required></ion-input>
-          </ion-item> -->
-          <ion-item>
-            <!-- <ion-label>-Pilih Crew-</ion-label> -->
-            <ion-select placeholder="Pilih Crew" col-12  >
-              <ion-option *ngFor="let user of username; let i = index" type="text" value="{{user[i]}}" name="namaCrew" >{{user}}</ion-option>
-            </ion-select>
-          </ion-item>
-          <ion-item>
-              <ion-label floating>Divisi</ion-label>
-            <ion-input type="text" name="divisi" ngModel required></ion-input>
-          </ion-item>
-          <ion-item>
-              <ion-label floating>Jabatan</ion-label>
-            <ion-input type="text" name="Staff" ngModel required></ion-input>
-          </ion-item>    
-          
-          <button ion-button block type="submit" [disabled]="!f.valid">Submit</button>
-        </ion-list>
-      </form>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <ion-list>
+      
+      <ion-item>
+        <ion-select placeholder="Pilih Crew" col-12 ngModel="{{user}}" name="namaCrew">
+          <ion-option *ngFor="let user of username" type="text" value="{{user}}">{{user}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Divisi</ion-label>
+        <ion-input type="text" name="divisi" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Jabatan</ion-label>
+        <ion-input type="text" name="Staff" ngModel required></ion-input>
+      </ion-item>
+
+      <button ion-button block type="submit" [disabled]="!f.valid">Submit</button>
+    </ion-list>
+  </form>
 
 </ion-content>

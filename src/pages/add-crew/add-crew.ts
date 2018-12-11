@@ -21,6 +21,7 @@ export class AddCrewPage implements OnInit {
   keyLeader: any;
   user: any[];
   username: any[] = [];
+  // user: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public database: AngularFireDatabase) {
     this.keyEvent = this.navParams.get('keyEvent')
@@ -33,17 +34,17 @@ export class AddCrewPage implements OnInit {
     console.log('ionViewDidLoad AddCrewPage');
   }
 
-  onSubmit(crew) {
-    console.log(crew);
-    
+  onSubmit(crew) {  
     const crewRef = firebase.database().ref().child('event').child(this.keyEvent).child('divisi').child(crew.divisi)
     console.log(crew)
-    // crewRef.set({
-    //   crewName : crew.namaCrew,
-    //   divisi : crew.divisi
-    // })
+    crewRef.set({
+      crewName : crew.namaCrew,
+      divisi : crew.divisi
+    })
     this.navCtrl.pop();
   }
+
+  
 
   onKetua() {
     //CEK EVENT DALAM EVENT DATABASE

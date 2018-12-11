@@ -21,27 +21,38 @@ export class AddCrewPage implements OnInit {
   keyLeader: any;
   user: any[];
   username: any[] = [];
+  email:any;
   // user: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public database: AngularFireDatabase) {
     this.keyEvent = this.navParams.get('keyEvent')
     this.keyLeader = this.navParams.get('keyLeader')
-    console.log('keyEvent = ' + this.keyEvent)
-    console.log('keyLeader = ' + this.keyLeader)
+    // console.log('keyEvent = ' + this.keyEvent)
+    // console.log('keyLeader = ' + this.keyLeader)
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddCrewPage');
   }
 
-  onSubmit(crew) {  
+  onSubmit(crew) { 
     const crewRef = firebase.database().ref().child('event').child(this.keyEvent).child('divisi').child(crew.divisi)
+    
     console.log(crew)
+    console.log(this.username)
+    for(let idx=0;idx<this.username.length;idx++){
+      if(crew.namaCrew==this.username[idx].name){
+        console.log(this.username[idx].email)
+        this.email = this.username[idx].email;
+      }
+    }
+
     crewRef.set({
-      crewName : crew.namaCrew,
+      crewEmail : this.email,
       divisi : crew.divisi
     })
-    this.navCtrl.pop();
+    
+    // this.navCtrl.pop();
   }
 
   
@@ -67,10 +78,10 @@ export class AddCrewPage implements OnInit {
       // this.user = []
       for (let index=0; index < user.length; index++) {
         if(this.currentUser.email != this.user[index].email){
-          this.username.push(this.user[index].username)
+          this.username.push({name:this.user[index].username, email:this.user[index].email})
         }        
       }
-      console.log(this.username)
+      // console.log(this.username)
     });
   }
 

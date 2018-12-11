@@ -62,15 +62,24 @@ export class UserPage {
             console.log(this.event)
             this.events = []
             for (let index = 0; index < event.length; index++) {
-              if (this.event[index].leader == this.user[idx].keyUser) {
+              if (this.event[index].leader == this.user[idx].keyUser ) {
+                // || this.event[index].divisi.acara.crewEmail == this.users[index].email
+                // console.log(this.event[index].divisi.acara)
                 this.events.push(this.event[index]);
               }
+              this.checkDivisi(this.event[index].divisi)
             }
           });
         }
       }
     })
+  }
 
+  checkDivisi(arg0: any): any {
+    if(arg0!==undefined){
+      console.log(arg0)
+    }
+    //sudah sampai di sini, coba cari cara untuk ada atau engganya cek di sini
   }
 
   //tambah baru ini

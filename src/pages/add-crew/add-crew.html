@@ -19,7 +19,7 @@
       
       <ion-item>
         <ion-select placeholder="Pilih Crew" col-12 ngModel="{{user}}" name="namaCrew">
-          <ion-option *ngFor="let user of username" type="text" value="{{user}}">{{user}}</ion-option>
+          <ion-option *ngFor="let user of username" type="text" value="{{user.name}}">{{user.name}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>

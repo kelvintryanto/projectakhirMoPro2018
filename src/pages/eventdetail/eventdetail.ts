@@ -29,8 +29,7 @@ export class EventdetailPage implements OnInit{
     this.user=user;
     for (let idx = 0; idx < user.length; idx++) {
       if (this.eventDetail.leader == this.user[idx].keyUser ) {
-        this.eventDetail.leader = this.user[idx].username;
-        console.log(firebase.auth().currentUser)
+        this.nameLeader = this.user[idx].username;
       }
     }
    })

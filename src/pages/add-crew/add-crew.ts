@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -15,18 +15,21 @@ import { AngularFireDatabase } from '@angular/fire/database';
   selector: 'page-add-crew',
   templateUrl: 'add-crew.html',
 })
-export class AddCrewPage {
-  user = firebase.auth().currentUser;
-  event: any[];
-  events: any[] = []
+export class AddCrewPage implements OnInit {
+  
+  //users = firebase.auth().currentUser;
+  
   keyEvent: any;
   keyLeader: any;
+  user: any[];
+  username: any[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public database: AngularFireDatabase) {
     this.keyEvent = this.navParams.get('keyEvent')
     this.keyLeader = this.navParams.get('keyLeader')
     console.log('keyEvent = ' + this.keyEvent)
     console.log('keyLeader = ' + this.keyLeader)
+    console.log(this.username)
   }
 
   ionViewDidLoad() {
@@ -40,11 +43,27 @@ export class AddCrewPage {
 
   onKetua() {
     //CEK EVENT DALAM EVENT DATABASE
-    this.database.list('/event').valueChanges().subscribe(event => {
-      this.event = event;
-      this.events = []
-      for (let index = 0; index < event.length; index++) {
+    // this.database.list('/event').valueChanges().subscribe(event => {
+    //   this.event = event;
+    //   this.events = []
+    //   for (let index = 0; index < event.length; index++) {
         
+    //   }
+    // });
+  }
+
+  onAddCrew(){
+    
+  }
+
+  ngOnInit(){
+    this.database.list('/user').valueChanges().subscribe(user => {
+      this.user = user;
+      // this.user = []
+      for (let index=0; index < user.length; index++) {
+        console.log(this.user[index].username)
+        this.username = this.user[index].username;
+        this.username.push(this.username[index].username)
       }
     });
   }

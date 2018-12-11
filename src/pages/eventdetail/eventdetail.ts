@@ -31,6 +31,8 @@ export class EventdetailPage implements OnInit{
       if (this.eventDetail.leader == this.user[idx].keyUser ) {
         this.nameLeader = this.user[idx].username;
       }
+      
+      
     }
    })
     

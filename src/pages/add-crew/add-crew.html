@@ -16,16 +16,23 @@
 <ion-content padding>
     <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
         <ion-list>
-          <ion-item>
+          <!-- <ion-item>
             <ion-label floating>Name</ion-label>
             <ion-input type="text" name="CrewName" ngModel required></ion-input>
+          </ion-item> -->
+          <ion-item>
+            <!-- <ion-label>-Pilih Crew-</ion-label> -->
+            <ion-select  placeholder="Pilih Crew" col-12 name="namaCrew">
+              <ion-option type="text" *ngFor="let username of username" ngModel="{{username}}" ></ion-option>
+              <ion-option value="m">babi</ion-option>
+            </ion-select>
           </ion-item>
           <ion-item>
               <ion-label floating>Divisi</ion-label>
             <ion-input type="text" name="Divisi" ngModel required></ion-input>
           </ion-item>
           <ion-item>
-              <ion-label floating>Staff</ion-label>
+              <ion-label floating>Jabatan</ion-label>
             <ion-input type="text" name="Staff" ngModel required></ion-input>
           </ion-item>    
           

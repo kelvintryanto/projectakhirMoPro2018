@@ -43,7 +43,7 @@ export class EventdetailPage implements OnInit{
   ngOnInit(){
     this.eventDetail = this.navParams.get('eventDetail');
 
-    console.log(this.eventDetail)
+    // console.log(this.eventDetail)
   }
 
   onAddDivisi(keyLeader,keyEvent){

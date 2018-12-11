@@ -39,6 +39,7 @@ export class NewEventPage {
     this.database.list('/user').valueChanges().subscribe(user => {
       this.user = user;
       console.log(user);
+      //mengambil keyCurrent User untuk memasukkan keyLeader
       for (let idx = 0; idx < user.length; idx++) {
         if (this.user[idx].email == this.users.email) {
           this.keyLeader = this.user[idx].keyUser;

@@ -21,13 +21,13 @@
         <ion-input type="text" name="EventName" ngModel="{{editEvent.eventName}}" required></ion-input>
       </ion-item>
       <ion-row>
-        <ion-col col-6>
+        <ion-col col-6 no-padding>
           <ion-item>
             <ion-label stacked>Start Date</ion-label>
             <ion-datetime displayFormat="DD/MMM/YYYY" name="StartDate" ngModel="{{editEvent.startDate}}" required></ion-datetime>
           </ion-item>
         </ion-col>
-        <ion-col col-6>
+        <ion-col col-6 no-padding>
           <ion-item>
             <ion-label stacked>End Date</ion-label>
             <ion-datetime displayFormat="DD/MMM/YYYY" name="EndDate" ngModel="{{editEvent.endDate}}" required></ion-datetime>
@@ -35,13 +35,13 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col col-6>
+        <ion-col col-6 no-padding>
           <ion-item>
             <ion-label stacked>Start Time</ion-label>
             <ion-datetime displayFormat="HH:mm" name="StartTime" ngModel="{{editEvent.startTime}}" required></ion-datetime>
           </ion-item>
         </ion-col>
-        <ion-col col-6>
+        <ion-col col-6 no-padding>
           <ion-item>
             <ion-label stacked>End Time</ion-label>
             <ion-datetime displayFormat="HH:mm" name="EndTime" ngModel="{{editEvent.endTime}}" required></ion-datetime>
@@ -51,10 +51,12 @@
       <ion-item>
         <ion-label stacked>Location</ion-label>
         <ion-input type="text" name="Location" ngModel="{{editEvent.location}}" required></ion-input>
-        <ion-item>
-          <ion-label stacked>Event Description</ion-label>
-          <ion-textarea type="text" name="EventDescription" ngModel="{{editEvent.description}}" required></ion-textarea>
-        </ion-item>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Event Description</ion-label>
+        <ion-textarea type="text" name="EventDescription" ngModel="{{editEvent.description}}" required></ion-textarea>
+      </ion-item>
+      <ion-item>
         <button ion-button block type="submit" [disabled]="!f.valid">Update</button>
       </ion-item>
     </ion-list>

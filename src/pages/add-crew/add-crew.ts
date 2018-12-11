@@ -16,9 +16,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
   templateUrl: 'add-crew.html',
 })
 export class AddCrewPage implements OnInit {
-  
-  //users = firebase.auth().currentUser;
-  
+  currentUser = firebase.auth().currentUser;
   keyEvent: any;
   keyLeader: any;
   user: any[];
@@ -29,7 +27,6 @@ export class AddCrewPage implements OnInit {
     this.keyLeader = this.navParams.get('keyLeader')
     console.log('keyEvent = ' + this.keyEvent)
     console.log('keyLeader = ' + this.keyLeader)
-    console.log(this.username)
   }
 
   ionViewDidLoad() {
@@ -61,10 +58,11 @@ export class AddCrewPage implements OnInit {
       this.user = user;
       // this.user = []
       for (let index=0; index < user.length; index++) {
-        console.log(this.user[index].username)
-        this.username = this.user[index].username;
-        this.username.push(this.username[index].username)
+        if(this.currentUser.email != this.user[index].email){
+          this.username.push(this.user[index].username)
+        }        
       }
+      console.log(this.username)
     });
   }
 }

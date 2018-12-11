@@ -22,9 +22,8 @@
           </ion-item> -->
           <ion-item>
             <!-- <ion-label>-Pilih Crew-</ion-label> -->
-            <ion-select  placeholder="Pilih Crew" col-12 name="namaCrew">
-              <ion-option type="text" *ngFor="let username of username" ngModel="{{username}}" ></ion-option>
-              <ion-option value="m">babi</ion-option>
+            <ion-select placeholder="Pilih Crew" col-12 name="namaCrew">
+              <ion-option *ngFor="let user of username" type="text">{{user}}</ion-option>
             </ion-select>
           </ion-item>
           <ion-item>

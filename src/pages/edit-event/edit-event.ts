@@ -15,7 +15,7 @@ import { UserPage } from '../user/user';
   templateUrl: 'edit-event.html',
 })
 export class EditEventPage {
-editEvent: any;
+  editEvent: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -26,8 +26,7 @@ editEvent: any;
 
   ngOnInit(){
     this.editEvent = this.navParams.get('editEvent');
-
-    console.log(this.editEvent)
+    console.log(this.editEvent.eventName)
   }
 
   onUpdate(event){

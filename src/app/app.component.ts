@@ -8,17 +8,8 @@ import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/AuthService';
-// import { AboutusPage } from '../pages/aboutus/aboutus';
-//import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
-// import { EditEventPage } from '../pages/edit-event/edit-event';
-// import { ExamplePage } from '../pages/example/example';
-// import { EventdetailPage } from '../pages/eventdetail/eventdetail';
-// import { AddCrewPage } from '../pages/add-crew/add-crew';
-//import { ResetpassPage } from '../pages/resetpass/resetpass';
-// import { LandingpagePage } from '../pages/landingpage/landingpage';
-// import { FormPage } from '../pages/form/form';
-//  import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
- import { UserPage } from '../pages/user/user';
+import { UserPage } from '../pages/user/user';
+import { AboutusPage } from '../pages/aboutus/aboutus';
 @Component({
   templateUrl: 'app.html'
 })
@@ -26,6 +17,7 @@ export class MyApp {
   rootPage:any = HomePage; //HomePage
   loginPage:any = LoginPage;
   ResetpassPage:any = ResetpassPage;
+  aboutusPage:any = AboutusPage;
 
   @ViewChild('sideMenuContent') navCtrl: NavController;
 
@@ -74,7 +66,8 @@ export class MyApp {
   }
 
   aboutus(){
-    this.navCtrl.push(AboutusPage)
+    this.navCtrl.setRoot(AboutusPage)
+    this.menuCtrl.close();
   }
 
   changePass(){

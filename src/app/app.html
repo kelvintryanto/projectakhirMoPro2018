@@ -7,11 +7,15 @@
 
     <ion-content>
         <ion-list>
+            <button ion-item (click)="onLoad(rootPage)">
+                <ion-icon name="home" item-left></ion-icon>
+                Home Page
+            </button>
             <button ion-item (click)="changePass()">
                 <ion-icon name="key" item-left></ion-icon>
                 Change Password
             </button>
-            <button ion-item (click)="aboutus()">
+            <button ion-item (click)="onLoad(aboutusPage)">
                 <ion-icon name="information-circle" item-left></ion-icon>
                 About Us
             </button>

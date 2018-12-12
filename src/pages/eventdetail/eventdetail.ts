@@ -21,7 +21,8 @@ export class EventdetailPage implements OnInit{
   eventDetail: any;
   user: any[];
   nameLeader: any;
-
+  period: any;
+  time: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase) {
     //merubah nama leader dalam event detail
     database.list('/user').valueChanges().subscribe(user=>{
@@ -41,6 +42,20 @@ export class EventdetailPage implements OnInit{
 
   ngOnInit(){
     this.eventDetail = this.navParams.get('eventDetail');
+    if(this.eventDetail.startDate==this.eventDetail.endDate){
+      this.period=this.eventDetail.startDate;
+    }else{
+      this.period=this.eventDetail.startDate+"  -  "+this.eventDetail.endDate
+    }
+    
+    this.eventDetail = this.navParams.get('eventDetail');
+    if(this.eventDetail.startTime==this.eventDetail.endTime){
+      this.time=this.eventDetail.startTime;
+    }else{
+      this.time=this.eventDetail.startTime+"  -  "+this.eventDetail.endTime
+    }
+
+
 
     // console.log(this.eventDetail)
   }

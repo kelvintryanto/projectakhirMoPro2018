@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-
 import { IonicPage, NavController, ToastController, NavParams, ListHeader } from 'ionic-angular';
-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 //import { FormControl, FormArray } from '@angular/forms/src/model';
 //import { Validators } from '@angular/forms/src/validators';
-// import { HomePage } from '../home/home';
+//import { HomePage } from '../home/home';
 import { UserPage } from '../user/user';
 import firebase from 'firebase';
 import { Time } from '@angular/common';

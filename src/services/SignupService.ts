@@ -13,7 +13,6 @@ export class SignupService{
             username: username,
             email: email,
             phonenumber: phonenumber
-        });
-        
+        });        
     }
    }

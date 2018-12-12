@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
 import { AngularFireDatabase } from '@angular/fire/database'
 import { EventdetailPage } from '../eventdetail/eventdetail';
 import firebase from 'firebase';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { EditEventPage } from '../edit-event/edit-event';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -26,7 +28,8 @@ import firebase from 'firebase';
   templateUrl: 'user.html',
 })
 export class UserPage {
-  events: any[];
+  events: any[] = [];
+  event: any[];
   users = firebase.auth().currentUser;
   user: any[];
 
@@ -42,24 +45,43 @@ export class UserPage {
   //  });
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public database: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public authService: AuthService, 
+    public database: AngularFireDatabase,
+    public alertCtrl:AlertController) {
+
+    //ini untuk narik data user
     database.list('/user').valueChanges().subscribe(user => {
       this.user = user;
-      console.log(this.users.email);
-      console.log(user);
       for (let idx = 0; idx < user.length; idx++) {
         if (this.users.email == this.user[idx].email) {
+          //CEK EVENT DALAM EVENT DATABASE  
           database.list('/event').valueChanges().subscribe(event => {
-            console.log(this.user[idx].username)
+            this.event = event;
+            // console.log(this.event)
+            this.events = []
+            for (let index = 0; index < event.length; index++) {
+              if (this.event[index].leader == this.user[idx].keyUser ) {
+                // || this.event[index].divisi.acara.crewEmail == this.users[index].email
+                // console.log(this.event[index].divisi.acara)
+                this.events.push(this.event[index]);
+              }
+              if(this.user[idx].email == this.checkDivisi(this.event[index].divisi)){
+                this.events.push(this.event[index])
+              }
+            }
           });
-          
         }
       }
     })
-    database.list('/event').valueChanges().subscribe(event => {
-      this.events = event;
-    });
+  }
 
+  checkDivisi(arg0: any): any {
+    if(arg0!==undefined){
+      return arg0.acara.crewEmail
+    }
+    //sudah sampai di sini, coba cari cara untuk ada atau engganya cek di sini
   }
 
   //tambah baru ini
@@ -80,11 +102,42 @@ export class UserPage {
     this.navCtrl.push(NewEventPage);
   }
 
-  removeItem(event) {
-
-  }
-
   detailEvent(event) {
     this.navCtrl.push(EventdetailPage, { eventDetail: event })
   }
+
+  onDeleteItem(event){
+    let alert = this.alertCtrl.create({
+      title: 'Delete Event?',
+      message: 'Are you sure want to delete this event?',
+      buttons:[
+        {
+          text: 'Yes',
+          handler: () => {
+            firebase.database().ref().child('event').child(event.keyEvent).remove();
+            // console.log(event.keyEvent)
+          }
+        },
+        {
+          text: 'No',
+          role: 'cancel',
+          handler: () => {
+            console.log('no clicked')
+          }
+        }
+      ]
+    })
+    alert.present()
+
+    console.log(event)
+  }
+
+  onEditItem(event){
+    this.navCtrl.push(EditEventPage, { editEvent: event });
+    console.log(event);
+  }
+
+  //tambahkan onLeader() return true or false untuk ngIf
+  //kalo dy ketua baru bisa delete kalo engga, ga bisa delete, ga bisa edit juga
+  //tambahkan "you are on divisi ??? menggantikan button"
 }

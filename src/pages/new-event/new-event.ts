@@ -9,7 +9,7 @@ import { UserPage } from '../user/user';
 import firebase from 'firebase';
 import { Time } from '@angular/common';
 import { AngularFireDatabase } from '@angular/fire/database';
-import * as moment from 'moment';
+// import * as moment from 'moment';
 
 /**
  * Generated class for the NewEventPage page.
@@ -47,19 +47,19 @@ export class NewEventPage {
     this.EndTime=b;
   }
 
-  tes1(time){
-    console.log('jalan StartTime')
-    if(!this.StartTime){
-      this.StartTime=moment().format();
-    }
-  }
+  // tes1(time){
+  //   console.log('jalan StartTime')
+  //   if(!this.StartTime){
+  //     this.StartTime=moment().format();
+  //   }
+  // }
 
-  tes2(time){
-    console.log('jalan EndTime')
-    if(!this.EndTime){
-      this.EndTime=moment().format();
-    }
-  }
+  // tes2(time){
+  //   console.log('jalan EndTime')
+  //   if(!this.EndTime){
+  //     this.EndTime=moment().format();
+  //   }
+  // }
 
 
   ionViewDidLoad() {
@@ -98,8 +98,8 @@ export class NewEventPage {
       eventName: EventName,
       startDate: StartDate,
       endDate: EndDate,
-      startTime: moment(StartTime).format('HH:mm'),
-      endTime: moment(EndTime).format('HH:mm'),
+      startTime: StartTime,
+      endTime: EndTime,
       location: location,
       description: EventDescription,
       leader: keyLeader

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AddToDoListPage } from '../add-to-do-list/add-to-do-list';
 
 /**
  * Generated class for the DetailDivisiPage page.
@@ -22,4 +23,7 @@ export class DetailDivisiPage {
     console.log('ionViewDidLoad DetailDivisiPage');
   }
 
+  newToDoList(){
+    this.navCtrl.push(AddToDoListPage);
+  }
 }

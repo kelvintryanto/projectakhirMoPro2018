@@ -32,7 +32,6 @@ export class NewEventPage {
   EndTime:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public database: AngularFireDatabase, public toastController: ToastController) {
-    
     console.log(this.StartTime);
   }
   Start(a){

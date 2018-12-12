@@ -9,6 +9,7 @@ import firebase from 'firebase';
 import { Time } from '@angular/common';
 import { HomePage } from '../home/home';
 import { AngularFireDatabase } from '@angular/fire/database';
+import * as moment from 'moment';
 
 /**
  * Generated class for the NewEventPage page.
@@ -85,4 +86,10 @@ export class NewEventPage {
       EventDescription: new FormControl(null, Validators.required),
     });
   }
+
+  // myDate:any = new Date().toISOString();
+  // myDate.setMinute(myDate.getMinutes() - myDate.getTimezoneOffset());
+  // var now = moment();
+  // this.myDate = moment (now.format(), moment.ISO_8601).format();
+
 }

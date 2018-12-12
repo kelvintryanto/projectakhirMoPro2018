@@ -6,7 +6,6 @@ import { NewEventPage } from '../new-event/new-event';
 import { AngularFireDatabase } from '@angular/fire/database'
 import { EventdetailPage } from '../eventdetail/eventdetail';
 import firebase from 'firebase';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { EditEventPage } from '../edit-event/edit-event';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
@@ -67,7 +66,9 @@ export class UserPage {
                 // console.log(this.event[index].divisi.acara)
                 this.events.push(this.event[index]);
               }
+              //ini untuk cek apakah currentUser diinvite oleh orang lain
               if(this.user[idx].email == this.checkDivisi(this.event[index].divisi)){
+                //kalau ada masukkan di daftar events untuk ditampilkan
                 this.events.push(this.event[index])
               }
             }
@@ -77,9 +78,14 @@ export class UserPage {
     })
   }
 
-  checkDivisi(arg0: any): any {
-    if(arg0!==undefined){
-      return arg0.acara.crewEmail
+  //checkDivisi adalah fungsi yang menerima semua divisi yang ada di dalam event
+  //undefined berarti ga ada folder yang namanya divisi
+  checkDivisi(divisi: any): any {
+    //cek kalo divisinya ada baru tampilkan !== artinya ga kosong
+    if(divisi!==undefined){
+      console.log(divisi)
+      return divisi.acara
+      
     }
     //sudah sampai di sini, coba cari cara untuk ada atau engganya cek di sini
   }

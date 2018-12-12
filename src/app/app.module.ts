@@ -23,6 +23,7 @@ import { ExamplePage } from '../pages/example/example';
 import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire/firebase.app.module'
+import { DetailDivisiPage } from '../pages/detail-divisi/detail-divisi';
 
 var config = {
   apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
@@ -49,7 +50,8 @@ var config = {
     EditEventPage,
     AddCrewPage,
     AddToDoListPage,
-    ExamplePage    
+    ExamplePage,
+    DetailDivisiPage
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,8 @@ var config = {
     EditEventPage,
     AddCrewPage,
     AddToDoListPage,
-    ExamplePage
+    ExamplePage,
+    DetailDivisiPage
 
   ],
   providers: [

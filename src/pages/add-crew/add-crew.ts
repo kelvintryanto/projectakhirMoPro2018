@@ -52,7 +52,7 @@ export class AddCrewPage implements OnInit {
       divisi : crew.divisi
     })
     
-    // this.navCtrl.pop();
+     this.navCtrl.pop();
   }
 
   

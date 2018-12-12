@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { database } from 'firebase';
 import { AuthService } from '../../services/AuthService';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AddCrewPage } from '../add-crew/add-crew';
-import firebase from 'firebase';
+import { DetailDivisiPage } from '../detail-divisi/detail-divisi';
 
 /**
  * Generated class for the EventdetailPage page.
@@ -30,7 +29,7 @@ export class EventdetailPage implements OnInit{
     for (let idx = 0; idx < user.length; idx++) {
       if (this.eventDetail.leader == this.user[idx].keyUser ) {
         this.nameLeader = this.user[idx].username;
-      }      
+      }
     }
    })
     
@@ -48,5 +47,10 @@ export class EventdetailPage implements OnInit{
 
   onAddDivisi(keyLeader,keyEvent){
     this.navCtrl.push(AddCrewPage,{ keyLeader:keyLeader, keyEvent:keyEvent });
+  }
+
+  //terima parameter detail divisi yang berisi nama divisi, to-do-list dan crew-list
+  divisiDetail(){
+    this.navCtrl.push(DetailDivisiPage)
   }
 }

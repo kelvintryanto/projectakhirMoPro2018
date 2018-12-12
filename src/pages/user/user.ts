@@ -71,6 +71,7 @@ export class UserPage {
               if(this.user[idx].email == this.checkDivisi(this.event[index].divisi)){
                 //kalau ada masukkan di daftar events untuk ditampilkan
                 this.events.push(this.event[index])
+                console.log(this.checkDivisi(this.event[index].divisi))
               }
             }
           });
@@ -86,17 +87,41 @@ export class UserPage {
     if(divisi!==undefined){
       if(divisi.acara!==undefined){
         this.emailDivisi.push(divisi.acara.crewEmail);
+        console.log(this.emailDivisi)
       }
-      
-      return this.emailDivisi
-      
     }
+    // console.log(this.emailDivisi)
+    return this.emailDivisi
     //sudah sampai di sini, coba cari cara untuk ada atau engganya cek di sini
   }
 
   //tambah baru ini
   ngOnInit() {
-
+    // this.database.list('/user').valueChanges().subscribe(user => {
+    //   this.user = user;
+    //   for (let idx = 0; idx < user.length; idx++) {
+    //     if (this.users.email == this.user[idx].email) {
+    //       //CEK EVENT DALAM EVENT DATABASE  
+    //       this.database.list('/event').valueChanges().subscribe(event => {
+    //         this.event = event;
+    //         // console.log(this.event)
+    //         this.events = []
+    //         for (let index = 0; index < event.length; index++) {
+    //           if (this.event[index].leader == this.user[idx].keyUser ) {
+    //             // || this.event[index].divisi.acara.crewEmail == this.users[index].email
+    //             // console.log(this.event[index].divisi.acara)
+    //             this.events.push(this.event[index]);
+    //           }
+    //           //ini untuk cek apakah currentUser diinvite oleh orang lain
+    //           if(this.user[idx].email == this.checkDivisi(this.event[index].divisi)){
+    //             //kalau ada masukkan di daftar events untuk ditampilkan
+    //             this.events.push(this.event[index])
+    //           }
+    //         }
+    //       });
+    //     }
+    //   }
+    // })
   }
 
   ionViewDidLoad() {

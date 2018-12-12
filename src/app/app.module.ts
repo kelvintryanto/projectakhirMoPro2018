@@ -1,3 +1,4 @@
+import { AboutusPage } from './../pages/aboutus/aboutus';
 import { NewEventPage } from './../pages/new-event/new-event';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -25,6 +26,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire/firebase.app.module'
 import { DetailDivisiPage } from '../pages/detail-divisi/detail-divisi';
 
+
 var config = {
   apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
   authDomain: "ionic-firebase-e23e2.firebaseapp.com",
@@ -51,7 +53,8 @@ var config = {
     AddCrewPage,
     AddToDoListPage,
     ExamplePage,
-    DetailDivisiPage
+    DetailDivisiPage,
+    AboutusPage
   ],
   imports: [
     BrowserModule,
@@ -77,7 +80,8 @@ var config = {
     AddCrewPage,
     AddToDoListPage,
     ExamplePage,
-    DetailDivisiPage
+    DetailDivisiPage,
+    AboutusPage
 
   ],
   providers: [

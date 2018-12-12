@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
@@ -54,9 +54,13 @@ export class UserPage {
     public authService: AuthService, 
     public database: AngularFireDatabase,
     public alertCtrl:AlertController,
+    public loadingController:LoadingController,
     private domSanitizer:DomSanitizer) {
 
     //ini untuk narik data user
+
+    let fetchdataLoadingController = this.loadingController.create();
+    fetchdataLoadingController.present();
     database.list('/user').valueChanges().subscribe(user => {
       this.user = user;
       for (let idx = 0; idx < user.length; idx++) {
@@ -80,7 +84,7 @@ export class UserPage {
             }
           });
         }
-      }
+      } fetchdataLoadingController.dismiss();
     })
   }
 
@@ -102,24 +106,6 @@ export class UserPage {
   //tambah baru ini
   ngOnInit() {
 
-  }
-
-  getImage(image){
-    console.log('kemak')
-    
-    return this.storage.ref(image + '/pic.png').getDownloadURL().then((url)=>{
-      var xhr = new XMLHttpRequest();
-      xhr.responseType = 'blob';
-      xhr.onload = function(event) {
-        var blob = xhr.response;
-      };
-      xhr.open('GET', url);
-      xhr.send();
-
-      // Or inserted into an <img> element:
-      console.log(url)
-      return url;
-   })
   }
 
   ionViewDidLoad() {

@@ -13,6 +13,7 @@
   <ion-card *ngFor="let event of events; let i = index">
     <!-- <ion-card-sliding> -->
     <ion-card-content (click)="detailEvent(event)">
+      <img [src]="parseUrl(event.image)" />
       <ion-card-title style="text-align:left">
         {{event.eventName}}
       </ion-card-title>

@@ -5,9 +5,10 @@ import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
 import { AngularFireDatabase } from '@angular/fire/database'
 import { EventdetailPage } from '../eventdetail/eventdetail';
-import firebase from 'firebase';
+import firebase, { storage } from 'firebase';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { EditEventPage } from '../edit-event/edit-event';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -32,6 +33,8 @@ export class UserPage {
   event: any[];
   users = firebase.auth().currentUser;
   user: any[];
+  storage: any = firebase.storage();
+
 
   // nameApp;config(function($stateProvider, $urlRouterProvider) {
 
@@ -49,7 +52,8 @@ export class UserPage {
     public navParams: NavParams, 
     public authService: AuthService, 
     public database: AngularFireDatabase,
-    public alertCtrl:AlertController) {
+    public alertCtrl:AlertController,
+    private domSanitizer:DomSanitizer) {
 
     //ini untuk narik data user
     database.list('/user').valueChanges().subscribe(user => {
@@ -75,6 +79,24 @@ export class UserPage {
   //tambah baru ini
   ngOnInit() {
 
+  }
+
+  getImage(image){
+    console.log('kemak')
+    
+    return this.storage.ref(image + '/pic.png').getDownloadURL().then((url)=>{
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = function(event) {
+        var blob = xhr.response;
+      };
+      xhr.open('GET', url);
+      xhr.send();
+
+      // Or inserted into an <img> element:
+      console.log(url)
+      return url;
+   })
   }
 
   ionViewDidLoad() {
@@ -123,5 +145,9 @@ export class UserPage {
   onEditItem(event){
     this.navCtrl.push(EditEventPage);
     console.log(event);
+  }
+  parseUrl(url){
+    url="data:image/png;charset=utf-8;base64, "+url;
+    return this.domSanitizer.bypassSecurityTrustUrl(url);
   }
 }

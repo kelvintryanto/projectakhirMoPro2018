@@ -23,8 +23,11 @@ import { AddCrewPage } from '../pages/add-crew/add-crew';
 import { ExamplePage } from '../pages/example/example';
 import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireModule } from '@angular/fire/firebase.app.module'
+import { AngularFireModule } from '@angular/fire/firebase.app.module';
 import { from } from 'rxjs';
+import firebase from 'firebase';
+import { ImagePicker } from "@ionic-native/image-picker";
+import { Base64 } from '@ionic-native/base64';
 
 var config = {
   apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
@@ -34,7 +37,10 @@ var config = {
   storageBucket: "ionic-firebase-e23e2.appspot.com",
   messagingSenderId: "153360983849"
 };
-
+// if (!firebase.apps.length) {
+//   firebase.initializeApp({});
+// }
+// firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
@@ -86,7 +92,9 @@ var config = {
     AuthService,
     SignupService,
     AngularFireDatabase,
-    Camera
+    Camera,
+    ImagePicker,
+    Base64
   ]
 })
 export class AppModule {}

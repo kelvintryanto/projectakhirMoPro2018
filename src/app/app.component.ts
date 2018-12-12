@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/AuthService';
+import { AboutusPage } from '../pages/aboutus/aboutus';
 //import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
 // import { EditEventPage } from '../pages/edit-event/edit-event';
 // import { ExamplePage } from '../pages/example/example';

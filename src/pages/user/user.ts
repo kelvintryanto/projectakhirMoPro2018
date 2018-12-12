@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
@@ -7,6 +7,7 @@ import { AngularFireDatabase } from '@angular/fire/database'
 import { EventdetailPage } from '../eventdetail/eventdetail';
 import firebase from 'firebase';
 import { EditEventPage } from '../edit-event/edit-event';
+import { DomSanitizer} from '@angular/platform-browser';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -31,6 +32,8 @@ export class UserPage {
   event: any[];
   users = firebase.auth().currentUser;
   user: any[];
+  storage: any = firebase.storage();
+
   emailDivisi: any[] = [];
 
   // nameApp;config(function($stateProvider, $urlRouterProvider) {
@@ -49,9 +52,14 @@ export class UserPage {
     public navParams: NavParams, 
     public authService: AuthService, 
     public database: AngularFireDatabase,
-    public alertCtrl:AlertController) {
+    public alertCtrl:AlertController,
+    public loadingController:LoadingController,
+    private domSanitizer:DomSanitizer) {
 
     //ini untuk narik data user
+
+    let fetchdataLoadingController = this.loadingController.create();
+    fetchdataLoadingController.present();
     database.list('/user').valueChanges().subscribe(user => {
       this.user = user;
       for (let idx = 0; idx < user.length; idx++) {
@@ -76,7 +84,7 @@ export class UserPage {
             }
           });
         }
-      }
+      } fetchdataLoadingController.dismiss();
     })
   }
 
@@ -171,8 +179,12 @@ export class UserPage {
     this.navCtrl.push(EditEventPage, { editEvent: event });
     console.log(event);
   }
+  parseUrl(url){
+    url="data:image/png;charset=utf-8;base64, "+url;
+    return this.domSanitizer.bypassSecurityTrustUrl(url);
+  }
+}
 
   //tambahkan onLeader() return true or false untuk ngIf
   //kalo dy ketua baru bisa delete kalo engga, ga bisa delete, ga bisa edit juga
   //tambahkan "you are on divisi ??? menggantikan button"
-}

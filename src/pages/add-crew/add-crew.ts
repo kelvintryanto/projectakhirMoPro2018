@@ -19,9 +19,13 @@ export class AddCrewPage implements OnInit {
   currentUser = firebase.auth().currentUser;
   keyEvent: any;
   keyLeader: any;
+  keyDivisi: any;
+  keyCrew: any;
   user: any[];
+  userCrew:any[];
   username: any[] = [];
   email:any;
+  emailCrew: any;
   // user: any;
 
   constructor(private toastController: ToastController, public navCtrl: NavController, public navParams: NavParams, public database: AngularFireDatabase) {
@@ -36,12 +40,57 @@ export class AddCrewPage implements OnInit {
   }
 
   onSubmit(crew) { 
-    const crewRef = firebase.database().ref().child('event').child(this.keyEvent).child('divisi').child(crew.divisi)
+    this.keyDivisi = firebase.database().ref().child('event').child(this.keyEvent).child('divisi').push().key;
+    const crewRef = firebase.database().ref().child('event').child(this.keyEvent).child('divisi').child(this.keyDivisi)
+
+    this.database.list('/user').valueChanges().subscribe(user=>{
+      this.userCrew = user;
+      for(let idx=0;idx<user.length;idx++){
+        if(this.userCrew[idx]==crew.namaCrew){
+          this.userCrew[idx].keyUser
+          this.keyCrew = this.user[idx].keyUser
+          this.emailCrew = this.user[idx].email
+        }
+      }
+    })
     
+    if(crewRef!==undefined){
+      console.log("masuk tidak undefined")
+      crewRef.update({
+        namaDivisi: crew.divisi,
+        keyDivisi: this.keyDivisi,
+        toDoList: null,
+        progress: null,
+        crew: {
+          keyCrew: this.keyCrew,
+          namaCrew: crew.namaCrew,
+          emailCrew: this.emailCrew,
+          jabatanCrew: crew.position
+        }
+      })
+    }
+    else{
+      console.log("masuk undefined")
+      crewRef.set({
+        namaDivisi: crew.divisi,
+        keyDivisi: this.keyDivisi,
+        toDoList: null,
+        progress: null,
+        crew: {
+          keyCrew: this.keyCrew,
+          namaCrew: crew.namaCrew,
+          emailCrew: this.emailCrew,
+          jabatanCrew: crew.position
+        }
+      })
+    }
+    
+
     console.log(crew)
     console.log(this.username)
     for(let idx=0;idx<this.username.length;idx++){
       if(crew.namaCrew==this.username[idx].name){
+        // mengambil email jika usernamenya sama dengan yang ada dengan inputan user
         console.log(this.username[idx].email)
         this.email = this.username[idx].email;
 
@@ -50,14 +99,13 @@ export class AddCrewPage implements OnInit {
           duration: 3000
         })
         addTodoToast.present();
-
       }
     }
 
-    crewRef.set({
-      crewEmail : this.email,
-      divisi : crew.divisi
-    })
+    // crewRef.set({
+    //   crewEmail : this.email,
+    //   divisi : crew.divisi
+    // })
     
      this.navCtrl.pop();
   }

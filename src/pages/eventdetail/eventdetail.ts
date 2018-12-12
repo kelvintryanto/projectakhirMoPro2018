@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { database } from 'firebase';
 import { AuthService } from '../../services/AuthService';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AddCrewPage } from '../add-crew/add-crew';
-import firebase from 'firebase';
 
 /**
  * Generated class for the EventdetailPage page.
@@ -30,7 +28,7 @@ export class EventdetailPage implements OnInit{
     for (let idx = 0; idx < user.length; idx++) {
       if (this.eventDetail.leader == this.user[idx].keyUser ) {
         this.nameLeader = this.user[idx].username;
-      }      
+      }
     }
    })
     

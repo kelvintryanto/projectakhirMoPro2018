@@ -1,3 +1,4 @@
+import { AboutusPage } from './../pages/aboutus/aboutus';
 import { NewEventPage } from './../pages/new-event/new-event';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -28,6 +29,8 @@ import { from } from 'rxjs';
 import firebase from 'firebase';
 import { ImagePicker } from "@ionic-native/image-picker";
 import { Base64 } from '@ionic-native/base64';
+import { DetailDivisiPage } from '../pages/detail-divisi/detail-divisi';
+
 
 var config = {
   apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
@@ -57,7 +60,9 @@ var config = {
     EditEventPage,
     AddCrewPage,
     AddToDoListPage,
-    ExamplePage    
+    ExamplePage,
+    DetailDivisiPage,
+    AboutusPage
   ],
   imports: [
     BrowserModule,
@@ -71,6 +76,7 @@ var config = {
   entryComponents: [
     MyApp,
     HomePage,
+    AboutusPage,
     FormPage,
     LoginPage,
     LandingpagePage,
@@ -82,7 +88,9 @@ var config = {
     EditEventPage,
     AddCrewPage,
     AddToDoListPage,
-    ExamplePage
+    ExamplePage,
+    DetailDivisiPage
+    
 
   ],
   providers: [

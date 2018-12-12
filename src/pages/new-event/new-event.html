@@ -18,7 +18,6 @@
       <ion-item>
         <ion-input type="text" placeholder="Event Name" name="EventName" ngModel required></ion-input>
       </ion-item>
-
       <ion-row>
         <ion-col col-6>
           <ion-item>
@@ -31,16 +30,17 @@
           </ion-item>
         </ion-col>
       </ion-row>
-
       <ion-row>
         <ion-col col-6>
           <ion-item>
-            <ion-datetime type="Date" displayFormat="HH:mm" placeholder="Start Time" name="StartTime" ngModel required></ion-datetime>
+            <ion-datetime type="Date" displayFormat="HH:mm" placeholder="Start Time" name="StartTime" required></ion-datetime>
+            <!-- [(ngModel)]="StartTime" (ngModelChange)="Start(StartTime)" (tap)="tes1(StartTime)" -->
           </ion-item>
         </ion-col>
         <ion-col col-6>
           <ion-item>
-            <ion-datetime type="Date" displayFormat="HH:mm" placeholder="End Time" name="EndTime" ngModel required></ion-datetime>
+            <ion-datetime type="Date" displayFormat="HH:mm" placeholder="End Time" name="EndTime" required></ion-datetime>
+            <!-- [(ngModel)]="EndTime" (ngModelChange)="End(EndTime)" (tap)="tes2(EndTime)" -->
           </ion-item>
         </ion-col>
       </ion-row>

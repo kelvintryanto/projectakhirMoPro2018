@@ -5,6 +5,7 @@ import { SignupFormPage } from "../signup-form/signup-form";
 import { AuthService } from "../../services/AuthService";
 import { UserPage } from "../user/user";
 import firebase from "firebase";
+import { FormGroup } from "@angular/forms";
 
 /**
  * Generated class for the LoginPage page.
@@ -19,6 +20,7 @@ import firebase from "firebase";
   templateUrl: "login.html"
 })
 export class LoginPage {
+  ngForm: FormGroup;
   email: string;
   password: string;
   user = firebase.auth().currentUser;
@@ -45,10 +47,10 @@ export class LoginPage {
     this.navCtrl.push(SignupFormPage);
   }
 
-  goToLanding() {
+  goToLanding(f) {
     let movepageLoadingController = this.loadingCtrl.create();
     movepageLoadingController.present();
-    this.authService.signin(this.email, this.password).then(data =>{
+    this.authService.signin(f.email, f.password).then(data =>{
       console.log('Login Success');
       if(this.user!=null){
         this.navCtrl.setRoot(UserPage);

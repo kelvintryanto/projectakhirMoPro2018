@@ -35,6 +35,7 @@ export class UserPage {
   user: any[];
   storage: any = firebase.storage();
 
+  emailDivisi: any[] = [];
 
   // nameApp;config(function($stateProvider, $urlRouterProvider) {
 
@@ -63,17 +64,39 @@ export class UserPage {
           //CEK EVENT DALAM EVENT DATABASE  
           database.list('/event').valueChanges().subscribe(event => {
             this.event = event;
+            // console.log(this.event)
             this.events = []
             for (let index = 0; index < event.length; index++) {
-              if (this.event[index].leader == this.user[idx].keyUser) {
+              if (this.event[index].leader == this.user[idx].keyUser ) {
+                // || this.event[index].divisi.acara.crewEmail == this.users[index].email
+                // console.log(this.event[index].divisi.acara)
                 this.events.push(this.event[index]);
+              }
+              //ini untuk cek apakah currentUser diinvite oleh orang lain
+              if(this.user[idx].email == this.checkDivisi(this.event[index].divisi)){
+                //kalau ada masukkan di daftar events untuk ditampilkan
+                this.events.push(this.event[index])
               }
             }
           });
         }
       }
     })
+  }
 
+  //checkDivisi adalah fungsi yang menerima semua divisi yang ada di dalam event
+  //undefined berarti ga ada folder yang namanya divisi
+  checkDivisi(divisi: any): any {
+    //cek kalo divisinya ada baru tampilkan !== artinya ga kosong
+    if(divisi!==undefined){
+      if(divisi.acara!==undefined){
+        this.emailDivisi.push(divisi.acara.crewEmail);
+      }
+      
+      return this.emailDivisi
+      
+    }
+    //sudah sampai di sini, coba cari cara untuk ada atau engganya cek di sini
   }
 
   //tambah baru ini
@@ -143,7 +166,7 @@ export class UserPage {
   }
 
   onEditItem(event){
-    this.navCtrl.push(EditEventPage);
+    this.navCtrl.push(EditEventPage, { editEvent: event });
     console.log(event);
   }
   parseUrl(url){
@@ -151,3 +174,7 @@ export class UserPage {
     return this.domSanitizer.bypassSecurityTrustUrl(url);
   }
 }
+
+  //tambahkan onLeader() return true or false untuk ngIf
+  //kalo dy ketua baru bisa delete kalo engga, ga bisa delete, ga bisa edit juga
+  //tambahkan "you are on divisi ??? menggantikan button"

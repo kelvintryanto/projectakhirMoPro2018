@@ -68,6 +68,7 @@ var config = {
   entryComponents: [
     MyApp,
     HomePage,
+    AboutusPage,
     FormPage,
     LoginPage,
     LandingpagePage,
@@ -80,8 +81,8 @@ var config = {
     AddCrewPage,
     AddToDoListPage,
     ExamplePage,
-    DetailDivisiPage,
-    AboutusPage
+    DetailDivisiPage
+    
 
   ],
   providers: [

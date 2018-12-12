@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireDatabase } from '@angular/fire/database';
 
@@ -24,7 +24,7 @@ export class AddCrewPage implements OnInit {
   email:any;
   // user: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public database: AngularFireDatabase) {
+  constructor(private toastController: ToastController, public navCtrl: NavController, public navParams: NavParams, public database: AngularFireDatabase) {
     this.keyEvent = this.navParams.get('keyEvent')
     this.keyLeader = this.navParams.get('keyLeader')
     // console.log('keyEvent = ' + this.keyEvent)
@@ -44,6 +44,13 @@ export class AddCrewPage implements OnInit {
       if(crew.namaCrew==this.username[idx].name){
         console.log(this.username[idx].email)
         this.email = this.username[idx].email;
+
+        let addTodoToast= this.toastController.create({
+          message:"Hurray! Your Event is Added!",
+          duration: 3000
+        })
+        addTodoToast.present();
+        
       }
     }
 

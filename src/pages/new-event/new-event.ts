@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { IonicPage, NavController, ToastController, NavParams, ListHeader } from 'ionic-angular';
+=======
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+>>>>>>> 7d507d15c078546e486d84454a9bd9878d586fba
 =======
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 >>>>>>> 7d507d15c078546e486d84454a9bd9878d586fba

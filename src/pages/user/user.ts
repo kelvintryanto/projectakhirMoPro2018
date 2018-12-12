@@ -84,7 +84,9 @@ export class UserPage {
   checkDivisi(divisi: any): any {
     //cek kalo divisinya ada baru tampilkan !== artinya ga kosong
     if(divisi!==undefined){
-      this.emailDivisi.push(divisi.acara.crewEmail);
+      if(divisi.acara!==undefined){
+        this.emailDivisi.push(divisi.acara.crewEmail);
+      }
       
       return this.emailDivisi
       

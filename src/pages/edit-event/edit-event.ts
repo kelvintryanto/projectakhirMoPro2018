@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { UserPage } from '../user/user';
 import firebase from 'firebase';
 
@@ -18,7 +18,7 @@ import firebase from 'firebase';
 export class EditEventPage {
   editEvent: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private toastController: ToastController, public navCtrl: NavController, public navParams: NavParams) {
 
 
   }
@@ -46,5 +46,11 @@ export class EditEventPage {
     });
 
     this.navCtrl.setRoot(UserPage)
+
+    let addTodoToast= this.toastController.create({
+      message:"Hurray! Your Event is Updated!",
+      duration: 3000
+    })
+    addTodoToast.present();
   }
 }

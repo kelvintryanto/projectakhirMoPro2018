@@ -4,6 +4,7 @@ import { database } from 'firebase';
 import { AuthService } from '../../services/AuthService';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AddCrewPage } from '../add-crew/add-crew';
+import firebase from 'firebase';
 
 /**
  * Generated class for the EventdetailPage page.
@@ -19,8 +20,19 @@ import { AddCrewPage } from '../add-crew/add-crew';
 })
 export class EventdetailPage implements OnInit{
   eventDetail: any;
+  user: any[];
+  nameLeader: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase) {
+    //merubah nama leader dalam event detail
+    database.list('/user').valueChanges().subscribe(user=>{
+    this.user=user;
+    for (let idx = 0; idx < user.length; idx++) {
+      if (this.eventDetail.leader == this.user[idx].keyUser ) {
+        this.nameLeader = this.user[idx].username;
+      }      
+    }
+   })
     
   }
 
@@ -31,7 +43,7 @@ export class EventdetailPage implements OnInit{
   ngOnInit(){
     this.eventDetail = this.navParams.get('eventDetail');
 
-    console.log(this.eventDetail)
+    // console.log(this.eventDetail)
   }
 
   onAddDivisi(keyLeader,keyEvent){

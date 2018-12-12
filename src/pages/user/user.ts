@@ -59,17 +59,29 @@ export class UserPage {
           //CEK EVENT DALAM EVENT DATABASE  
           database.list('/event').valueChanges().subscribe(event => {
             this.event = event;
+            // console.log(this.event)
             this.events = []
             for (let index = 0; index < event.length; index++) {
-              if (this.event[index].leader == this.user[idx].keyUser) {
+              if (this.event[index].leader == this.user[idx].keyUser ) {
+                // || this.event[index].divisi.acara.crewEmail == this.users[index].email
+                // console.log(this.event[index].divisi.acara)
                 this.events.push(this.event[index]);
+              }
+              if(this.user[idx].email == this.checkDivisi(this.event[index].divisi)){
+                this.events.push(this.event[index])
               }
             }
           });
         }
       }
     })
+  }
 
+  checkDivisi(arg0: any): any {
+    if(arg0!==undefined){
+      return arg0.acara.crewEmail
+    }
+    //sudah sampai di sini, coba cari cara untuk ada atau engganya cek di sini
   }
 
   //tambah baru ini
@@ -90,10 +102,6 @@ export class UserPage {
     this.navCtrl.push(NewEventPage);
   }
 
-  removeItem(event) {
-
-  }
-
   detailEvent(event) {
     this.navCtrl.push(EventdetailPage, { eventDetail: event })
   }
@@ -106,7 +114,8 @@ export class UserPage {
         {
           text: 'Yes',
           handler: () => {
-            console.log('yes clicked')
+            firebase.database().ref().child('event').child(event.keyEvent).remove();
+            // console.log(event.keyEvent)
           }
         },
         {
@@ -124,7 +133,11 @@ export class UserPage {
   }
 
   onEditItem(event){
-    this.navCtrl.push(EditEventPage);
+    this.navCtrl.push(EditEventPage, { editEvent: event });
     console.log(event);
   }
+
+  //tambahkan onLeader() return true or false untuk ngIf
+  //kalo dy ketua baru bisa delete kalo engga, ga bisa delete, ga bisa edit juga
+  //tambahkan "you are on divisi ??? menggantikan button"
 }

@@ -25,8 +25,6 @@ import { ExamplePage } from '../pages/example/example';
 import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire/firebase.app.module';
-import { from } from 'rxjs';
-import firebase from 'firebase';
 import { ImagePicker } from "@ionic-native/image-picker";
 import { Base64 } from '@ionic-native/base64';
 import { DetailDivisiPage } from '../pages/detail-divisi/detail-divisi';

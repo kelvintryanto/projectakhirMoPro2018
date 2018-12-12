@@ -9,10 +9,7 @@ import { UserPage } from '../user/user';
 import firebase from 'firebase';
 import { Time } from '@angular/common';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camera'
-import { from } from 'rxjs';
-import { ImagePicker } from '@ionic-native/image-picker';
-import { Base64 } from '@ionic-native/base64';
+import { Camera } from '@ionic-native/camera'
 import * as moment from 'moment';
 
 /**
@@ -41,9 +38,7 @@ export class NewEventPage {
   StartTime:any;
   EndTime:any;
 
-  constructor(public camera: Camera,
-    private imagePicker: ImagePicker, 
-    private base64: Base64, 
+  constructor(public camera: Camera, 
     public navCtrl: NavController, 
     public navParams: NavParams,
     public toastController: ToastController, 

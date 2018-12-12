@@ -5,10 +5,9 @@ import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
 import { AngularFireDatabase } from '@angular/fire/database'
 import { EventdetailPage } from '../eventdetail/eventdetail';
-import firebase, { storage } from 'firebase';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import firebase from 'firebase';
 import { EditEventPage } from '../edit-event/edit-event';
-import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { DomSanitizer} from '@angular/platform-browser';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -96,9 +95,10 @@ export class UserPage {
     if(divisi!==undefined){
       if(divisi.acara!==undefined){
         this.emailDivisi.push(divisi.acara.crewEmail);
+        console.log(this.emailDivisi)
       }
     }
-    console.log(this.emailDivisi)
+    // console.log(this.emailDivisi)
     return this.emailDivisi
     //sudah sampai di sini, coba cari cara untuk ada atau engganya cek di sini
   }

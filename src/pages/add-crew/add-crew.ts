@@ -46,11 +46,11 @@ export class AddCrewPage implements OnInit {
         this.email = this.username[idx].email;
 
         let addTodoToast= this.toastController.create({
-          message:"Hurray! Your Event is Added!",
+          message:"Crew Added!",
           duration: 3000
         })
         addTodoToast.present();
-        
+
       }
     }
 

@@ -73,6 +73,10 @@ export class MyApp {
     this.menuCtrl.close();
   }
 
+  aboutus(){
+    this.navCtrl.push(AboutusPage)
+  }
+
   changePass(){
     // this.authService.logout();
     this.navCtrl.push(ResetpassPage);

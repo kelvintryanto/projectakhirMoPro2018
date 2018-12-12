@@ -16,8 +16,8 @@ import { AuthService } from '../services/AuthService';
 //import { ResetpassPage } from '../pages/resetpass/resetpass';
 // import { LandingpagePage } from '../pages/landingpage/landingpage';
 // import { FormPage } from '../pages/form/form';
+//  import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
  import { UserPage } from '../pages/user/user';
- import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
 @Component({
   templateUrl: 'app.html'
 })

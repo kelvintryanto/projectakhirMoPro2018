@@ -6,7 +6,6 @@ import { NewEventPage } from '../new-event/new-event';
 import { AngularFireDatabase } from '@angular/fire/database'
 import { EventdetailPage } from '../eventdetail/eventdetail';
 import firebase from 'firebase';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { EditEventPage } from '../edit-event/edit-event';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
@@ -79,7 +78,9 @@ export class UserPage {
 
   checkDivisi(arg0: any): any {
     if(arg0!==undefined){
-      return arg0.acara.crewEmail
+      console.log(arg0)
+      return arg0.acara
+      
     }
     //sudah sampai di sini, coba cari cara untuk ada atau engganya cek di sini
   }

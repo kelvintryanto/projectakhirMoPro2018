@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserPage } from '../user/user';
 
 /**
  * Generated class for the EditEventPage page.
@@ -22,4 +23,8 @@ export class EditEventPage {
     console.log('ionViewDidLoad EditEventPage');
   }
 
+  onUpdate(event){
+    console.log(event);
+    this.navCtrl.setRoot(UserPage)
+  }
 }

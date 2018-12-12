@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/AuthService';
 import { NewEventPage } from '../new-event/new-event';
 import { AngularFireDatabase } from '@angular/fire/database'
 import { EventdetailPage } from '../eventdetail/eventdetail';
 import firebase from 'firebase';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { EditEventPage } from '../edit-event/edit-event';
 // import {EventdetailPage } from '../eventdetail/eventdetail';
 // import firebase from 'firebase';
 
@@ -26,7 +28,8 @@ import firebase from 'firebase';
   templateUrl: 'user.html',
 })
 export class UserPage {
-  events: any[];
+  events: any[] = [];
+  event: any[];
   users = firebase.auth().currentUser;
   user: any[];
 
@@ -42,23 +45,30 @@ export class UserPage {
   //  });
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public database: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public authService: AuthService, 
+    public database: AngularFireDatabase,
+    public alertCtrl:AlertController) {
+
+    //ini untuk narik data user
     database.list('/user').valueChanges().subscribe(user => {
       this.user = user;
-      console.log(this.users.email);
-      console.log(user);
       for (let idx = 0; idx < user.length; idx++) {
         if (this.users.email == this.user[idx].email) {
+          //CEK EVENT DALAM EVENT DATABASE  
           database.list('/event').valueChanges().subscribe(event => {
-            console.log(this.user[idx].username)
+            this.event = event;
+            this.events = []
+            for (let index = 0; index < event.length; index++) {
+              if (this.event[index].leader == this.user[idx].keyUser) {
+                this.events.push(this.event[index]);
+              }
+            }
           });
-          
         }
       }
     })
-    database.list('/event').valueChanges().subscribe(event => {
-      this.events = event;
-    });
 
   }
 
@@ -86,5 +96,35 @@ export class UserPage {
 
   detailEvent(event) {
     this.navCtrl.push(EventdetailPage, { eventDetail: event })
+  }
+
+  onDeleteItem(event){
+    let alert = this.alertCtrl.create({
+      title: 'Delete Event?',
+      message: 'Are you sure want to delete this event?',
+      buttons:[
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('yes clicked')
+          }
+        },
+        {
+          text: 'No',
+          role: 'cancel',
+          handler: () => {
+            console.log('no clicked')
+          }
+        }
+      ]
+    })
+    alert.present()
+
+    console.log(event)
+  }
+
+  onEditItem(event){
+    this.navCtrl.push(EditEventPage);
+    console.log(event);
   }
 }

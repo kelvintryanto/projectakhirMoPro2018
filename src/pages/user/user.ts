@@ -31,6 +31,7 @@ export class UserPage {
   event: any[];
   users = firebase.auth().currentUser;
   user: any[];
+  emailDivisi: any[] = [];
 
   // nameApp;config(function($stateProvider, $urlRouterProvider) {
 
@@ -83,8 +84,9 @@ export class UserPage {
   checkDivisi(divisi: any): any {
     //cek kalo divisinya ada baru tampilkan !== artinya ga kosong
     if(divisi!==undefined){
-      console.log(divisi)
-      return divisi.acara
+      this.emailDivisi.push(divisi.acara.crewEmail);
+      
+      return this.emailDivisi
       
     }
     //sudah sampai di sini, coba cari cara untuk ada atau engganya cek di sini

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ListHeader } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, NavParams, ListHeader } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 //import { FormControl, FormArray } from '@angular/forms/src/model';
@@ -28,7 +28,7 @@ export class NewEventPage {
   keyLeader: any;
   user: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public database: AngularFireDatabase) {
+  constructor(private toastController: ToastController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public database: AngularFireDatabase) {
   }
 
   ionViewDidLoad() {
@@ -44,6 +44,13 @@ export class NewEventPage {
         if (this.user[idx].email == this.users.email) {
           this.keyLeader = this.user[idx].keyUser;
           this.writeEvent(f.EventName, f.StartDate, f.EndDate, f.StartTime, f.EndTime, f.Location, f.EventDescription, this.keyLeader);
+
+          let addTodoToast= this.toastController.create({
+            message:"Hurray! Your Event is Added!",
+            duration: 3000
+          })
+          addTodoToast.present();
+
         }
       }
     })

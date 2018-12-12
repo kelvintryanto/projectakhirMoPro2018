@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../services/AuthService';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AddCrewPage } from '../add-crew/add-crew';
+import { DetailDivisiPage } from '../detail-divisi/detail-divisi';
 
 /**
  * Generated class for the EventdetailPage page.
@@ -20,7 +21,8 @@ export class EventdetailPage implements OnInit{
   eventDetail: any;
   user: any[];
   nameLeader: any;
-
+  period: any;
+  time: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase) {
     //merubah nama leader dalam event detail
     database.list('/user').valueChanges().subscribe(user=>{
@@ -40,11 +42,30 @@ export class EventdetailPage implements OnInit{
 
   ngOnInit(){
     this.eventDetail = this.navParams.get('eventDetail');
+    if(this.eventDetail.startDate==this.eventDetail.endDate){
+      this.period=this.eventDetail.startDate;
+    }else{
+      this.period=this.eventDetail.startDate+"  -  "+this.eventDetail.endDate
+    }
+    
+    this.eventDetail = this.navParams.get('eventDetail');
+    if(this.eventDetail.startTime==this.eventDetail.endTime){
+      this.time=this.eventDetail.startTime;
+    }else{
+      this.time=this.eventDetail.startTime+"  -  "+this.eventDetail.endTime
+    }
+
+
 
     // console.log(this.eventDetail)
   }
 
   onAddDivisi(keyLeader,keyEvent){
     this.navCtrl.push(AddCrewPage,{ keyLeader:keyLeader, keyEvent:keyEvent });
+  }
+
+  //terima parameter detail divisi yang berisi nama divisi, to-do-list dan crew-list
+  divisiDetail(){
+    this.navCtrl.push(DetailDivisiPage)
   }
 }

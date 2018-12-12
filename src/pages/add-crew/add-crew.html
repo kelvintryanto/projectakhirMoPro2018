@@ -16,7 +16,6 @@
 <ion-content padding>
   <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
     <ion-list>
-      
       <ion-item>
         <ion-select placeholder="Pilih Crew" col-12 ngModel="{{user}}" name="namaCrew">
           <ion-option *ngFor="let user of username" type="text" value="{{user.name}}">{{user.name}}</ion-option>

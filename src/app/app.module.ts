@@ -6,6 +6,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ProgressBarModule } from 'angular-progress-bar';
+import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -23,7 +24,11 @@ import { AddCrewPage } from '../pages/add-crew/add-crew';
 import { ExamplePage } from '../pages/example/example';
 import { AddToDoListPage } from '../pages/add-to-do-list/add-to-do-list';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireModule } from '@angular/fire/firebase.app.module'
+import { AngularFireModule } from '@angular/fire/firebase.app.module';
+import { from } from 'rxjs';
+import firebase from 'firebase';
+import { ImagePicker } from "@ionic-native/image-picker";
+import { Base64 } from '@ionic-native/base64';
 import { DetailDivisiPage } from '../pages/detail-divisi/detail-divisi';
 
 
@@ -35,7 +40,10 @@ var config = {
   storageBucket: "ionic-firebase-e23e2.appspot.com",
   messagingSenderId: "153360983849"
 };
-
+// if (!firebase.apps.length) {
+//   firebase.initializeApp({});
+// }
+// firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
@@ -91,7 +99,10 @@ var config = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     SignupService,
-    AngularFireDatabase
+    AngularFireDatabase,
+    Camera,
+    ImagePicker,
+    Base64
   ]
 })
 export class AppModule {}

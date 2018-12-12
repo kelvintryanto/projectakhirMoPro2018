@@ -31,9 +31,12 @@ export class MyApp {
     });
 
     firebase.initializeApp({
-      apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
-      authDomain: "ionic-firebase-e23e2.firebaseapp.com",
-      databaseURL: "https://ionic-firebase-e23e2.firebaseio.com/"
+    apiKey: "AIzaSyATSj0PoaezdgxpgHbc5xO7UDnMKp-Vmb4",
+    authDomain: "ionic-firebase-e23e2.firebaseapp.com",
+    databaseURL: "https://ionic-firebase-e23e2.firebaseio.com",
+    projectId: "ionic-firebase-e23e2",
+    storageBucket: "ionic-firebase-e23e2.appspot.com",
+    messagingSenderId: "153360983849"
     });
 
     firebase.auth().onAuthStateChanged(user => {  

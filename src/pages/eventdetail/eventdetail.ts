@@ -126,15 +126,14 @@ export class EventdetailPage implements OnInit {
                   )
                 }
               }
-            })
 
-            if(firebase.database().ref().child('divisi')==undefined){
               firebase.database().ref().child('divisi').child(keyDivisi).set({
                 keyEvent: keyEvent,
                 keyDivisi: keyDivisi,
                 namaDivisi: data.divisi,
                 progress: ""
-            }
+              })
+            })
           }
         }
       ]

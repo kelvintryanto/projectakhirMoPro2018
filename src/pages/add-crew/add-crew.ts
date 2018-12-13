@@ -26,13 +26,12 @@ export class AddCrewPage implements OnInit {
   username: any[] = [];
   email: any;
   emailCrew: any;
+  divisi: any[];
   // user: any;
 
   constructor(private toastController: ToastController, public navCtrl: NavController, public navParams: NavParams, public database: AngularFireDatabase) {
     this.keyEvent = this.navParams.get('keyEvent')
     this.keyLeader = this.navParams.get('keyLeader')
-    // console.log('keyEvent = ' + this.keyEvent)
-    // console.log('keyLeader = ' + this.keyLeader)
   }
 
   ionViewDidLoad() {
@@ -41,31 +40,67 @@ export class AddCrewPage implements OnInit {
 
   onSubmit(crew) {
     this.keyDivisi = firebase.database().ref().child('event').child(this.keyEvent).child('divisi').push().key;
-    const crewRef = firebase.database().ref().child('event').child(this.keyEvent).child('divisi').child(this.keyDivisi)
+    const eventRef = firebase.database().ref().child('event').child(this.keyEvent).child('divisi')
+    const divisiRef = firebase.database().ref().child('event').child(this.keyEvent).child('divisi').child(this.keyDivisi)
 
     this.database.list('/user').valueChanges().subscribe(user => {
       this.userCrew = user;
       for (let idx = 0; idx < user.length; idx++) {
         if (this.userCrew[idx] == crew.namaCrew) {
-          this.userCrew[idx].keyUser
           this.keyCrew = this.user[idx].keyUser
           this.emailCrew = this.user[idx].email
         }
       }
     })
 
-    crewRef.set({
-      namaDivisi: crew.divisi,
-      keyDivisi: this.keyDivisi,
-      toDoList: null,
-      progress: null,
-      crew: {
-        keyCrew: this.keyCrew,
-        namaCrew: crew.namaCrew,
-        emailCrew: this.emailCrew,
-        jabatanCrew: crew.position
-      }
-    })
+    // jika divisi dalam event ada tercantum
+    if (divisiRef !== undefined) {
+      console.log("tidak kosong")
+      //cek nama divisi apakah sudah ada atau belum
+      this.database.list('/event/divisi').valueChanges().subscribe(divisi => {
+        this.divisi = divisi;
+        console.log(this.divisi);
+        for(let idx=0;idx<divisi.length;idx++){
+          // jika nama divisi input sama dengan nama yang ada di dalam divisi event
+            // if(crew.divisi==divisi[idx].namaDivisi){
+            //   let namaDiv = divisi[idx].keyDivisi;
+            //   eventRef.child(namaDiv).set({
+            //     keyDivisi: this.keyDivisi,
+            //     namaDivisi: crew.divisi,
+            //     crew: null
+            //   })
+            //   eventRef.child(this.keyDivisi).child('crew').child(this.keyCrew).set({
+            //     keyCrew: this.keyCrew,
+            //     namaCrew: crew.namaCrew,
+            //     emailCrew: this.emailCrew,
+            //     jabatanCrew: crew.position
+            //   })
+            // }
+          // jika nama divisi input tidak ada yang sama dalam divisi event maka buat baru
+            // else{
+
+            // }
+        }
+      })
+    }
+    
+    else {
+      console.log("kosong")
+      eventRef.set({keyDivisi: this.keyDivisi})
+      
+      divisiRef.set({
+        namaDivisi: crew.divisi,
+        keyDivisi: this.keyDivisi,
+        toDoList: null,
+        progress: null,
+        crew: {
+          keyCrew: this.keyCrew,
+          namaCrew: crew.namaCrew,
+          emailCrew: this.emailCrew,
+          jabatanCrew: crew.position
+        }
+      })
+    }
 
 
 
@@ -74,7 +109,7 @@ export class AddCrewPage implements OnInit {
     for (let idx = 0; idx < this.username.length; idx++) {
       if (crew.namaCrew == this.username[idx].name) {
         // mengambil email jika usernamenya sama dengan yang ada dengan inputan user
-        console.log(this.username[idx].email)
+        // console.log(this.username[idx].email)
         this.email = this.username[idx].email;
 
         let addTodoToast = this.toastController.create({

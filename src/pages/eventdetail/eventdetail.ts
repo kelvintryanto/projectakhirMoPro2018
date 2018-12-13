@@ -26,7 +26,8 @@ export class EventdetailPage implements OnInit {
   period: any;
   time: any;
   keyEvent: any;
-  divisi: any[];
+  divisi: any[] = [];
+  divisiTemplate: any[] =[]
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public database: AngularFireDatabase, public alertCtrl: AlertController) {
     //merubah nama leader dalam event detail
     database.list('/user').valueChanges().subscribe(user => {
@@ -105,13 +106,12 @@ export class EventdetailPage implements OnInit {
               })
             } else {
               this.database.list('/divisi').valueChanges().subscribe(divisi => {
-                this.divisi = divisi;
                 console.log(this.divisi)
                 for (let idx = 0; idx < divisi.length; idx++) {
                   if (this.divisi[idx].namaDivisi == data.nama) {
                     console.log("nama sama tetap masuk dengan key yang sama")
                     let currentKey = this.divisi[idx].child(this.divisi[idx].keyDivisi)
-
+                    this.divisiTemplate.push(this.divisi[idx].namaDivisi)
                     return (
                       firebase.database().ref().child('divisi').child(currentKey).set({
                         keyEvent: keyEvent,
@@ -124,6 +124,7 @@ export class EventdetailPage implements OnInit {
                   }
                   else {
                     console.log("nama baru")
+                    this.divisiTemplate.push(this.divisi[idx].namaDivisi);
                     return (
                       firebase.database().ref().child('divisi').child(keyDivisi).set({
                         keyEvent: keyEvent,

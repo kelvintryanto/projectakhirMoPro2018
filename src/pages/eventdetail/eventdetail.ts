@@ -59,7 +59,7 @@ export class EventdetailPage implements OnInit {
       this.time = this.eventDetail.startTime + "  -  " + this.eventDetail.endTime
     }
 
-    
+
     console.log(this.eventDetail)
   }
 
@@ -96,24 +96,31 @@ export class EventdetailPage implements OnInit {
 
             this.database.list('/divisi').valueChanges().subscribe(divisi => {
               this.divisi = divisi;
-              for(let idx=0;idx<divisi.length;idx++){
-                if(this.divisi[idx].namaDivisi==data.nama){
+              for (let idx = 0; idx < divisi.length; idx++) {
+                if (this.divisi[idx].namaDivisi == data.nama) {
+                  console.log("nama sama tetap masuk dengan key yang sama")
                   let currentKey = this.divisi[idx].child(this.divisi[idx].keyDivisi)
 
-                  firebase.database().ref().child('divisi').child(currentKey).set({
-                    keyEvent: keyEvent,
-                    keyDivisi: keyDivisi,
-                    namaDivisi: data.divisi,
-                    progress:""
-                  })
+                  return (
+                    firebase.database().ref().child('divisi').child(currentKey).set({
+                      keyEvent: keyEvent,
+                      keyDivisi: keyDivisi,
+                      namaDivisi: data.divisi,
+                      progress: ""
+                    })
+                  )
+
                 }
-                else{
-                  firebase.database().ref().child('divisi').child(keyDivisi).set({
-                    keyEvent: keyEvent,
-                    keyDivisi: keyDivisi,
-                    namaDivisi: data.divisi,
-                    progress:""
-                  })
+                else {
+                  console.log("nama baru")
+                  return (
+                    firebase.database().ref().child('divisi').child(keyDivisi).set({
+                      keyEvent: keyEvent,
+                      keyDivisi: keyDivisi,
+                      namaDivisi: data.divisi,
+                      progress: ""
+                    })
+                  )
                 }
               }
             })

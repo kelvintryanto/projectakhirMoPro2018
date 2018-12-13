@@ -4,7 +4,7 @@ import { AuthService } from '../../services/AuthService';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AddCrewPage } from '../add-crew/add-crew';
 import { DetailDivisiPage } from '../detail-divisi/detail-divisi';
-import firebase, { database } from 'firebase';
+import firebase from 'firebase';
 
 /**
  * Generated class for the EventdetailPage page.
@@ -18,53 +18,54 @@ import firebase, { database } from 'firebase';
   selector: 'page-eventdetail',
   templateUrl: 'eventdetail.html',
 })
-export class EventdetailPage implements OnInit{
+export class EventdetailPage implements OnInit {
   eventDetail: any;
   user: any[];
   nameLeader: any;
   period: any;
   time: any;
   keyEvent: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase, public alertCtrl: AlertController) {
+  divisi: {}[];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public database: AngularFireDatabase, public alertCtrl: AlertController) {
     //merubah nama leader dalam event detail
-    database.list('/user').valueChanges().subscribe(user=>{
-    this.user=user;
-    for (let idx = 0; idx < user.length; idx++) {
-      if (this.eventDetail.leader == this.user[idx].keyUser ) {
-        this.nameLeader = this.user[idx].username;
+    database.list('/user').valueChanges().subscribe(user => {
+      this.user = user;
+      for (let idx = 0; idx < user.length; idx++) {
+        if (this.eventDetail.leader == this.user[idx].keyUser) {
+          this.nameLeader = this.user[idx].username;
+        }
       }
-    }
-   })
-    
+    })
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventdetailPage');
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.eventDetail = this.navParams.get('eventDetail');
-    if(this.eventDetail.startDate==this.eventDetail.endDate){
-      this.period=this.eventDetail.startDate;
-    }else{
-      this.period=this.eventDetail.startDate+"  -  "+this.eventDetail.endDate
+    if (this.eventDetail.startDate == this.eventDetail.endDate) {
+      this.period = this.eventDetail.startDate;
+    } else {
+      this.period = this.eventDetail.startDate + "  -  " + this.eventDetail.endDate
     }
-    
+
     this.eventDetail = this.navParams.get('eventDetail');
-    if(this.eventDetail.startTime==this.eventDetail.endTime){
-      this.time=this.eventDetail.startTime;
-    }else{
-      this.time=this.eventDetail.startTime+"  -  "+this.eventDetail.endTime
+    if (this.eventDetail.startTime == this.eventDetail.endTime) {
+      this.time = this.eventDetail.startTime;
+    } else {
+      this.time = this.eventDetail.startTime + "  -  " + this.eventDetail.endTime
     }
     console.log(this.eventDetail)
   }
 
-  onAddDivisi(keyLeader,keyEvent){
-    this.navCtrl.push(AddCrewPage,{ keyLeader:keyLeader, keyEvent:keyEvent });
+  onAddDivisi(keyLeader, keyEvent) {
+    this.navCtrl.push(AddCrewPage, { keyLeader: keyLeader, keyEvent: keyEvent });
   }
 
   //terima parameter detail divisi yang berisi nama divisi, to-do-list dan crew-list
-  divisiDetail(){
+  divisiDetail() {
     this.navCtrl.push(DetailDivisiPage)
   }
 
@@ -83,19 +84,27 @@ export class EventdetailPage implements OnInit{
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
-        }
+          }
         },
         {
           text: 'Divisi',
           handler: data => {
             const keyDivisi = firebase.database().ref().child('divisi').push().key
+            const divisiRef = firebase.database().ref().child('divisi')
 
-            firebase.database().ref().child('divisi').set({
+            divisiRef.on("value", function (snapshot) {
+              console.log(snapshot.val());
+            },function (errorObject) {
+              console.log("The read failed: " + errorObject.code);
+            });
+            firebase.database().ref().child('divisi').child(keyDivisi).set({
               keyEvent: keyEvent,
               keyDivisi: keyDivisi,
               namaDivisi: data.divisi,
               progress:""
             })
+
+
           }
         }
       ]

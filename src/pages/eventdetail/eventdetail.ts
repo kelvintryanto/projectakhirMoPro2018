@@ -61,9 +61,10 @@ export class EventdetailPage implements OnInit {
     }
 
     this.database.list('/divisi').valueChanges().subscribe(divisi => {
-      this.divisi = divisi;
+      this.divisiTemplate = divisi;
     })
 
+    
     console.log(this.eventDetail)
   }
 

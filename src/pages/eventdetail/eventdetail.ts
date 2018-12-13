@@ -93,10 +93,10 @@ export class EventdetailPage implements OnInit {
             const divisiRef = firebase.database().ref().child('divisi')
 
             divisiRef.orderByChild("namaDivisi").on("child_added", function(snapshot) {
-              console.log(snapshot.key + " was : " + snapshot.val().namaDivisi);
+              console.log(snapshot.key + " was (on Child Added): " + snapshot.val().namaDivisi);
             });
             divisiRef.on("value", function (snapshot) {
-              console.log(snapshot.val().namaDivisi);
+              console.log(snapshot.key + "was(on Value) : " + Object.keys(snapshot.val())[0]);
             },function (errorObject) {
               console.log("The read failed: " + errorObject.code);
             });

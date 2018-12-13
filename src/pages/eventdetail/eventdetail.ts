@@ -4,7 +4,8 @@ import { AuthService } from '../../services/AuthService';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AddCrewPage } from '../add-crew/add-crew';
 import { DetailDivisiPage } from '../detail-divisi/detail-divisi';
-import firebase from 'firebase';
+import firebase, { database } from 'firebase';
+import { createLoweredSymbol } from '@angular/compiler';
 
 /**
  * Generated class for the EventdetailPage page.
@@ -25,7 +26,7 @@ export class EventdetailPage implements OnInit {
   period: any;
   time: any;
   keyEvent: any;
-  divisi: {}[];
+  divisi: any[];
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public database: AngularFireDatabase, public alertCtrl: AlertController) {
     //merubah nama leader dalam event detail
     database.list('/user').valueChanges().subscribe(user => {
@@ -57,6 +58,8 @@ export class EventdetailPage implements OnInit {
     } else {
       this.time = this.eventDetail.startTime + "  -  " + this.eventDetail.endTime
     }
+
+    
     console.log(this.eventDetail)
   }
 
@@ -90,24 +93,30 @@ export class EventdetailPage implements OnInit {
           text: 'Divisi',
           handler: data => {
             const keyDivisi = firebase.database().ref().child('divisi').push().key
-            const divisiRef = firebase.database().ref().child('divisi')
 
-            divisiRef.orderByChild("namaDivisi").on("child_added", function(snapshot) {
-              console.log(snapshot.key + " was (on Child Added): " + snapshot.val().namaDivisi);
-            });
-            divisiRef.on("value", function (snapshot) {
-              console.log(snapshot.key + "was(on Value) : " + Object.keys(snapshot.val())[0]);
-            },function (errorObject) {
-              console.log("The read failed: " + errorObject.code);
-            });
-            firebase.database().ref().child('divisi').child(keyDivisi).set({
-              keyEvent: keyEvent,
-              keyDivisi: keyDivisi,
-              namaDivisi: data.divisi,
-              progress:""
+            this.database.list('/divisi').valueChanges().subscribe(divisi => {
+              this.divisi = divisi;
+              for(let idx=0;idx<divisi.length;idx++){
+                if(this.divisi[idx].namaDivisi==data.nama){
+                  let currentKey = this.divisi[idx].child(this.divisi[idx].keyDivisi)
+
+                  firebase.database().ref().child('divisi').child(currentKey).set({
+                    keyEvent: keyEvent,
+                    keyDivisi: keyDivisi,
+                    namaDivisi: data.divisi,
+                    progress:""
+                  })
+                }
+                else{
+                  firebase.database().ref().child('divisi').child(keyDivisi).set({
+                    keyEvent: keyEvent,
+                    keyDivisi: keyDivisi,
+                    namaDivisi: data.divisi,
+                    progress:""
+                  })
+                }
+              }
             })
-
-
           }
         }
       ]

@@ -67,9 +67,9 @@
   </h2>
 
   <!-- divisiDetail mengirimkan parameter -->
-  <ion-item (click)="divisiDetail()">
+  <ion-item *ngFor="let divisi of divisi" (click)="divisiDetail()">
     <!-- <ion-label floating>Event Description</ion-label> -->
-    <h2>Divisi {{eventDetail.description}}</h2>
+    <h2>Divisi {{divisi}}</h2>
   </ion-item>
 
 

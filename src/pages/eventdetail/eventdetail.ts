@@ -59,6 +59,9 @@ export class EventdetailPage implements OnInit {
       this.time = this.eventDetail.startTime + "  -  " + this.eventDetail.endTime
     }
 
+    this.database.list('/divisi').valueChanges().subscribe(divisi => {
+      this.divisi = divisi;
+    })
 
     console.log(this.eventDetail)
   }

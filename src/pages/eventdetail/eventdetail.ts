@@ -92,6 +92,9 @@ export class EventdetailPage implements OnInit {
             const keyDivisi = firebase.database().ref().child('divisi').push().key
             const divisiRef = firebase.database().ref().child('divisi')
 
+            divisiRef.orderByChild("namaDivisi").on("value", function(snapshot) {
+              console.log(snapshot.key + " was : " + snapshot.val().namaDivisi);
+            });
             divisiRef.on("value", function (snapshot) {
               console.log(snapshot.val());
             },function (errorObject) {

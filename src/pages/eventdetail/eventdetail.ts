@@ -4,7 +4,7 @@ import { AuthService } from '../../services/AuthService';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AddCrewPage } from '../add-crew/add-crew';
 import { DetailDivisiPage } from '../detail-divisi/detail-divisi';
-import { AddDivisiPage } from '../add-divisi/add-divisi';
+import firebase, { database } from 'firebase';
 
 /**
  * Generated class for the EventdetailPage page.
@@ -24,6 +24,7 @@ export class EventdetailPage implements OnInit{
   nameLeader: any;
   period: any;
   time: any;
+  keyEvent: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService:AuthService, public database:AngularFireDatabase, public alertCtrl: AlertController) {
     //merubah nama leader dalam event detail
     database.list('/user').valueChanges().subscribe(user=>{
@@ -55,10 +56,7 @@ export class EventdetailPage implements OnInit{
     }else{
       this.time=this.eventDetail.startTime+"  -  "+this.eventDetail.endTime
     }
-
-
-
-    // console.log(this.eventDetail)
+    console.log(this.eventDetail)
   }
 
   onAddDivisi(keyLeader,keyEvent){
@@ -70,34 +68,34 @@ export class EventdetailPage implements OnInit{
     this.navCtrl.push(DetailDivisiPage)
   }
 
-  
-
   presentPrompt(keyEvent) {
     let alert = this.alertCtrl.create({
       title: 'Add Divisi',
       inputs: [
         {
-          name: 'username',
-          placeholder: 'Username'
-        },
-        {
-          name: 'password',
-          placeholder: 'Password',
-          type: 'password'
+          name: 'divisi',
+          placeholder: 'divisi'
         }
       ],
       buttons: [
         {
           text: 'Cancel',
           role: 'cancel',
-          handler: data => {
+          handler: () => {
             console.log('Cancel clicked');
-          }
+        }
         },
         {
           text: 'Divisi',
-          handler: keyEvent => {
-            console.log("divisi added")
+          handler: data => {
+            const keyDivisi = firebase.database().ref().child('divisi').push().key
+
+            firebase.database().ref().child('divisi').set({
+              keyEvent: keyEvent,
+              keyDivisi: keyDivisi,
+              namaDivisi: data.divisi,
+              progress:""
+            })
           }
         }
       ]
